@@ -1,16 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+    font-weight: bold;
+}
+
+a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.cubeHolder {
+    @apply flex flex-col justify-center items-center;
+    perspective: 600px;
+}
+
+.cube {
+    @apply transition-transform duration-1000;
+    @apply w-[50vw] h-[50vh] relative m-auto mt-[25vh];
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    transform: rotateX(90deg) translateY(-50%) rotateX(0deg) translateY(50%)
+        rotateX(-90deg);
+}
+
+.cube-1 {
+    transform: rotateX(90deg) translateY(-50%) rotateX(-90deg) translateY(50%)
+        rotateX(-90deg);
+}
+
+.screen {
+    @apply absolute left-0 right-0 flex w-full h-full justify-center align-middle origin-bottom;
+}
+
+.screen-1 {
+    transform-origin: center bottom;
+    transform: translateY(-100%) rotateX(90deg);
+}
+
+.screen > div {
+    @apply flex w-full h-full;
 }
