@@ -1,10 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import { FULL_NAME } from '../utils/constants';
 import { useAuth } from './Auth';
 
 export default function Terminal() {
-    const { setScreen } = useAuth();
+    const { intro, setScreen } = useAuth();
 
-    const [commands, setCommands] = useState<string[]>([]);
+    const [commands, setCommands] = useState<ReactNode[]>(
+        intro
+            ? [
+                  <div>
+                      <h1>{FULL_NAME}'s site</h1>
+                      <h2>
+                          Game Dev, Programming, Art, Writing, Assorted Bogglery
+                      </h2>
+                      <h2>Press any key to continue</h2>
+                  </div>,
+              ]
+            : []
+    );
     const [text, setText] = useState<string>('');
 
     const processCommand = (e: React.FormEvent<HTMLFormElement>) => {
@@ -16,7 +29,7 @@ export default function Terminal() {
         const commandName = commandParts[0].toLowerCase();
         const commandArgs = commandParts.slice(1);
 
-        let result = '';
+        let result: string | ReactNode = '';
         switch (commandName) {
             case 'clear':
                 setCommands([]);
@@ -28,16 +41,37 @@ export default function Terminal() {
                 result = 'hi';
                 break;
             case 'switch':
-                result = `Switched to screen ${commandArgs[0]}`;
-                setScreen(Number(commandArgs[0] || 1));
+                const num = Number(commandArgs[0]);
+                if (Number.isInteger(num)) {
+                    setScreen(num);
+                    result = `Switched to screen ${commandArgs[0]}`;
+                } else {
+                    setScreen(0);
+                    result = 'Switched to screen 0';
+                }
                 break;
             default:
-                result = `Unknown command: '${commandName}'`;
+                result = (
+                    <p style={{ color: 'red' }}>
+                        Unknown command: 'commandName'
+                    </p>
+                );
                 break;
         }
 
-        if (result) setCommands([...commands, result]);
+        if (result) {
+            if (typeof result === 'string')
+                setCommands([...commands, <p>{result}</p>]);
+            else setCommands([...commands, result]);
+        }
         setText('');
+    };
+
+    const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (intro) {
+            setScreen(0);
+            setText(e.target.value);
+        }
     };
 
     return (
@@ -51,13 +85,20 @@ export default function Terminal() {
             </div>
             <div className="flex flex-row text-bold text-3xl">
                 <p>$</p>
-                <form onSubmit={processCommand} className="max-w-[100%]">
+                <form onSubmit={processCommand} className="w-full">
+                    <label
+                        className="invisible block h-0"
+                        htmlFor="commandInput"
+                    >
+                        Enter shell command
+                    </label>
                     <input
+                        id="commandInput"
                         autoFocus
                         type="text"
                         value={text}
-                        onChange={(e) => setText(e.target.value)}
-                        className="border-none bg-black focus:outline-none ml-2"
+                        onChange={inputChange}
+                        className="border-none bg-black focus:outline-none ml-2 flex w-full"
                     />
                 </form>
             </div>

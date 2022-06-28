@@ -6,11 +6,15 @@ interface Props {
 }
 
 export default function Cube(props: Props) {
-    const { screen, setScreen } = useAuth();
+    const { screen, screenAnimating, setScreen } = useAuth();
+
+    const classes =
+        `cube cube-${screen}` +
+        (screenAnimating ? ` cube-${screen}-animating` : '');
 
     return (
         <div className="cubeHolder">
-            <div className={`cube cube-${screen}`}>
+            <div className={classes}>
                 {props.children.map((child, index) => (
                     <div className={`screen screen-${index}`} key={index}>
                         {child}

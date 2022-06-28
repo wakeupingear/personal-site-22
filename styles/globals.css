@@ -8,6 +8,7 @@ body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
         Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    overflow-x: hidden;
 }
 
 a {
@@ -46,18 +47,74 @@ a:hover:after {
 }
 
 .cube {
-    @apply transition-transform duration-1000;
-    @apply w-[50vw] h-[50vh] relative m-auto mt-[25vh];
+    @apply w-[100vw] h-[100vh] relative m-auto;
     position: relative;
-    transition: transform 1s;
     transform-style: preserve-3d;
     transform: rotateX(90deg) translateY(-50%) rotateX(0deg) translateY(50%)
         rotateX(-90deg);
 }
 
+@keyframes spin-0 {
+    0% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(-90deg)
+            translateY(50%) rotateX(-90deg);
+        animation-timing-function: cubic-bezier(0.275, 0.505, 0, 1.585);
+    }
+    40% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(-90deg)
+            translateY(50%) rotateX(-90deg) scale(0.5, 0.5);
+    }
+    50% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(-90deg)
+            translateY(50%) rotateX(-90deg) scale(0.5, 0.5);
+        animation-timing-function: cubic-bezier(0.89, -0.75, 0.255, 1.26);
+    }
+    90% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(0deg) translateY(50%)
+            rotateX(-90deg);
+    }
+    100% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(0deg) translateY(50%)
+            rotateX(-90deg) scale(1, 1);
+    }
+}
+
+.cube-0-animating {
+    animation: spin-0 1100ms;
+}
+
 .cube-1 {
     transform: rotateX(90deg) translateY(-50%) rotateX(-90deg) translateY(50%)
         rotateX(-90deg);
+}
+
+@keyframes spin-1 {
+    0% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(0deg) translateY(50%)
+            rotateX(-90deg);
+        animation-timing-function: cubic-bezier(0.275, 0.505, 0, 1.585);
+    }
+    40% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(0deg) translateY(50%)
+            rotateX(-90deg) scale(0.5, 0.5);
+    }
+    50% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(0deg) translateY(50%)
+            rotateX(-90deg) scale(0.5, 0.5);
+        animation-timing-function: cubic-bezier(0.89, -0.75, 0.255, 1.26);
+    }
+    90% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(-90deg)
+            translateY(50%) rotateX(-90deg);
+    }
+    100% {
+        transform: rotateX(90deg) translateY(-50%) rotateX(-90deg)
+            translateY(50%) rotateX(-90deg) scale(1, 1);
+    }
+}
+
+.cube-1-animating {
+    animation: spin-1 1100ms;
 }
 
 .screen {
