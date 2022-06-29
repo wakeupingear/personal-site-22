@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function Cube(props: Props) {
-    const { screen, screenAnimating, setScreen } = useAuth();
+    const { screen, screenAnimating, switchScreen } = useAuth();
 
     const classes =
         `cube cube-${screen}` +
@@ -21,12 +21,14 @@ export default function Cube(props: Props) {
                     </div>
                 ))}
             </div>
-            <button
-                className="bg-blue-400 m-5 rounded-lg p-3 shadow-sm"
-                onClick={() => setScreen((screen + 1) % 2)}
-            >
-                Switch screen
-            </button>
+            {false && (
+                <button
+                    className="bg-blue-400 m-5 rounded-lg p-3 shadow-sm"
+                    onClick={() => switchScreen((screen + 1) % 2)}
+                >
+                    Switch screen
+                </button>
+            )}
         </div>
     );
 }

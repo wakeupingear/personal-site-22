@@ -1,9 +1,9 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { FULL_NAME } from '../utils/constants';
 import { useAuth } from './Auth';
 
 export default function Terminal() {
-    const { intro, setScreen } = useAuth();
+    const { intro, switchScreen } = useAuth();
 
     const [commands, setCommands] = useState<ReactNode[]>(
         intro
@@ -43,10 +43,10 @@ export default function Terminal() {
             case 'switch':
                 const num = Number(commandArgs[0]);
                 if (Number.isInteger(num)) {
-                    setScreen(num);
+                    switchScreen(num);
                     result = `Switched to screen ${commandArgs[0]}`;
                 } else {
-                    setScreen(0);
+                    switchScreen(0);
                     result = 'Switched to screen 0';
                 }
                 break;
@@ -69,9 +69,9 @@ export default function Terminal() {
 
     const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (intro) {
-            setScreen(0);
-            setText(e.target.value);
-        }
+            switchScreen(0);
+            setTimeout(() => (localStorage.screen = 0));
+        } else setText(e.target.value);
     };
 
     return (

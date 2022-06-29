@@ -12,7 +12,7 @@ const setTheme = (isDark?: boolean) => {
 
     if (isDark !== undefined) {
         localStorage.theme = isDark ? 'dark' : 'light';
-        document.body.classList.toggle('dark', isDark);
+        document.documentElement.classList.toggle('dark', isDark);
     } else if (
         localStorage.theme === 'dark' ||
         (!('theme' in localStorage) &&
@@ -37,8 +37,13 @@ interface AuthContextProps {
     loggedIn: boolean;
     screen: number;
     screenAnimating: boolean;
-    setScreen: (screen: number) => void;
+    switchScreen: (screen: number) => void;
     toggleTheme: (isDark?: boolean) => void;
+}
+
+export enum Screens {
+    Home,
+    Terminal,
 }
 
 interface Props {
@@ -47,26 +52,18 @@ interface Props {
 
 export default function Auth(props: Props) {
     const [token, setToken] = useState<string>(
-        (typeof window !== 'undefined' &&
-            IS_SERVER &&
-            localStorage.getItem('chadminSession')) ||
-            ''
+        (!IS_SERVER && localStorage.getItem('chadminSession')) || ''
     );
-    const [screen, _setScreen] = useState<number>(
-        (typeof window !== 'undefined' &&
-            Number(IS_SERVER || localStorage.getItem('screen'))) ||
-            (isMobile ? 0 : 1)
-    );
-    const [intro, setIntro] = useState(screen === 1);
-    const setScreen = (screen: number) => {
-        _setScreen(screen);
+
+    const [screen, setScreen] = useState<number>(Screens.Home);
+    const [intro, setIntro] = useState(screen === Screens.Home);
+    const switchScreen = (screen: number) => {
+        setScreen(screen);
         setScreenAnimating(true);
     };
     const [screenAnimating, setScreenAnimating] = useState(false);
 
-    const [isDark, setIsDark] = useState(
-        !IS_SERVER && localStorage.theme === 'dark'
-    );
+    const [isDark, setIsDark] = useState(false);
     const toggleTheme = (isDark?: boolean) => {
         const newIsDark = isDark !== undefined ? isDark : !isDark;
         setIsDark(newIsDark);
@@ -81,6 +78,20 @@ export default function Auth(props: Props) {
             setLoggedIn(true);
         }
     };
+
+    const [loading, setLoading] = useState<boolean>(true);
+    useEffect(() => {
+        if (!IS_SERVER) {
+            let initialScreen = Screens.Home;
+            if (localStorage.screen)
+                initialScreen = Number(localStorage.screen);
+            else if (!isMobile) initialScreen = Screens.Terminal;
+            setScreen(initialScreen);
+
+            toggleTheme(localStorage.theme === 'dark');
+        }
+        setLoading(false);
+    }, []);
 
     useEffect(() => {
         if (token) logIn();
@@ -106,10 +117,11 @@ export default function Auth(props: Props) {
                 loggedIn,
                 screen,
                 screenAnimating,
-                setScreen,
+                switchScreen,
                 toggleTheme,
             }}
         >
+            <div className={`shade${!loading ? ' shadeHidden' : ''}`} />
             {props.children}
         </AuthContext.Provider>
     );
