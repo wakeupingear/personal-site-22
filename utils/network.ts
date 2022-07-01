@@ -21,11 +21,7 @@ const processResponse = async (response: Response): Promise<APIResponse> => {
     return returnData;
 };
 
-export const internal_apiGet = async (
-    path: string,
-    uid: string,
-    options = {}
-) => {
+export const internal_apiGet = async (path: string, uid = '', options = {}) => {
     try {
         const response = await fetch(pageUrl + path, {
             ...options,
@@ -48,7 +44,7 @@ export const internal_apiGet = async (
 export const internal_apiPost = async (
     path: string,
     body: object,
-    uid: string,
+    uid = '',
     options = {}
 ) => {
     try {

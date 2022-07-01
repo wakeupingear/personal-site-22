@@ -1,0 +1,8 @@
+.column {
+    @apply flex flex-row w-full;
+}
+
+.imageHolder {
+    @apply flex h-full relative overflow-hidden;
+    @apply hover:cursor-pointer;
+}

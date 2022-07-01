@@ -129,8 +129,8 @@ a:hover:after {
 }
 
 .screen {
-    @apply absolute left-0 right-0 flex w-full h-full justify-center align-middle origin-bottom;
-    @apply outline-[16px] outline-white;
+    @apply absolute left-0 right-0 flex h-fit min-h-[100vh] justify-center align-middle origin-bottom;
+    @apply outline-[16px] outline-white overflow-y-scroll;
 }
 
 .screen-1 {
