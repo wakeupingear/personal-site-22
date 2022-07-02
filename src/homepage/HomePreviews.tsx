@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import { usePageData } from '../../pages';
+import { usePageData } from '../Wrapper';
 import styles from './homePreviews.module.css';
+import Preview from './Preview';
 
 export default function HomePreviews() {
-    const { pageData } = usePageData();
+    const { PAGE_DATA } = usePageData();
     return (
-        <>
-            {pageData.components.map((column, index) => (
+        <div className={styles.container}>
+            {PAGE_DATA.components.map((column, index) => (
                 <div
                     key={index + '-' + column.components.length}
                     className={styles.column}
@@ -16,29 +16,14 @@ export default function HomePreviews() {
                 >
                     {column.components.map((component) => {
                         return (
-                            <div
-                                className={styles.imageHolder}
+                            <Preview
+                                component={component}
                                 key={component.name}
-                                style={
-                                    component.width
-                                        ? {
-                                              width: component.width + '%',
-                                          }
-                                        : {
-                                              flexGrow: 1,
-                                          }
-                                }
-                            >
-                                <Image
-                                    src={component.image}
-                                    layout="fill"
-                                    objectFit="cover"
-                                />
-                            </div>
+                            />
                         );
                     })}
                 </div>
             ))}
-        </>
+        </div>
     );
 }

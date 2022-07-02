@@ -130,7 +130,7 @@ a:hover:after {
 
 .screen {
     @apply absolute left-0 right-0 flex h-fit min-h-[100vh] justify-center align-middle origin-bottom;
-    @apply outline-[16px] outline-white overflow-y-scroll;
+    @apply outline-[16px] outline-white overflow-y-scroll overflow-x-hidden;
 }
 
 .screen-1 {

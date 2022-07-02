@@ -1,7 +1,7 @@
 .home {
     @apply bg-gradient-to-tr from-[#f4aef8] via-[#d78ff3,#b272f0,#815af0] to-[#1c48f0];
     @apply dark:bg-gradient-to-bl dark:from-[#013076] dark:via-[#032b62,#0a264e,#10203a] dark:to-[#131a27];
-    @apply flex flex-col h-full min-h-[100vh] w-full;
+    @apply flex flex-col h-full min-h-[100vh] w-full items-center;
 }
 
 .header {
@@ -11,6 +11,19 @@
     @apply font-extrabold text-transparent text-[12rem] bg-clip-text bg-gradient-to-r from-white to-orange-300;
 }
 
+.body {
+    @apply relative flex w-full justify-end;
+}
+
 .previews {
     @apply flex w-full;
+    @apply transition-all duration-700;
+}
+
+.previewSide {
+    @apply w-[20%];
+}
+
+.content {
+    @apply flex grow bg-blue-50;
 }

@@ -1,8 +1,57 @@
+.container {
+    @apply flex flex-col w-full;
+}
+
+.container:hover .imageHolder {
+    @apply grayscale-[80%];
+}
+
 .column {
     @apply flex flex-row w-full;
 }
 
+.link {
+    @apply absolute flex w-full h-full;
+}
+
 .imageHolder {
-    @apply flex h-full relative overflow-hidden;
-    @apply hover:cursor-pointer;
+    @apply z-[5] transition-all grow;
+}
+
+.imageHolder:not(.clickable) {
+    @apply !w-0 grow-0;
+}
+
+.imageHolder,
+.imageHolder * {
+    @apply flex h-full relative transition-all duration-300;
+    @apply overflow-hidden;
+}
+
+div.clickable:last-of-type {
+    @apply grow;
+}
+
+.backImage {
+    @apply z-[-5];
+}
+
+.frontImageHolder {
+    @apply flex absolute w-full h-full opacity-0;
+}
+
+.clickable:hover {
+    @apply cursor-pointer rounded-[2rem] z-10;
+    @apply scale-[1.05] !grayscale-0;
+    box-shadow: inset 0 0 50px #fff, /* inner white */ inset 20px 0 80px #f0f,
+        /* inner left magenta short */ inset -20px 0 80px #0ff,
+        /* inner right cyan short */ inset 20px 0 300px #f0f,
+        /* inner left magenta broad */ inset -20px 0 300px #0ff,
+        /* inner right cyan broad */ 0 0 50px #fff,
+        /* outer white */ -10px 0 80px #f0f,
+        /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
+}
+
+.clickable:hover .frontImageHolder {
+    @apply opacity-100;
 }
