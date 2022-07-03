@@ -1,5 +1,5 @@
 .container {
-    @apply flex flex-col w-full;
+    @apply flex flex-col w-full overflow-x-hidden;
 }
 
 .container:hover .imageHolder {
@@ -7,7 +7,8 @@
 }
 
 .column {
-    @apply flex flex-row w-full;
+    @apply flex flex-row w-full flex-wrap;
+    @apply transition-all duration-300;
 }
 
 .link {
@@ -15,7 +16,7 @@
 }
 
 .imageHolder {
-    @apply z-[5] transition-all grow;
+    @apply z-[5] grow;
 }
 
 .imageHolder:not(.clickable) {
@@ -24,8 +25,8 @@
 
 .imageHolder,
 .imageHolder * {
-    @apply flex h-full relative transition-all duration-300;
-    @apply overflow-hidden;
+    transition-property: width, height;
+    @apply flex h-full relative duration-300;
 }
 
 div.clickable:last-of-type {

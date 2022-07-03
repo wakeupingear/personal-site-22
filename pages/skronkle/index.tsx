@@ -6,7 +6,9 @@ export { getServerSideProps } from '../../utils/homeServerProps';
 export default function Skronkle(props: HomepageProps) {
     return (
         <Wrapper {...props}>
-            <h1>Hi</h1>
+            <div className="flex w-full h-full justify-center items-center">
+                <h1>fasdfasdf</h1>
+            </div>
         </Wrapper>
     );
 }

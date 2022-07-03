@@ -1,0 +1,17 @@
+.container {
+    @apply top-0 z-20;
+    @apply flex h-24 justify-center items-center;
+}
+
+.stickyBar {
+    @apply sticky;
+}
+
+.container > * {
+    @apply text-white after:bg-transparent;
+    @apply mx-4 transition-all text-6xl;
+}
+
+.text {
+    @apply after:bg-white;
+}

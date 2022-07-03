@@ -34,6 +34,7 @@ interface AuthContextProps {
     apiPost: (url: string, data: any) => Promise<APIResponse>;
     intro: boolean;
     isDark: boolean;
+    initialLoading: boolean;
     loggedIn: boolean;
     screen: number;
     screenAnimating: boolean;
@@ -60,6 +61,7 @@ export default function Auth(props: Props) {
     const switchScreen = (screen: number) => {
         setScreen(screen);
         setScreenAnimating(true);
+        setTimeout(() => setScreenAnimating(false), 1200);
     };
     const [screenAnimating, setScreenAnimating] = useState(false);
 
@@ -79,7 +81,7 @@ export default function Auth(props: Props) {
         }
     };
 
-    const [loading, setLoading] = useState<boolean>(true);
+    const [initialLoading, setInitialLoading] = useState<boolean>(true);
     useEffect(() => {
         if (!IS_SERVER) {
             let initialScreen = Screens.Home;
@@ -90,7 +92,7 @@ export default function Auth(props: Props) {
 
             toggleTheme(localStorage.theme === 'dark');
         }
-        setLoading(false);
+        setInitialLoading(false);
     }, []);
 
     useEffect(() => {
@@ -114,6 +116,7 @@ export default function Auth(props: Props) {
                 apiPost,
                 intro,
                 isDark,
+                initialLoading,
                 loggedIn,
                 screen,
                 screenAnimating,
@@ -121,7 +124,7 @@ export default function Auth(props: Props) {
                 toggleTheme,
             }}
         >
-            <div className={`shade${!loading ? ' shadeHidden' : ''}`} />
+            <div className={`shade${!initialLoading ? ' shadeHidden' : ''}`} />
             {props.children}
         </AuthContext.Provider>
     );

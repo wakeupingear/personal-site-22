@@ -76,7 +76,7 @@ export default function Terminal() {
 
     return (
         <div className="bg-black flex-col p-8 text-green-400">
-            <div className="flex w-full h-full flex-col justify-end overflow-y-scroll">
+            <div className="flex w-full h-[100vh] flex-col justify-end">
                 {commands.map((command, index) => (
                     <div key={index} className="p-2">
                         {command}

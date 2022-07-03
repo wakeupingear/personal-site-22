@@ -15,7 +15,7 @@ interface Props {
 
 export default function Preview({ component }: Props) {
     const url = '/' + toCamelcase(component.name);
-    const selected = !IS_SERVER && window.location.pathname === url;
+    const selected = false && !IS_SERVER && window.location.pathname === url;
 
     const router = useRouter();
     const openPreview = (e: MouseEvent) => {

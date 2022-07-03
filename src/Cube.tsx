@@ -12,6 +12,8 @@ export default function Cube(props: Props) {
         `cube cube-${screen}` +
         (screenAnimating ? ` cube-${screen}-animating` : '');
 
+    if (!screenAnimating) return <>{props.children[screen]}</>;
+
     return (
         <div className="cubeHolder">
             <div className={classes}>
