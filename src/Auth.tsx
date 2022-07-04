@@ -86,8 +86,8 @@ export default function Auth(props: Props) {
     const [screenAnimating, setScreenAnimating] = useState(false);
 
     const [isDark, setIsDark] = useState(false);
-    const toggleTheme = (isDark?: boolean) => {
-        const newIsDark = isDark !== undefined ? isDark : !isDark;
+    const toggleTheme = (dark?: boolean) => {
+        const newIsDark = dark !== undefined ? dark : !isDark;
         setIsDark(newIsDark);
         setTheme(newIsDark);
     };

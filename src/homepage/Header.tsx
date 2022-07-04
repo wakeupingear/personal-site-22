@@ -18,14 +18,14 @@ export default function Header() {
                 <div className={styles.lastName}>{name[1]}</div>
             </div>
             <div className={styles.holder}>
-                <Link href="/about">
+                <Link href="/about" scroll={false}>
                     <a className={styles.text}>About</a>
                 </Link>
                 <div className={styles.iconHolder}>
                     <GitHub />
                     <LinkedIn />
                 </div>
-                <Link href="/resume">
+                <Link href="/resume" scroll={false}>
                     <a className={styles.text}>Resume</a>
                 </Link>
             </div>

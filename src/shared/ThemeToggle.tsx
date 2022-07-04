@@ -6,12 +6,13 @@ interface Props {
 }
 
 export default function ThemeToggle(props: Props) {
-    const { isDark } = useAuth();
+    const { isDark, toggleTheme } = useAuth();
     return (
         <div
             className={`${styles.container} ${
                 props.inBar ? styles.inBar : ''
             } ${!isDark ? styles.sun : styles.moon}`}
+            onClick={() => toggleTheme()}
         />
     );
 }

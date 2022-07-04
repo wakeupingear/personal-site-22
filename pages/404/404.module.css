@@ -1,0 +1,37 @@
+.container {
+    @apply flex w-[100vw] min-h-[100vh] bg-black items-center justify-center flex-col;
+    background: linear-gradient(
+        45deg,
+        red,
+        orange,
+        yellow,
+        green,
+        blue,
+        indigo,
+        violet,
+        red
+    );
+}
+
+.header,
+.text {
+    @apply text-white m-8 text-center;
+    text-shadow: 8px 8px 16px red;
+}
+
+.header {
+    @apply text-8xl;
+}
+
+.text {
+    @apply text-4xl;
+}
+
+.image {
+    @apply flex w-[40rem] h-[20rem] relative;
+}
+
+.link {
+    @apply absolute top-0 ml-auto mr-auto left-0 right-0 text-center text-white after:bg-white;
+    @apply flex w-fit;
+}

@@ -8,12 +8,12 @@ const nextConfig = {
     return [
       {
         source: '/:path*',
-        destination: '/',
+        destination: '/404',
       },
     ];
   },
   images: {
-    domains: ["www.looper.com"],
+    domains: ["www.looper.com", "c.tenor.com"],
   }
 }
 
