@@ -1,15 +1,45 @@
 .container {
-    @apply flex justify-center text-center my-12;
+    @apply flex justify-between text-center mt-24 px-8 relative w-full flex-row items-center;
 }
 
-.container > * {
-    @apply mx-8 p-4;
+.textLink {
+    @apply text-white after:bg-white text-2xl;
 }
 
-.copyright {
-    @apply bg-orange-200 rounded-full w-fit shadow-md;
+.terminal {
+    @apply hover:cursor-pointer;
+}
+
+.terminal > * {
+    @apply text-white text-6xl;
+}
+
+.divider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg) translateY(100%);
+    margin: 0;
+}
+
+.divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 45px;
+    transform: rotateY(180deg);
+}
+
+.container,
+.divider .shapeFill {
+    @apply bg-blue-700 fill-blue-700;
 }
 
 .clap {
-    
+}
+
+.terminal {
 }

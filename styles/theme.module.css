@@ -1,9 +1,0 @@
-.light,
-.dark {
-    @apply flex w-8 h-16 bg-black rounded-md m-4 mt-[-1rem];
-    @apply transition-all duration-200 hover:cursor-pointer hover:h-20;
-}
-
-.hidden {
-    @apply translate-y-[-150%];
-}

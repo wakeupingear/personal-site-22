@@ -1,0 +1,17 @@
+import { useAuth } from '../Auth';
+import styles from './themeToggle.module.css';
+
+interface Props {
+    inBar?: boolean;
+}
+
+export default function ThemeToggle(props: Props) {
+    const { isDark } = useAuth();
+    return (
+        <div
+            className={`${styles.container} ${
+                props.inBar ? styles.inBar : ''
+            } ${!isDark ? styles.sun : styles.moon}`}
+        />
+    );
+}

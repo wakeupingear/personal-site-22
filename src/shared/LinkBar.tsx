@@ -1,43 +1,31 @@
 import styles from './linkBar.module.css';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import Sticky from 'react-stickynode';
+import Link from 'next/link';
+import { GitHub, YouTube, Instagram, LinkedIn } from './Icons';
+import ThemeToggle from './ThemeToggle';
 
-const LINKS = [
-    {
-        alt: 'Github',
-        Component: GitHubIcon,
-        url: 'https://github.com/willf668',
-    },
-    {
-        alt: 'Youtube',
-        Component: YouTubeIcon,
-        url: 'https://www.youtube.com/channel/UCImSybcXB8pCtulA-_T0WCw',
-    },
-    {
-        alt: 'Instagram',
-        Component: InstagramIcon,
-        url: 'https://www.instagram.com/will_farhat/',
-    },
-];
-
-interface Props {
-    shouldStick?: boolean;
-}
-
-export default function LinkBar({ shouldStick }: Props) {
+export default function LinkBar() {
     return (
-        <div
-            className={`${styles.container} ${
-                shouldStick ? styles.stickyBar : ''
-            }`}
+        <Sticky
+            enabled={true}
+            top={0}
+            className={styles.stickyBar}
+            innerActiveClass={styles.sticking}
         >
-            {LINKS.map(({ alt, Component, url }) => (
-                <a href={url} key={alt} target="_blank">
-                    <Component fontSize="inherit" />
-                </a>
-            ))}
-            <a className={styles.text}>Resume</a>
-        </div>
+            <div className={styles.container}>
+                <div className={styles.holder}>
+                    <div className={styles.start}>
+                        <YouTube />
+                        <Instagram />
+                        <GitHub />
+                        <LinkedIn />
+                        <Link href="/resume" scroll={false}>
+                            Resume
+                        </Link>
+                    </div>
+                    <ThemeToggle inBar />
+                </div>
+            </div>
+        </Sticky>
     );
 }

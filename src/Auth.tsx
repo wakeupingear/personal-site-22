@@ -30,6 +30,7 @@ setTheme();
 export const AuthContext = createContext({} as AuthContextProps);
 
 interface AuthContextProps {
+    animateTransition: boolean;
     apiGet: (url: string) => Promise<APIResponse>;
     apiPost: (url: string, data: any) => Promise<APIResponse>;
     intro: boolean;
@@ -56,12 +57,31 @@ export default function Auth(props: Props) {
         (!IS_SERVER && localStorage.getItem('chadminSession')) || ''
     );
 
+    const [animateTransition, setAnimateTransition] = useState(false);
+    const [initialAnimateTransition, setInitialAnimateTransition] =
+        useState<NodeJS.Timeout | null>(null);
+    useEffect(() => {
+        setInitialAnimateTransition(
+            setTimeout(() => {
+                setAnimateTransition(true);
+            }, 2000)
+        );
+        return () => {
+            if (initialAnimateTransition)
+                clearTimeout(initialAnimateTransition);
+        };
+    }, [props.children]);
+
     const [screen, setScreen] = useState<number>(Screens.Home);
     const [intro, setIntro] = useState(screen === Screens.Home);
     const switchScreen = (screen: number) => {
         setScreen(screen);
         setScreenAnimating(true);
         setTimeout(() => setScreenAnimating(false), 1200);
+
+        setAnimateTransition(false);
+        if (initialAnimateTransition) clearTimeout(initialAnimateTransition);
+        setTimeout(() => setAnimateTransition(true), 2000);
     };
     const [screenAnimating, setScreenAnimating] = useState(false);
 
@@ -112,6 +132,7 @@ export default function Auth(props: Props) {
     return (
         <AuthContext.Provider
             value={{
+                animateTransition,
                 apiGet,
                 apiPost,
                 intro,

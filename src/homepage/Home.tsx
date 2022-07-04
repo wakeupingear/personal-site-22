@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
-import { FULL_NAME } from '../../utils/constants';
 import { useAuth } from '../Auth';
 import LinkBar from '../shared/LinkBar';
-import Theme from '../Theme';
 import Footer from './Footer';
 import styles from './home.module.css';
+import previewStyles from './homePreviews.module.css';
 import HomePreviews from './HomePreviews';
+import Header from './Header';
+import ThemeToggle from '../shared/ThemeToggle';
 
 export default function Home({ children }: { children: React.ReactNode }) {
-    const { initialLoading } = useAuth();
+    const { animateTransition, isDark } = useAuth();
     const [onSide, setOnSide] = React.useState(
-        !initialLoading && initialLoading === Boolean(children)
+        animateTransition !== Boolean(children)
     );
 
     useEffect(() => {
@@ -19,17 +20,15 @@ export default function Home({ children }: { children: React.ReactNode }) {
 
     return (
         <div className={styles.home}>
-            <Theme />
-            <div className={styles.header}>
-                <div className={styles.myName}>{FULL_NAME}</div>
-            </div>
-            <LinkBar shouldStick />
+            <ThemeToggle />
+            <Header />
+            <LinkBar />
             <div className={styles.body}>
                 <div className={styles.content}>{children}</div>
                 <div
-                    className={`${styles.previews} ${
-                        onSide && styles.previewSide
-                    }`}
+                    className={`${previewStyles.previews} ${
+                        onSide && previewStyles.previewSide
+                    } ${animateTransition && previewStyles.previewTransition}`}
                 >
                     <HomePreviews />
                 </div>

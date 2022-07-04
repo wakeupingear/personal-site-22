@@ -1,15 +1,40 @@
-.container {
-    @apply top-0 z-20;
-    @apply flex h-24 justify-center items-center;
-}
-
 .stickyBar {
-    @apply sticky;
+    @apply flex z-20 w-full;
 }
 
-.container > * {
-    @apply text-white after:bg-transparent;
-    @apply mx-4 transition-all text-6xl;
+.stickyBar > * {
+    @apply flex w-full justify-center;
+}
+
+.container {
+    @apply flex h-0 flex-col justify-start items-center w-fit;
+}
+
+.holder {
+    @apply flex h-0 w-full items-center absolute top-0 left-0;
+    @apply transition-all duration-200;
+}
+
+.stickyBar .holder {
+    @apply opacity-0 pointer-events-none;
+}
+
+.sticking .holder {
+    @apply bg-gradient-to-r from-blue-500 to-purple-700 w-[100vw] shadow-2xl opacity-100 h-20 pointer-events-auto;
+}
+
+.start > *,
+.end > * {
+    @apply text-white after:bg-white;
+    @apply mx-4 transition-all text-5xl;
+}
+
+.end {
+    @apply ml-auto;
+}
+
+.sticking .holder > * {
+    @apply text-4xl;
 }
 
 .text {

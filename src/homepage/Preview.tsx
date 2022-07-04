@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MouseEvent } from 'react';
 import { IS_SERVER } from '../../utils/constants';

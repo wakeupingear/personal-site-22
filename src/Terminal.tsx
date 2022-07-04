@@ -70,12 +70,14 @@ export default function Terminal() {
     const inputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (intro) {
             switchScreen(0);
-            setTimeout(() => (localStorage.screen = 0));
+            setTimeout(() => {
+                localStorage.screen = 0;
+            }, 1000);
         } else setText(e.target.value);
     };
 
     return (
-        <div className="bg-black flex-col p-8 text-green-400">
+        <div className="bg-black flex-col text-green-400">
             <div className="flex w-full h-[100vh] flex-col justify-end">
                 {commands.map((command, index) => (
                     <div key={index} className="p-2">
