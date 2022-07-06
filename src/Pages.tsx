@@ -1,5 +1,5 @@
 import { ReactElement, useEffect } from 'react';
-import { useAuth } from '../src/Auth';
+import { useAuth } from './Auth';
 
 interface Props {
     children?: ReactElement;

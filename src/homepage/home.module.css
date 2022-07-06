@@ -20,12 +20,12 @@
 }
 
 .buttonHolder {
-    @apply absolute right-0 select-none pointer-events-none flex h-full;
+    @apply absolute right-0 select-none pointer-events-none flex h-full !w-8;
 }
 
 .buttons {
-    @apply sticky top-60 self-start pointer-events-auto;
-    @apply flex flex-col m-2;
+    @apply self-start pointer-events-auto;
+    @apply flex flex-col !h-full translate-x-[-0.5rem] translate-y-8;
 }
 
 .buttons > * {

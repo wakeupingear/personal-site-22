@@ -10,6 +10,7 @@ import ThemeToggle from '../shared/ThemeToggle';
 import Link from 'next/link';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import Sticky from 'react-stickynode';
 
 export default function Home({ children }: { children: React.ReactNode }) {
     const [onSide, setOnSide] = useState(Boolean(children));
@@ -29,7 +30,8 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 <div className={styles.content}>
                     {children}
                     <div className={styles.buttonHolder}>
-                        <div className={styles.buttons}>
+                        <Sticky enabled top={90}>
+                            <div className={styles.buttons}>
                             <ArrowBackIosNewIcon
                                 onClick={() => setSideOpen(!sideOpen)}
                                 className={`${styles.sideToggle} ${
@@ -39,7 +41,8 @@ export default function Home({ children }: { children: React.ReactNode }) {
                             <Link href="/" scroll={false}>
                                 <CloseIcon />
                             </Link>
-                        </div>
+                            </div>
+                        </Sticky>
                     </div>
                 </div>
                 <div

@@ -1,4 +1,4 @@
-import { HomePage } from './Pages';
+import { HomePage } from '../src/Pages';
 
 export { getServerSideProps } from '../utils/homeServerProps';
 
