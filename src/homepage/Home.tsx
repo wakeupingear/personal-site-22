@@ -12,10 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 export default function Home({ children }: { children: React.ReactNode }) {
-    const { animateTransition, isDark } = useAuth();
-    const [onSide, setOnSide] = useState(
-        animateTransition !== Boolean(children)
-    );
+    const [onSide, setOnSide] = useState(Boolean(children));
     const [sideOpen, setSideOpen] = useState(true);
 
     useEffect(() => {
@@ -47,8 +44,10 @@ export default function Home({ children }: { children: React.ReactNode }) {
                 </div>
                 <div
                     className={`${previewStyles.previews} ${
-                        onSide && previewStyles.previewSide
-                    } ${animateTransition && previewStyles.previewTransition}`}
+                        onSide ? previewStyles.previewSide : ''
+                    } ${!sideOpen ? previewStyles.previewSideHidden : ''} ${
+                        true && previewStyles.previewTransition
+                    }`}
                 >
                     <HomePreviews />
                 </div>

@@ -17,8 +17,8 @@ interface Props {
 export const PageDataContext = createContext({} as PageDataContextProps);
 
 interface PageDataContextProps {
-    PAGE_DATA: PageData;
-    CONTENT_MAP: ContentMap;
+    PAGE_DATA?: PageData;
+    CONTENT_MAP?: ContentMap;
 }
 
 export default function Wrapper({

@@ -1,5 +1,5 @@
 .container {
-    @apply flex justify-between text-center mt-24 px-8 relative w-full flex-row items-center;
+    @apply flex justify-between text-center mt-24 px-8 py-2 relative w-full flex-row items-center;
 }
 
 .textLink {
@@ -10,8 +10,8 @@
     @apply hover:cursor-pointer;
 }
 
-.terminal > * {
-    @apply text-white text-6xl;
+.terminal * {
+    @apply text-white !text-5xl;
 }
 
 .divider {
@@ -35,7 +35,12 @@
 
 .container,
 .divider .shapeFill {
-    @apply bg-blue-700 fill-blue-700;
+    @apply bg-blue-700 fill-blue-700 transition-colors duration-500;
+}
+
+:global(.dark) .container,
+:global(.dark) .divider .shapeFill {
+    @apply bg-gray-600 fill-gray-600;
 }
 
 .clap {

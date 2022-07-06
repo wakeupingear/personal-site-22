@@ -4,8 +4,8 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <Auth>
-            <Component {...pageProps} />
+        <Auth {...pageProps}>
+            <Component />
         </Auth>
     );
 }

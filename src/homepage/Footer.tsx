@@ -33,7 +33,6 @@ export default function Footer() {
             <Link className={styles.privacy} href="/privacy" scroll={false}>
                 <a className={styles.textLink}>Privacy</a>
             </Link>
-            <div className={styles.clap}>Clap</div>
             <div className={styles.terminal} onClick={() => switchScreen(1)}>
                 <TerminalIcon />
             </div>

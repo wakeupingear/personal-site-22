@@ -1,7 +1,10 @@
 .home {
     @apply bg-gradient-to-tr from-[#f4aef8] via-[#d78ff3,#b272f0,#815af0] to-[#1c48f0];
-    @apply dark:bg-gradient-to-bl dark:from-[#013076] dark:via-[#032b62,#0a264e,#10203a] dark:to-[#131a27];
     @apply flex flex-col h-full min-h-[100vh] w-full items-center;
+    @apply before:bg-black before:fixed before:block before:w-full before:h-full before:opacity-0 before:transition-opacity;
+}
+:global(.dark) .home {
+    @apply before:opacity-100;
 }
 
 .linkBarHolder {

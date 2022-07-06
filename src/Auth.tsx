@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+    createContext,
+    ReactElement,
+    useContext,
+    useEffect,
+    useState,
+} from 'react';
 import { isMobile } from 'react-device-detect';
 import { IS_SERVER } from '../utils/constants';
 import {
@@ -6,6 +12,7 @@ import {
     internal_apiPost,
     APIResponse,
 } from '../utils/network';
+import Wrapper from './Wrapper';
 
 const setTheme = (isDark?: boolean) => {
     if (IS_SERVER) return;
@@ -30,7 +37,6 @@ setTheme();
 export const AuthContext = createContext({} as AuthContextProps);
 
 interface AuthContextProps {
-    animateTransition: boolean;
     apiGet: (url: string) => Promise<APIResponse>;
     apiPost: (url: string, data: any) => Promise<APIResponse>;
     intro: boolean;
@@ -39,6 +45,7 @@ interface AuthContextProps {
     loggedIn: boolean;
     screen: number;
     screenAnimating: boolean;
+    setRenderedChildren: (children: ReactElement | null | undefined) => void;
     switchScreen: (screen: number) => void;
     toggleTheme: (isDark?: boolean) => void;
 }
@@ -48,29 +55,20 @@ export enum Screens {
     Terminal,
 }
 
-interface Props {
-    children: React.ReactNode;
-}
+type Props = {
+    PAGE_DATA?: null;
+    CONTENT_MAP?: null;
+    children: React.ReactNode | null;
+};
 
 export default function Auth(props: Props) {
+    const [renderedChildren, setRenderedChildren] = useState<
+        ReactElement | null | undefined
+    >(undefined);
+
     const [token, setToken] = useState<string>(
         (!IS_SERVER && localStorage.getItem('chadminSession')) || ''
     );
-
-    const [animateTransition, setAnimateTransition] = useState(false);
-    const [initialAnimateTransition, setInitialAnimateTransition] =
-        useState<NodeJS.Timeout | null>(null);
-    useEffect(() => {
-        setInitialAnimateTransition(
-            setTimeout(() => {
-                setAnimateTransition(true);
-            }, 2000)
-        );
-        return () => {
-            if (initialAnimateTransition)
-                clearTimeout(initialAnimateTransition);
-        };
-    }, [props.children]);
 
     const [screen, setScreen] = useState<number>(Screens.Home);
     const [intro, setIntro] = useState(screen === Screens.Home);
@@ -78,10 +76,6 @@ export default function Auth(props: Props) {
         setScreen(screen);
         setScreenAnimating(true);
         setTimeout(() => setScreenAnimating(false), 1200);
-
-        setAnimateTransition(false);
-        if (initialAnimateTransition) clearTimeout(initialAnimateTransition);
-        setTimeout(() => setAnimateTransition(true), 2000);
     };
     const [screenAnimating, setScreenAnimating] = useState(false);
 
@@ -132,7 +126,6 @@ export default function Auth(props: Props) {
     return (
         <AuthContext.Provider
             value={{
-                animateTransition,
                 apiGet,
                 apiPost,
                 intro,
@@ -141,12 +134,25 @@ export default function Auth(props: Props) {
                 loggedIn,
                 screen,
                 screenAnimating,
+                setRenderedChildren,
                 switchScreen,
                 toggleTheme,
             }}
         >
             <div className={`shade${!initialLoading ? ' shadeHidden' : ''}`} />
-            {props.children}
+            {renderedChildren !== undefined ? (
+                <>
+                    {props.children}
+                    <Wrapper
+                        PAGE_DATA={props.PAGE_DATA}
+                        CONTENT_MAP={props.CONTENT_MAP}
+                    >
+                        {renderedChildren}
+                    </Wrapper>
+                </>
+            ) : (
+                props.children
+            )}
         </AuthContext.Provider>
     );
 }

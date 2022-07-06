@@ -14,7 +14,7 @@ const nextConfig = {
   },
   images: {
     domains: ["www.looper.com", "c.tenor.com"],
-  }
+  },
 }
 
 module.exports = nextConfig
