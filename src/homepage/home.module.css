@@ -12,7 +12,14 @@
 }
 
 .body {
-    @apply relative flex w-full justify-end;
+    @apply relative flex justify-end transition-all;
+    width: min(100vw, 78rem);
+}
+.body:not(.bodyFull) .buttonHolder * {
+    @apply opacity-0 pointer-events-none;
+}
+.bodyFull {
+    @apply w-full;
 }
 
 .content {
@@ -24,7 +31,7 @@
 }
 
 .buttons {
-    @apply self-start pointer-events-auto;
+    @apply self-start pointer-events-auto transition-opacity;
     @apply flex flex-col !h-full translate-x-[-0.5rem] translate-y-8;
 }
 

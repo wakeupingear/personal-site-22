@@ -16,14 +16,18 @@
 }
 
 .previewSide > div > * {
-    @apply !h-32 !w-full;
+    @apply !w-full;
+    @apply !text-[8rem];
 }
 
 .container {
     @apply flex flex-col w-full;
 }
+:global(.dark) .container {
+    @apply opacity-90;
+}
 
-.container:hover .imageHolder {
+.container:hover .holder {
     @apply grayscale-[80%];
 }
 
@@ -36,17 +40,18 @@
     @apply absolute flex w-full h-full;
 }
 
-.imageHolder {
-    @apply z-[5] grow;
+.holder {
+    @apply z-[5] grow overflow-hidden;
 }
 
-.imageHolder:not(.clickable) {
+.holder:not(.clickable) {
     @apply !w-0 grow-0;
 }
 
-.imageHolder,
-.imageHolder * {
-    @apply flex h-full relative duration-[250ms];
+.holder,
+.holder * {
+    @apply flex h-full relative justify-center items-center duration-[250ms];
+    @apply !text-[9rem];
 }
 
 div.clickable:last-of-type {
@@ -57,19 +62,14 @@ div.clickable:last-of-type {
     @apply z-[-5];
 }
 
-.frontImageHolder {
+.frontholder {
     @apply flex absolute w-full h-full opacity-0;
 }
 
 .clickable:hover {
     @apply cursor-pointer rounded-[2rem] z-10;
     @apply scale-[1.05] !grayscale-0;
-    box-shadow: inset 0 0 50px #fff, /* inner white */ inset 20px 0 80px #f0f,
-        /* inner left magenta short */ inset -20px 0 80px #0ff,
-        /* inner right cyan short */ inset 20px 0 300px #f0f,
-        /* inner left magenta broad */ inset -20px 0 300px #0ff,
-        /* inner right cyan broad */ 0 0 50px #fff,
-        /* outer white */ -10px 0 80px #f0f,
+    box-shadow: 0 0 50px #fff, /* outer white */ -10px 0 80px #f0f,
         /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
 }
 :global(.dark) .clickable:hover {
@@ -82,6 +82,6 @@ div.clickable:last-of-type {
         /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
 }
 
-.clickable:hover .frontImageHolder {
+.clickable:hover .frontholder {
     @apply opacity-100;
 }

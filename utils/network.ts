@@ -1,6 +1,6 @@
 export const __DEV__ = process.env.NODE_ENV === 'development';
 const pageUrl = __DEV__
-    ? 'http://localhost:3002'
+    ? 'http://localhost:3000'
     : 'https://pet-site-api.herokuapp.com';
 
 export interface APIResponse {

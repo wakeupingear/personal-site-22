@@ -6,6 +6,7 @@ export type APIData = {
 
 export type Column = {
     height?: string;
+    sideHeight?: string;
     components: ContentComponent[];
 };
 
@@ -23,10 +24,21 @@ export type ContentMap = {
     [key: string]: ContentComponent;
 };
 
+export type ContentCategories =
+    | 'web'
+    | 'academic'
+    | 'games'
+    | 'art'
+    | 'film'
+    | 'code';
+
 export type ContentComponent = {
     name: string;
     startDate: string;
+    backgroundColor?: string;
+    color?: string;
     endDate?: string;
-    image: string;
+    icon?: ContentCategories;
+    image?: string;
     width?: number;
 };

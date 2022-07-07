@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useAuth } from '../Auth';
 import LinkBar from '../shared/LinkBar';
 import Footer from './Footer';
 import styles from './home.module.css';
@@ -7,10 +6,7 @@ import previewStyles from './homePreviews.module.css';
 import HomePreviews from './HomePreviews';
 import Header from './Header';
 import ThemeToggle from '../shared/ThemeToggle';
-import Link from 'next/link';
-import CloseIcon from '@mui/icons-material/Close';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import Sticky from 'react-stickynode';
+import SideToggle from './SideToggle';
 
 export default function Home({ children }: { children: React.ReactNode }) {
     const [onSide, setOnSide] = useState(Boolean(children));
@@ -26,24 +22,10 @@ export default function Home({ children }: { children: React.ReactNode }) {
             <ThemeToggle />
             <Header />
             <LinkBar />
-            <div className={styles.body}>
+            <div className={`${styles.body} ${onSide ? styles.bodyFull : ''}`}>
                 <div className={styles.content}>
                     {children}
-                    <div className={styles.buttonHolder}>
-                        <Sticky enabled top={90}>
-                            <div className={styles.buttons}>
-                            <ArrowBackIosNewIcon
-                                onClick={() => setSideOpen(!sideOpen)}
-                                className={`${styles.sideToggle} ${
-                                    sideOpen ? styles.sideOpen : ''
-                                }`}
-                            />
-                            <Link href="/" scroll={false}>
-                                <CloseIcon />
-                            </Link>
-                            </div>
-                        </Sticky>
-                    </div>
+                    <SideToggle sideOpen={sideOpen} setSideOpen={setSideOpen} />
                 </div>
                 <div
                     className={`${previewStyles.previews} ${
@@ -52,7 +34,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                         true && previewStyles.previewTransition
                     }`}
                 >
-                    <HomePreviews />
+                    <HomePreviews onSide={onSide} />
                 </div>
             </div>
             <Footer />

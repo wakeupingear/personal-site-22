@@ -9,7 +9,7 @@ const PDFViewer = dynamic(() => import('../../src/shared/PDFViewer'), {
 export default function index() {
     return (
         <HomePage>
-            <div className="flex w-full h-full justify-center">
+            <div className="flex w-full h-full justify-center items-start">
                 <PDFViewer
                     download
                     file="https://raw.githubusercontent.com/willf668/resume/main/WillFarhatResume.pdf"

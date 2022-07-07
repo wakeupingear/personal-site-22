@@ -1,12 +1,27 @@
+import {
+    Code,
+    ComputerOutlined,
+    Movie,
+    Palette,
+    School,
+    SportsEsports,
+} from '@mui/icons-material';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { MouseEvent } from 'react';
+import { MouseEvent, ReactElement } from 'react';
 import { IS_SERVER } from '../../utils/constants';
 import { toCamelcase } from '../../utils/helpers';
-import { ContentComponent } from '../../utils/types';
+import { ContentCategories, ContentComponent } from '../../utils/types';
 import styles from './homePreviews.module.css';
 
-const THRESHOLD = 5;
+const CATEGORY_ICONS: { [key in ContentCategories]: ReactElement } = {
+    web: <ComputerOutlined />,
+    academic: <School />,
+    games: <SportsEsports />,
+    art: <Palette />,
+    film: <Movie />,
+    code: <Code />,
+};
 
 interface Props {
     component: ContentComponent;
@@ -27,32 +42,37 @@ export default function Preview({ component }: Props) {
     return (
         <div
             onClick={openPreview}
-            className={`${styles.imageHolder} ${!selected && styles.clickable}`}
+            className={`${styles.holder} ${!selected ? styles.clickable : ''}`}
             key={component.name}
             style={
                 component.width && !selected
                     ? {
                           width: component.width + '%',
+                          backgroundColor: component.backgroundColor || 'white',
+                          color: component.color || 'white',
                       }
                     : {}
             }
         >
-            <>
-                <Image
-                    src={component.image}
-                    className={styles.backImage}
-                    layout="fill"
-                    objectFit="cover"
-                />
-                <div className={styles.frontImageHolder}>
+            {component.image && (
+                <>
                     <Image
                         src={component.image}
-                        className={styles.frontImage}
+                        className={styles.backImage}
                         layout="fill"
                         objectFit="cover"
                     />
-                </div>
-            </>
+                    <div className={styles.frontImageHolder}>
+                        <Image
+                            src={component.image}
+                            className={styles.frontImage}
+                            layout="fill"
+                            objectFit="cover"
+                        />
+                    </div>
+                </>
+            )}
+            {component.icon && CATEGORY_ICONS[component.icon]}
         </div>
     );
 }
