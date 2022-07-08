@@ -1,5 +1,5 @@
 .container {
-    @apply flex flex-col ml-8 mb-8 self-start;
+    @apply flex flex-col ml-8 mb-2 self-start;
 }
 
 .container > *:not(.myName) {
@@ -24,7 +24,7 @@
 }
 
 .holder {
-    @apply flex flex-col w-min justify-center items-center;
+    @apply flex flex-col w-min justify-center items-center relative;
 }
 
 .iconHolder {
@@ -42,4 +42,18 @@
 
 .text::after {
     @apply bg-white;
+}
+
+.nameBgHolder {
+    @apply relative flex;
+}
+
+.nameBg {
+    @apply absolute m-0 top-[100%] select-none pointer-events-none;
+    @apply text-2xl text-white font-bold opacity-60;
+    @apply flex w-max flex-col translate-x-[-50%];
+}
+
+.nameBg > div {
+    @apply m-1;
 }

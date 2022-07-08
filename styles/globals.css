@@ -14,7 +14,8 @@ body {
     @apply transition-all dark:bg-black;
 }
 
-a {
+a,
+.clickableText {
     text-decoration: none;
     display: inline-block;
     position: relative;
@@ -23,7 +24,8 @@ a {
     @apply hover:cursor-pointer;
 }
 
-a:after {
+a::after,
+.clickableText::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -36,7 +38,8 @@ a:after {
     transition: transform 0.25s ease-out;
 }
 
-a:hover:after {
+a:hover::after,
+.clickableText:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
 }

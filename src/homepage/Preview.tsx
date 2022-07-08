@@ -48,7 +48,9 @@ export default function Preview({ component }: Props) {
                 component.width && !selected
                     ? {
                           width: component.width + '%',
-                          backgroundColor: component.backgroundColor || 'white',
+                          backgroundImage: `linear-gradient(to right, ${
+                              component.backgroundColors || 'blue, black'
+                          })`,
                           color: component.color || 'white',
                       }
                     : {}

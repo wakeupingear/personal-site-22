@@ -1,7 +1,7 @@
 .home {
     @apply bg-gradient-to-tr from-[#f4aef8] via-[#d78ff3,#b272f0,#815af0] to-[#1c48f0];
     @apply flex flex-col h-full min-h-[100vh] w-full items-center;
-    @apply before:bg-black before:fixed before:block before:w-full before:h-full before:opacity-0 before:transition-opacity;
+    @apply before:bg-black before:fixed before:block before:w-full before:h-full before:opacity-0 before:transition-opacity overflow-hidden;
 }
 :global(.dark) .home {
     @apply before:opacity-100;

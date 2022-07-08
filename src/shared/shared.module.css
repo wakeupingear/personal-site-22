@@ -1,5 +1,3 @@
-.button {
-    @apply bg-orange-300 m-4 p-4 shadow-md rounded-full transition-all;
-    @apply hover:cursor-pointer hover:bg-orange-200 select-none;
-    @apply text-center flex w-fit;
+.clickableText {
+    @apply text-white after:bg-white;
 }

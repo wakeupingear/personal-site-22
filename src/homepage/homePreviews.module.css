@@ -4,7 +4,7 @@
 }
 
 .previews {
-    @apply flex w-full sticky shadow-xl;
+    @apply flex w-full sticky shadow-xl h-min;
 }
 
 .previewSide {
@@ -17,7 +17,6 @@
 
 .previewSide > div > * {
     @apply !w-full;
-    @apply !text-[8rem];
 }
 
 .container {
@@ -51,7 +50,15 @@
 .holder,
 .holder * {
     @apply flex h-full relative justify-center items-center duration-[250ms];
-    @apply !text-[9rem];
+}
+
+.holder svg {
+    @apply transition-all duration-300;
+    font-size: min(10vw, 7.5rem);
+}
+.previewSide svg {
+    @apply m-1;
+    font-size: min(2.5vw, 2rem);
 }
 
 div.clickable:last-of-type {

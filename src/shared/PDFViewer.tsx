@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack5';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import { PuffLoader } from 'react-spinners';
-import Button from './Button';
+import ClickableText from './ClickableText';
 
 interface Props {
     file: string;
@@ -27,9 +27,9 @@ export default function PDFViewer({ download, file }: Props) {
                 />
 
                 {download && (
-                    <Button onclick={() => window.open(file, '_blank')}>
+                    <ClickableText onclick={() => window.open(file, '_blank')}>
                         Download
-                    </Button>
+                    </ClickableText>
                 )}
             </Document>
         </div>

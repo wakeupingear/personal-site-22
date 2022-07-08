@@ -15,6 +15,14 @@ const nextConfig = {
   images: {
     domains: ["www.looper.com", "c.tenor.com"],
   },
+  swcMinify: true,
+  experimental: {
+    modularizeImports: {
+      '@mui/material/?(((\\w*)?/?)*)': {
+        transform: '@mui/material/{{ matches.[1] }}/{{member}}'
+      }
+    }
+  },
 }
 
 module.exports = nextConfig

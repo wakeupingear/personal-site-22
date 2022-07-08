@@ -3,6 +3,19 @@ import { FULL_NAME } from '../../utils/constants';
 import { GitHub, Instagram, LinkedIn, YouTube } from '../shared/Icons';
 import Link from 'next/link';
 
+const NAMES = Array(30)
+    .fill(0)
+    .map((_, i) => <div key={i}>{FULL_NAME}</div>);
+
+function NameBG() {
+    return (
+        <div className={styles.nameBgHolder}>
+            <div className={styles.nameBg}>{NAMES}</div>
+        </div>
+        
+    );
+}
+
 export default function Header() {
     const name = FULL_NAME.split(' ');
     return (
@@ -28,6 +41,7 @@ export default function Header() {
                 <Link href="/resume" scroll={false}>
                     <a className={styles.text}>Resume</a>
                 </Link>
+                <NameBG />
             </div>
         </div>
     );

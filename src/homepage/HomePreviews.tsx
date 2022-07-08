@@ -10,7 +10,6 @@ interface Props {
 
 export default function HomePreviews({ onSide }: Props) {
     const { PAGE_DATA } = usePageData();
-    console.log(onSide);
     return (
         <div className={styles.container}>
             {PAGE_DATA &&
