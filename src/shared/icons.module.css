@@ -1,3 +1,7 @@
+.icon {
+    @apply flex justify-center items-center;
+}
+
 .icon::after {
     @apply !bg-transparent;
 }

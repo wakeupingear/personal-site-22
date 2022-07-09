@@ -1,15 +1,21 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import { FULL_NAME } from '../utils/constants';
 import { useAuth } from './Auth';
 
 export default function Terminal() {
     const { intro, switchScreen } = useAuth();
 
+    useEffect(() => {
+        console.log('Intro', intro);
+    }, [intro]);
+
     const [commands, setCommands] = useState<ReactNode[]>(
         intro
             ? [
                   <div>
-                      <h1>{FULL_NAME}'s site</h1>
+                      <h1 className="text-6xl lowercase">
+                          {FULL_NAME.replace(' ', '')}.com
+                      </h1>
                       <h2>
                           Game Dev, Programming, Art, Writing, Assorted Bogglery
                       </h2>
@@ -40,6 +46,8 @@ export default function Terminal() {
             case 'neofetch':
                 result = 'hi';
                 break;
+            case 'exit':
+            case 'close':
             case 'switch':
                 const num = Number(commandArgs[0]);
                 if (Number.isInteger(num)) {
@@ -52,8 +60,8 @@ export default function Terminal() {
                 break;
             default:
                 result = (
-                    <p style={{ color: 'red' }}>
-                        Unknown command: 'commandName'
+                    <p className="text-red-600 text-3xl m-0">
+                        '{commandName}' not found
                     </p>
                 );
                 break;
@@ -61,7 +69,10 @@ export default function Terminal() {
 
         if (result) {
             if (typeof result === 'string')
-                setCommands([...commands, <p>{result}</p>]);
+                setCommands([
+                    ...commands,
+                    <p className="text-3xl m-0">{result}</p>,
+                ]);
             else setCommands([...commands, result]);
         }
         setText('');
@@ -72,24 +83,28 @@ export default function Terminal() {
             switchScreen(0);
             setTimeout(() => {
                 localStorage.screen = 0;
+                localStorage.finishedIntro = true;
             }, 1000);
         } else setText(e.target.value);
     };
 
     return (
-        <div className="bg-black flex-col text-green-400">
-            <div className="flex w-full h-[100vh] flex-col justify-end">
+        <div className="bg-black flex-col text-green-400 text-md p-4 flex h-[100vh] overflow-hidden">
+            <div className="flex w-full h-full flex-col justify-end overflow-scroll">
                 {commands.map((command, index) => (
-                    <div key={index} className="p-2">
+                    <div key={index} className="p-2 text-3xl m-0">
                         {command}
                     </div>
                 ))}
             </div>
-            <div className="flex flex-row text-bold text-3xl">
-                <p>$</p>
-                <form onSubmit={processCommand} className="w-full">
+            <div className="flex flex-row items-center w-full h-fit text-bold text-4xl mt-4">
+                <p className="m-0 text-6xl mr-4">$</p>
+                <form
+                    onSubmit={processCommand}
+                    className="w-full flex items-center h-fit"
+                >
                     <label
-                        className="invisible block h-0"
+                        className="invisible block h-0 w-0"
                         htmlFor="commandInput"
                     >
                         Enter shell command
@@ -100,7 +115,7 @@ export default function Terminal() {
                         type="text"
                         value={text}
                         onChange={inputChange}
-                        className="border-none bg-black focus:outline-none ml-2 flex w-full"
+                        className="focus:outline-none bg-transparent flex m-0 w-full h-fit border-b-2 border-solid border-green-400 text-green-400 p-4 text-4xl"
                     />
                 </form>
             </div>

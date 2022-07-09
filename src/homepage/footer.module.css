@@ -10,6 +10,10 @@
     @apply hover:cursor-pointer;
 }
 
+.privacy {
+    @apply !text-3xl;
+}
+
 .terminal * {
     @apply text-white !text-5xl;
 }

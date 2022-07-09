@@ -1,0 +1,14 @@
+.page {
+    @apply flex w-full flex-col h-full justify-center items-center m-4;
+}
+
+.defaultStyles {
+}
+
+.defaultStyles h1 {
+    @apply text-white text-7xl;
+}
+
+.defaultStyles h2 {
+    @apply text-white text-3xl m-2;
+}

@@ -6,7 +6,7 @@ import styles from './404.module.css';
 
 export default function index() {
     return (
-        <Page>
+        <Page defaultContainer={false}>
             <div className={styles.container}>
                 <Head>
                     <title>Uh oh...</title>

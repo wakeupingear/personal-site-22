@@ -27,9 +27,14 @@
     @apply before:opacity-100;
 }
 
+.start,
+.end {
+    @apply flex items-center;
+}
+
 .start > *,
 .end > * {
-    @apply text-white after:bg-white;
+    @apply text-white;
     @apply mx-4 transition-all text-5xl;
 }
 
@@ -39,8 +44,4 @@
 
 .sticking .holder > * {
     @apply text-4xl;
-}
-
-.text {
-    @apply after:bg-white;
 }

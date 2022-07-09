@@ -1,10 +1,14 @@
 .home {
-    @apply bg-gradient-to-tr from-[#f4aef8] via-[#d78ff3,#b272f0,#815af0] to-[#1c48f0];
     @apply flex flex-col h-full min-h-[100vh] w-full items-center;
     @apply before:bg-black before:fixed before:block before:w-full before:h-full before:opacity-0 before:transition-opacity overflow-hidden;
 }
 :global(.dark) .home {
     @apply before:opacity-100;
+}
+
+.bg {
+    @apply fixed top-0 right-0 flex w-[100vw] h-[100vh];
+    @apply bg-gradient-to-tr from-[#f4aef8] via-[#d78ff3,#b272f0,#815af0] to-[#1c48f0];
 }
 
 .linkBarHolder {
@@ -23,7 +27,7 @@
 }
 
 .content {
-    @apply flex grow w-0 sticky;
+    @apply flex grow relative w-0 h-fit transition-all duration-300;
 }
 
 .buttonHolder {

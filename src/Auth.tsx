@@ -3,6 +3,7 @@ import React, {
     ReactElement,
     useContext,
     useEffect,
+    useMemo,
     useState,
 } from 'react';
 import { isMobile } from 'react-device-detect';
@@ -43,6 +44,7 @@ interface AuthContextProps {
     isDark: boolean;
     initialLoading: boolean;
     loggedIn: boolean;
+    pageHasContent: boolean;
     screen: number;
     screenAnimating: boolean;
     setRenderedChildren: (children: ReactElement | null | undefined) => void;
@@ -65,16 +67,18 @@ export default function Auth(props: Props) {
     const [renderedChildren, setRenderedChildren] = useState<
         ReactElement | null | undefined
     >(undefined);
+    const pageHasContent = Boolean(renderedChildren);
 
     const [token, setToken] = useState<string>(
         (!IS_SERVER && localStorage.getItem('chadminSession')) || ''
     );
 
     const [screen, setScreen] = useState<number>(Screens.Home);
-    const [intro, setIntro] = useState(screen === Screens.Home);
+    const [intro, setIntro] = useState<boolean>(true);
     const switchScreen = (screen: number) => {
         setScreen(screen);
         setScreenAnimating(true);
+        localStorage.screen = screen;
         setTimeout(() => setScreenAnimating(false), 1200);
     };
     const [screenAnimating, setScreenAnimating] = useState(false);
@@ -107,6 +111,7 @@ export default function Auth(props: Props) {
             toggleTheme(localStorage.theme === 'dark');
         }
         setInitialLoading(false);
+        setIntro(!Boolean(localStorage.finishedIntro));
     }, []);
 
     useEffect(() => {
@@ -132,6 +137,7 @@ export default function Auth(props: Props) {
                 isDark,
                 initialLoading,
                 loggedIn,
+                pageHasContent,
                 screen,
                 screenAnimating,
                 setRenderedChildren,

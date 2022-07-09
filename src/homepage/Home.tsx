@@ -19,6 +19,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
 
     return (
         <div className={styles.home}>
+            <div className={styles.bg} />
             <ThemeToggle />
             <Header />
             <LinkBar />

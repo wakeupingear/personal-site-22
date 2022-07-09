@@ -19,12 +19,9 @@ export default function PDFViewer({ download, file }: Props) {
                 file={file}
                 ref={doc}
                 className="flex flex-col justify-center items-center w-full h-full"
+                loading={<PuffLoader />}
             >
-                <Page
-                    pageNumber={pageNumber}
-                    className="shadow-md"
-                    loading={<PuffLoader />}
-                />
+                <Page pageNumber={pageNumber} className="shadow-md" />
 
                 {download && (
                     <ClickableText onclick={() => window.open(file, '_blank')}>

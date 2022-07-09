@@ -2,6 +2,7 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import styles from './footer.module.css';
 import Link from 'next/link';
 import { useAuth } from '../Auth';
+import ClickableText from '../shared/ClickableText';
 
 export default function Footer() {
     const { switchScreen } = useAuth();
@@ -30,8 +31,10 @@ export default function Footer() {
                     ></path>
                 </svg>
             </div>
-            <Link className={styles.privacy} href="/privacy" scroll={false}>
-                <a className={styles.textLink}>Privacy</a>
+            <Link href="/privacy" scroll={false}>
+                <ClickableText className={styles.privacy}>
+                    Privacy
+                </ClickableText>
             </Link>
             <div className={styles.terminal} onClick={() => switchScreen(1)}>
                 <TerminalIcon />

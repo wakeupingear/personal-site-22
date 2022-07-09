@@ -50,8 +50,12 @@
 
 .nameBg {
     @apply absolute m-0 top-[100%] select-none pointer-events-none;
-    @apply text-2xl text-white font-bold opacity-60;
+    @apply text-2xl text-white font-bold opacity-60 transition-opacity duration-700;
     @apply flex w-max flex-col translate-x-[-50%];
+}
+
+.namesHidden .nameBg {
+    @apply opacity-20;
 }
 
 .nameBg > div {

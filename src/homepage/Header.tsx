@@ -2,17 +2,18 @@ import styles from './header.module.css';
 import { FULL_NAME } from '../../utils/constants';
 import { GitHub, Instagram, LinkedIn, YouTube } from '../shared/Icons';
 import Link from 'next/link';
+import { useAuth } from '../Auth';
 
 const NAMES = Array(30)
     .fill(0)
     .map((_, i) => <div key={i}>{FULL_NAME}</div>);
 
 function NameBG() {
+    const { pageHasContent } = useAuth();
     return (
-        <div className={styles.nameBgHolder}>
+        <div className={`${styles.nameBgHolder} ${pageHasContent?styles.namesHidden:""}`}>
             <div className={styles.nameBg}>{NAMES}</div>
         </div>
-        
     );
 }
 

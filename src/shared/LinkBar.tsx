@@ -3,6 +3,7 @@ import Sticky from 'react-stickynode';
 import Link from 'next/link';
 import { GitHub, YouTube, Instagram, LinkedIn } from './Icons';
 import ThemeToggle from './ThemeToggle';
+import ClickableText from './ClickableText';
 
 export default function LinkBar() {
     return (
@@ -19,9 +20,7 @@ export default function LinkBar() {
                         <Instagram />
                         <GitHub />
                         <LinkedIn />
-                        <Link href="/resume" scroll={false}>
-                            Resume
-                        </Link>
+                        <ClickableText>Resume</ClickableText>
                     </div>
                     <ThemeToggle inBar />
                 </div>
