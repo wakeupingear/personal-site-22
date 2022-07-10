@@ -2,13 +2,26 @@
     @apply flex w-full flex-col h-full justify-center items-center m-4;
 }
 
-.defaultStyles {
+.defaultStyles * {
+    @apply text-center;
 }
 
 .defaultStyles h1 {
-    @apply text-white text-7xl;
+    @apply font-extrabold text-transparent text-[12rem] bg-clip-text bg-gradient-to-r from-white to-orange-300 text-7xl p-1;
 }
 
-.defaultStyles h2 {
-    @apply text-white text-3xl m-2;
+.defaultStyles p {
+    @apply text-white text-3xl m-2 font-bold;
+}
+
+.defaultStyles u {
+    @apply text-orange-200 no-underline;
+}
+
+.defaultStyles a {
+    @apply text-3xl font-normal;
+}
+
+.defaultStyles p a {
+    @apply font-bold;
 }

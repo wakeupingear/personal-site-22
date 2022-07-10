@@ -4,14 +4,18 @@ import { GitHub, Instagram, LinkedIn, YouTube } from '../shared/Icons';
 import Link from 'next/link';
 import { useAuth } from '../Auth';
 
-const NAMES = Array(30)
+const NAMES = Array(60)
     .fill(0)
     .map((_, i) => <div key={i}>{FULL_NAME}</div>);
 
-function NameBG() {
+export function NameBG({ className }: { className?: string }) {
     const { pageHasContent } = useAuth();
     return (
-        <div className={`${styles.nameBgHolder} ${pageHasContent?styles.namesHidden:""}`}>
+        <div
+            className={`${styles.nameBgHolder} ${
+                pageHasContent ? styles.namesHidden : ''
+            } ${className || ''}`}
+        >
             <div className={styles.nameBg}>{NAMES}</div>
         </div>
     );

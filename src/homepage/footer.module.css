@@ -1,5 +1,5 @@
 .container {
-    @apply flex justify-between text-center mt-24 px-8 py-2 relative w-full flex-row items-center;
+    @apply flex justify-between text-center px-8 py-2 relative w-full flex-row items-center mt-auto;
 }
 
 .textLink {

@@ -7,6 +7,7 @@ import HomePreviews from './HomePreviews';
 import Header from './Header';
 import ThemeToggle from '../shared/ThemeToggle';
 import SideToggle from './SideToggle';
+import ParallaxBG from './ParallaxBG';
 
 export default function Home({ children }: { children: React.ReactNode }) {
     const [onSide, setOnSide] = useState(Boolean(children));
@@ -19,26 +20,34 @@ export default function Home({ children }: { children: React.ReactNode }) {
 
     return (
         <div className={styles.home}>
-            <div className={styles.bg} />
-            <ThemeToggle />
-            <Header />
-            <LinkBar />
-            <div className={`${styles.body} ${onSide ? styles.bodyFull : ''}`}>
-                <div className={styles.content}>
-                    {children}
-                    <SideToggle sideOpen={sideOpen} setSideOpen={setSideOpen} />
-                </div>
+                <div className={styles.bg} />
+                <ParallaxBG />
+                <ThemeToggle />
+                <Header />
+                <LinkBar />
                 <div
-                    className={`${previewStyles.previews} ${
-                        onSide ? previewStyles.previewSide : ''
-                    } ${!sideOpen ? previewStyles.previewSideHidden : ''} ${
-                        true && previewStyles.previewTransition
+                    className={`${styles.body} ${
+                        onSide ? styles.bodyFull : ''
                     }`}
                 >
-                    <HomePreviews onSide={onSide} />
+                    <div className={styles.content}>
+                        {children}
+                        <SideToggle
+                            sideOpen={sideOpen}
+                            setSideOpen={setSideOpen}
+                        />
+                    </div>
+                    <div
+                        className={`${previewStyles.previews} ${
+                            onSide ? previewStyles.previewSide : ''
+                        } ${!sideOpen ? previewStyles.previewSideHidden : ''} ${
+                            true && previewStyles.previewTransition
+                        }`}
+                    >
+                        <HomePreviews onSide={onSide} />
+                    </div>
                 </div>
-            </div>
-            <Footer />
+                <Footer />
         </div>
     );
 }

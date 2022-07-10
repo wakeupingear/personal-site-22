@@ -1,6 +1,6 @@
 .home {
     @apply flex flex-col h-full min-h-[100vh] w-full items-center;
-    @apply before:bg-black before:fixed before:block before:w-full before:h-full before:opacity-0 before:transition-opacity overflow-hidden;
+    @apply before:bg-black before:fixed before:block before:w-full before:h-full before:opacity-0 before:transition-opacity overflow-hidden relative;
 }
 :global(.dark) .home {
     @apply before:opacity-100;
@@ -16,7 +16,7 @@
 }
 
 .body {
-    @apply relative flex justify-end transition-all;
+    @apply relative flex justify-end transition-all mb-24;
     width: min(100vw, 78rem);
 }
 .body:not(.bodyFull) .buttonHolder * {
