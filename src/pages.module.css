@@ -25,3 +25,11 @@
 .defaultStyles p a {
     @apply font-bold;
 }
+
+.defaultStyles ul {
+    @apply flex flex-wrap max-w-[min(calc(100%-4rem),1000px)] gap-5 justify-center items-center;
+}
+
+.defaultStyles li {
+    list-style-type: none;
+}

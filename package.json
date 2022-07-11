@@ -21,7 +21,8 @@
     "react-scroll-parallax": "^3.2.0",
     "react-spinners": "^0.13.3",
     "react-sticky-el": "^2.0.9",
-    "react-stickynode": "^4.0.0"
+    "react-stickynode": "^4.0.0",
+    "react-youtube": "^9.0.3"
   },
   "devDependencies": {
     "@types/node": "18.0.0",
