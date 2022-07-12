@@ -47,11 +47,11 @@ const PAGE_DATA = {
                     icon: 'code',
                 },
                 {
-                    name: 'Academic',
+                    name: 'Professional',
                     startDate: '2022',
                     backgroundColors: B_P_GRAD,
                     width: 20,
-                    icon: 'academic',
+                    icon: 'professional',
                 },
             ],
         },

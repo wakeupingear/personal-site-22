@@ -26,7 +26,7 @@ export type ContentMap = {
 
 export type ContentCategories =
     | 'web'
-    | 'academic'
+    | 'professional'
     | 'games'
     | 'art'
     | 'film'

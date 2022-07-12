@@ -1,0 +1,33 @@
+.holder {
+    @apply flex justify-center items-center flex-col relative;
+    @apply p-4 m-8 rounded-[2rem] shadow-xl text-white overflow-hidden;
+}
+
+.holder::before {
+    @apply absolute top-0 right-0 flex w-full h-full;
+    @apply content-[''] opacity-40;
+}
+
+.holder * {
+    @apply z-[1];
+}
+
+.holder h2 {
+    @apply text-5xl mx-2 my-6;
+}
+
+.holder h2 a {
+    @apply font-bold text-white text-5xl pb-2 after:content-[''] after:bg-white;
+}
+
+.holder h3 {
+    @apply text-3xl m-0;
+}
+
+.holder p {
+    @apply text-xl m-0;
+}
+
+.icon {
+    @apply rounded-full overflow-hidden;
+}

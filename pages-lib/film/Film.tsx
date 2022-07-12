@@ -3,7 +3,7 @@ import YouTube from 'react-youtube';
 export default function Film() {
     return (
         <>
-            <h1>I've made some vids</h1>
+            <h1>I've filmed some vids</h1>
             <p>
                 Mostly for{' '}
                 <a

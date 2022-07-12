@@ -9,7 +9,11 @@ export function About() {
             <p>Aspiring Artist</p>
             <p>
                 Student at{' '}
-                <a href="https://usc.edu" target="_blank">
+                <a
+                    href="https://usc.edu"
+                    target="_blank"
+                    className="!text-red-600 after:!bg-yellow-300 after:content-['']"
+                >
                     USC
                 </a>
             </p>

@@ -13,11 +13,17 @@ export default function Art() {
             js.setAttribute('src', 'https://embedsocial.com/cdn/ht.js');
             d.getElementsByTagName('head')[0].appendChild(js);
         })(document, 'script', 'EmbedSocialHashtagScript');
+
+        return () => {
+            if (!artRef.current) return;
+            const script = document.getElementById('EmbedSocialHashtagScript');
+            if (script) script.remove();
+        };
     }, [artRef]);
 
     return (
         <>
-            <h1>I've made some art</h1>
+            <h1>I've created some art</h1>
             <p>
                 Some with <u>pixels</u>
             </p>

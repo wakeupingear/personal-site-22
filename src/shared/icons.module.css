@@ -1,5 +1,5 @@
 .icon {
-    @apply flex justify-center items-center;
+    @apply flex justify-center items-center text-white transition-all duration-200;
 }
 
 .icon::after {

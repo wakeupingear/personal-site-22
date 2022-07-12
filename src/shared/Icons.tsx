@@ -5,54 +5,66 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { ReactNode } from 'react';
 import styles from './icons.module.css';
 
-function IconWrapper(props: { children: ReactNode; url: string; alt: string }) {
+function IconWrapper(props: {
+    children: ReactNode;
+    url: string;
+    alt: string;
+    className?: string;
+}) {
     return (
         <a
             href={props.url}
             key={props.alt}
             target="_blank"
-            className={styles.icon}
+            className={`${styles.icon} ${props.className || ''}`}
         >
             {props.children}
         </a>
     );
 }
 
-export function GitHub() {
+interface Props {
+    className?: string;
+}
+
+export function GitHub(props: Props) {
     return (
-        <IconWrapper url="https://github.com/willf668" alt="Github">
+        <IconWrapper url="https://github.com/willf668" alt="Github" {...props}>
             <GitHubIcon fontSize="inherit" />
         </IconWrapper>
     );
 }
 
-export function YouTube() {
+export function YouTube(props: Props) {
     return (
         <IconWrapper
             url="https://www.youtube.com/channel/UCImSybcXB8pCtulA-_T0WCw"
             alt="YouTube"
+            {...props}
         >
             <YouTubeIcon fontSize="inherit" />
         </IconWrapper>
     );
 }
 
-export function Instagram() {
+export function Instagram(props: Props) {
     return (
         <IconWrapper
             url="https://www.instagram.com/will_farhat/"
             alt="Instagram"
+            {...props}
         >
             <InstagramIcon fontSize="inherit" />
         </IconWrapper>
     );
 }
 
-export function LinkedIn() {
+export function LinkedIn(props: Props) {
     return (
         <IconWrapper
             url="https://www.linkedin.com/in/will-farhat/"
             alt="Linkedin"
+            {...props}
         >
             <LinkedInIcon fontSize="inherit" />
         </IconWrapper>

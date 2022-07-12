@@ -16,7 +16,7 @@ import styles from './homePreviews.module.css';
 
 const CATEGORY_ICONS: { [key in ContentCategories]: ReactElement } = {
     web: <ComputerOutlined />,
-    academic: <School />,
+    professional: <School />,
     games: <SportsEsports />,
     art: <Palette />,
     film: <Movie />,

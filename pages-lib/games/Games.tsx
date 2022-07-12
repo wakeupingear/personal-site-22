@@ -19,7 +19,7 @@ export default function Games() {
             <Head>
                 <title>{INITIALS} - Games</title>
             </Head>
-            <h1>I've made some games</h1>
+            <h1>I've designed some games</h1>
             <p>
                 Mostly in <u>Gamemaker</u> and <u>Unity</u>
             </p>

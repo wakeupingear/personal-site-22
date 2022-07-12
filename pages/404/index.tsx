@@ -27,7 +27,7 @@ export default function index() {
                     </Link>
                 </div>
                 <div className={styles.text}>
-                    "'If you're seeing this, it means you're on the right
+                    " 'If you're seeing this, it means you're on the right
                     website but you're on the wrong page.'
                 </div>
                 <div className={styles.text}>-Bernie Sanders"</div>
