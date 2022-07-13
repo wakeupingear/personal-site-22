@@ -6,6 +6,10 @@
     @apply flex absolute;
 }
 
+.parallax * {
+    @apply transition-all duration-500;
+}
+
 .sphere {
     @apply bg-orange-300 rounded-full;
     box-shadow: inset 0 0 50px #fff, /* inner white */ inset 20px 0 80px #f0f,
@@ -15,4 +19,23 @@
         /* inner right cyan broad */ 0 0 50px #fff,
         /* outer white */ -10px 0 80px #f0f,
         /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
+}
+
+:global(.dark) .sphere {
+    @apply bg-yellow-100 opacity-50;
+    box-shadow: none;
+}
+
+.mask {
+    @apply absolute flex w-full h-full;
+}
+
+.mask::after {
+    content: '';
+    @apply absolute flex bg-black rounded-full transition-all duration-500 w-4/5 h-4/5 top-1/2 left-1/2;
+    transform: translate(0%, 0%) scale(0);
+}
+
+:global(.dark) .mask::after {
+    transform: translate(-50%, -50%) scale(1);
 }

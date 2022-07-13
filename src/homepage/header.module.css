@@ -12,7 +12,7 @@
     @apply flex flex-wrap mr-[20rem];
 }
 :global(.dark) .myName {
-    @apply bg-gradient-to-r from-white to-gray-700;
+    @apply bg-gradient-to-r from-white to-gray-500;
 }
 
 .firstName {
@@ -32,7 +32,7 @@
 }
 
 .iconHolder * {
-    @apply m-1 text-8xl text-white;
+    @apply m-1 text-8xl;
 }
 
 .text,
@@ -45,7 +45,7 @@
 }
 
 .nameBgHolder {
-    @apply relative flex;
+    @apply relative flex z-[-1];
 }
 
 .nameBg {

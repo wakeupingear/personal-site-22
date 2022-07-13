@@ -28,6 +28,15 @@
     @apply text-xl m-0;
 }
 
-.icon {
-    @apply rounded-full overflow-hidden;
+.cardLink,
+.holder {
+    @apply transition-all;
+    transform-origin: bottom;
+}
+
+.cardLink:hover {
+    @apply cursor-pointer after:bg-transparent scale-105;
+}
+
+.image {
 }

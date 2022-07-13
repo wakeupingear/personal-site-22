@@ -1,10 +1,14 @@
-import { ReactElement } from 'react';
+import { ReactNode } from 'react';
+import Image from 'next/image';
 import styles from './card.module.css';
 
 interface Props {
-    children: ReactElement | ReactElement[];
+    children: ReactNode;
     className?: string;
-    icon?: ReactElement;
+    image?: string;
+    imageAlt?: string;
+    imageClassName?: string;
+    link?: string;
     minHeight?: string;
     title?: string;
     titleLink?: string;
@@ -14,15 +18,18 @@ interface Props {
 export default function Card({
     children,
     className = '',
-    icon,
+    image,
+    imageAlt,
+    imageClassName = '',
+    link,
     minHeight = '20rem',
     title,
     titleLink,
     width = '20rem',
 }: Props) {
-    let titleElement: ReactElement | null = null;
+    let titleElement: ReactNode = null;
     if (title) {
-        if (titleLink)
+        if (!link && titleLink)
             titleElement = (
                 <h2>
                     <a href={titleLink} target="_blank">
@@ -33,7 +40,7 @@ export default function Card({
         else titleElement = <h2>{title}</h2>;
     }
 
-    return (
+    const content = (
         <div
             style={{
                 minHeight,
@@ -41,9 +48,27 @@ export default function Card({
             }}
             className={`${styles.holder} ${className}`}
         >
-            {icon && <div className={styles.icon}>{icon}</div>}
+            {image && (
+                <div className={`${styles.image} ${imageClassName}`}>
+                    <Image
+                        src={image}
+                        layout={'fill'}
+                        objectFit={'contain'}
+                        alt={imageAlt}
+                    />
+                </div>
+            )}
             {titleElement}
             {children}
         </div>
     );
+
+    if (link)
+        return (
+            <a className={styles.cardLink} href={link} target="_blank">
+                {content}
+            </a>
+        );
+
+    return content;
 }

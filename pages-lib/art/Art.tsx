@@ -30,9 +30,6 @@ export default function Art() {
             <p>
                 And some with <u>pencils</u>
             </p>
-            <p>
-                <a className="!mt-16">View the full gallery</a>
-            </p>
             <p className="!mt-16">From time to time, I also do</p>
             <h1 className="!my-0">Daily art</h1>
             <div

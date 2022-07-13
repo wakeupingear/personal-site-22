@@ -21,7 +21,7 @@
 
 .sticking .holder {
     @apply bg-gradient-to-r from-blue-500 to-purple-700 w-[100vw] shadow-2xl opacity-100 h-20 pointer-events-auto;
-    @apply before:bg-gray-600 before:absolute before:block before:w-full before:h-full before:opacity-0 before:transition-opacity;
+    @apply before:bg-gray-600 before:absolute before:block before:w-full before:h-full before:opacity-0 before:transition-opacity before:content-[''];
 }
 :global(.dark) .sticking .holder {
     @apply before:opacity-100;

@@ -14,7 +14,7 @@
 .moon {
     @apply absolute right-0 flex w-[var(--radius)] h-[var(--radius)];
     @apply transition-all duration-700 ease-in-out rounded-full;
-    @apply hover:w-[var(--largeRadius)] hover:h-[var(--largeRadius)] hover:cursor-pointer;
+    @apply hover:w-[var(--largeRadius)] hover:h-[var(--largeRadius)] hover:cursor-pointer after:content-[''];
 }
 
 .sun::after,
@@ -25,7 +25,7 @@
 }
 
 .inBar {
-    @apply after:bg-gray-600;
+    @apply after:bg-gray-600 after:content-[''];
 }
 
 .sun {

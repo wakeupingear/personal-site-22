@@ -13,6 +13,14 @@ body {
     @apply transition-all dark:bg-black;
 }
 
+* {
+    @apply selection:bg-orange-200 selection:bg-opacity-80;
+}
+
+*::selection {
+    -webkit-text-fill-color: #fff;
+}
+
 a,
 .clickableText {
     text-decoration: none;

@@ -1,6 +1,7 @@
 .previewTransition,
 .previewTransition * {
     @apply transition-all duration-500;
+    @apply select-none;
 }
 
 .previews {

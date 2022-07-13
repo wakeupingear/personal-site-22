@@ -5,3 +5,18 @@
 .icon::after {
     @apply !bg-transparent;
 }
+
+.icon path {
+    @apply transition-all duration-200;
+    stroke: white;
+    stroke-width: 0px;
+    stroke-linejoin: round;
+}
+
+.icon:hover {
+    @apply text-opacity-0;
+}
+
+.icon:hover path {
+    stroke-width: 1px;
+}
