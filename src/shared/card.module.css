@@ -28,6 +28,10 @@
     @apply text-xl m-0;
 }
 
+.cardLink {
+    @apply after:!bg-transparent;
+}
+
 .cardLink,
 .holder {
     @apply transition-all;

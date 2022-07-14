@@ -19,35 +19,31 @@ export default function Home({ children }: { children: React.ReactNode }) {
     }, [children]);
 
     return (
-        <div className={styles.home}>
-                <div className={styles.bg} />
-                <ParallaxBG />
-                <ThemeToggle />
-                <Header />
-                <LinkBar />
+        <div className={styles.home} id="home">
+            <div className={styles.bg} />
+            <ParallaxBG />
+            <ThemeToggle />
+            <Header />
+            <LinkBar />
+            <div
+                className={`${styles.body} ${onSide ? styles.bodyFull : ''}`}
+                id="homeBody"
+            >
+                <div className={styles.content}>
+                    {children}
+                    <SideToggle sideOpen={sideOpen} setSideOpen={setSideOpen} />
+                </div>
                 <div
-                    className={`${styles.body} ${
-                        onSide ? styles.bodyFull : ''
+                    className={`${previewStyles.previews} ${
+                        onSide ? previewStyles.previewSide : ''
+                    } ${!sideOpen ? previewStyles.previewSideHidden : ''} ${
+                        true && previewStyles.previewTransition
                     }`}
                 >
-                    <div className={styles.content}>
-                        {children}
-                        <SideToggle
-                            sideOpen={sideOpen}
-                            setSideOpen={setSideOpen}
-                        />
-                    </div>
-                    <div
-                        className={`${previewStyles.previews} ${
-                            onSide ? previewStyles.previewSide : ''
-                        } ${!sideOpen ? previewStyles.previewSideHidden : ''} ${
-                            true && previewStyles.previewTransition
-                        }`}
-                    >
-                        <HomePreviews onSide={onSide} />
-                    </div>
+                    <HomePreviews onSide={onSide} />
                 </div>
-                <Footer />
+            </div>
+            <Footer />
         </div>
     );
 }

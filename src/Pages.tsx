@@ -26,10 +26,25 @@ function Container({
     );
 }
 
+export function homeScroll(id: string) {
+    const home = document.getElementById('home');
+    const target = document.getElementById(id);
+    if (home && target) {
+        window.scrollTo({
+            top: target.offsetTop,
+            behavior: 'smooth',
+        });
+    }
+}
+
 export function HomePage(props: Props) {
     const { setRenderedChildren } = useAuth();
     useEffect(() => {
         setRenderedChildren(props.children ? <Container {...props} /> : null);
+
+        if (props.children) {
+            homeScroll('homeBody');
+        }
     }, []);
     return null;
 }

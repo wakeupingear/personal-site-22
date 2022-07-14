@@ -26,11 +26,15 @@
 }
 
 .defaultStyles a {
-    @apply text-3xl font-normal;
+    @apply text-3xl font-normal transition-all;
+}
+
+:global(.dark) .defaultStyles a {
+    @apply text-blue-300 after:bg-blue-300 after:content-[''];
 }
 
 .defaultStyles p a {
-    @apply font-bold;
+    @apply font-extrabold;
 }
 
 .defaultStyles ul {
