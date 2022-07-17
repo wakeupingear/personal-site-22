@@ -1,7 +1,7 @@
+import { URL } from './constants';
+
 export const __DEV__ = process.env.NODE_ENV === 'development';
-const pageUrl = __DEV__
-    ? 'http://localhost:3000'
-    : 'https://pet-site-api.herokuapp.com';
+const pageUrl = __DEV__ ? 'http://localhost:3000' : URL;
 
 export interface APIResponse {
     status: number;

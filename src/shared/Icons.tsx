@@ -29,7 +29,11 @@ interface Props {
 
 export function GitHub(props: Props) {
     return (
-        <IconWrapper url="https://github.com/willf668" alt="Github" {...props}>
+        <IconWrapper
+            url={process.env.NEXT_PUBLIC_GITHUB || ''}
+            alt="Github"
+            {...props}
+        >
             <GitHubIcon fontSize="inherit" />
         </IconWrapper>
     );
@@ -38,7 +42,7 @@ export function GitHub(props: Props) {
 export function YouTube(props: Props) {
     return (
         <IconWrapper
-            url="https://www.youtube.com/channel/UCImSybcXB8pCtulA-_T0WCw"
+            url={process.env.NEXT_PUBLIC_YOUTUBE || ''}
             alt="YouTube"
             {...props}
         >
@@ -50,7 +54,7 @@ export function YouTube(props: Props) {
 export function Instagram(props: Props) {
     return (
         <IconWrapper
-            url="https://www.instagram.com/will_farhat/"
+            url={process.env.NEXT_PUBLIC_INSTAGRAM || ''}
             alt="Instagram"
             {...props}
         >
@@ -62,7 +66,7 @@ export function Instagram(props: Props) {
 export function LinkedIn(props: Props) {
     return (
         <IconWrapper
-            url="https://www.linkedin.com/in/will-farhat/"
+            url={process.env.NEXT_PUBLIC_LINKEDIN || ''}
             alt="Linkedin"
             {...props}
         >
