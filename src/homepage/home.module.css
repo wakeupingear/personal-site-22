@@ -29,7 +29,7 @@
 }
 
 .content {
-    @apply flex grow relative w-0 h-fit transition-all duration-300;
+    @apply flex grow relative w-0 min-h-[60vh] h-fit transition-all duration-300;
 }
 
 .buttonHolder {

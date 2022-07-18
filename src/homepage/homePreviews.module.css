@@ -5,15 +5,15 @@
 }
 
 .previews {
-    @apply flex w-full sticky shadow-xl h-min;
+    @apply flex w-full sticky h-min;
 }
 
 .previewSide {
-    @apply w-[20%];
+    @apply w-[min(20%,500px)] mr-4 overflow-hidden;
 }
 
 .previewSideHidden {
-    @apply w-0;
+    @apply w-0 !m-0;
 }
 
 .previewSide > div > * {
@@ -36,12 +36,42 @@
     @apply transition-all duration-300;
 }
 
+.column > * {
+    @apply shadow-2xl;
+}
+
+.column:first-of-type > *:first-child {
+    @apply !rounded-tl-[2rem];
+}
+.column:first-of-type > *:last-child {
+    @apply !rounded-tr-[2rem];
+}
+.column:last-of-type > *:first-child {
+    @apply !rounded-bl-[2rem] overflow-hidden;
+}
+.column:last-of-type > *:last-child {
+    @apply !rounded-br-[2rem] overflow-hidden;
+}
+
+.previewSide .column:first-of-type > *:first-child {
+    @apply !rounded-tl-[1rem];
+}
+.previewSide .column:first-of-type > *:last-child {
+    @apply !rounded-tr-[1rem];
+}
+.previewSide .column:last-of-type > *:first-child {
+    @apply !rounded-bl-[1rem] overflow-hidden;
+}
+.previewSide .column:last-of-type > *:last-child {
+    @apply !rounded-br-[1rem] overflow-hidden;
+}
+
 .link {
     @apply absolute flex w-full h-full;
 }
 
 .holder {
-    @apply z-[5] grow overflow-hidden;
+    @apply z-[5] grow;
 }
 
 .holder:not(.clickable) {
@@ -92,4 +122,20 @@ div.clickable:last-of-type {
 
 .clickable:hover .frontholder {
     @apply opacity-100;
+}
+
+.iconHolder::before {
+    @apply content-[attr(data-name)] absolute bottom-full;
+    @apply flex justify-center items-center;
+    @apply h-0 overflow-hidden transition-all origin-bottom rounded-lg;
+    @apply bg-transparent text-3xl text-white font-bold;
+}
+:global(.dark) .iconHolder::before {
+    @apply font-normal;
+}
+.previewSide .iconHolder:last-of-type:before {
+    @apply right-0;
+}
+.iconHolder:hover::before {
+    @apply h-5 m-3 p-3;
 }

@@ -1,11 +1,9 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import Image from 'next/image';
 
-export type HomepageProps = InferGetServerSidePropsType<
-    typeof getServerSideProps
->;
+import { PageData } from './types';
 
 const B_P_GRAD = '#4bf2f6, #7e32de';
-const PAGE_DATA = {
+export const PAGE_DATA: PageData = {
     components: [
         {
             height: 'fit-content',
@@ -56,50 +54,21 @@ const PAGE_DATA = {
             ],
         },
         {
+            height: '24rem',
             components: [
                 {
-                    name: 'Swoop',
-                    startDate: '2022',
-                    image: 'https://www.looper.com/img/gallery/the-reason-so-many-fans-hate-pogo-on-the-umbrella-academy/intro-1579715101.jpg',
-                    width: 40,
-                },
-                {
-                    name: 'Swup',
-                    startDate: '2022',
-                    image: 'https://www.looper.com/img/gallery/the-reason-so-many-fans-hate-pogo-on-the-umbrella-academy/intro-1579715101.jpg',
-                    width: 35,
-                },
-                {
-                    name: 'Swp',
-                    startDate: '2022',
-                    image: 'https://www.looper.com/img/gallery/the-reason-so-many-fans-hate-pogo-on-the-umbrella-academy/intro-1579715101.jpg',
-                    width: 25,
-                },
-            ],
-        },
-        {
-            components: [
-                {
-                    name: 'Skronkle',
-                    startDate: '2022',
-                    image: 'https://www.looper.com/img/gallery/the-reason-so-many-fans-hate-pogo-on-the-umbrella-academy/intro-1579715101.jpg',
+                    name: 'Outset',
+                    startDate: '2017-2022',
+                    image: '/outset/outsetSplash.png',
                     width: 70,
                 },
                 {
-                    name: 'Swap',
-                    startDate: '2022',
-                    image: 'https://www.looper.com/img/gallery/the-reason-so-many-fans-hate-pogo-on-the-umbrella-academy/intro-1579715101.jpg',
+                    name: 'Inc Life',
+                    startDate: '2020',
+                    image: '/incLife/incLifeSplash.png',
                     width: 30,
                 },
             ],
         },
     ],
-};
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    return {
-        props: {
-            PAGE_DATA: PAGE_DATA,
-        },
-    };
 };

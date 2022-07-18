@@ -6,6 +6,10 @@
     @apply text-center;
 }
 
+.defaultStyles section {
+    @apply flex w-full h-fit justify-between flex-wrap;
+}
+
 .defaultStyles h1 {
     @apply font-extrabold text-transparent text-[12rem] bg-clip-text bg-gradient-to-r from-white to-orange-300 text-7xl p-1;
 }

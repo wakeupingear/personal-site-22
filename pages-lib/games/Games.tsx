@@ -5,10 +5,17 @@ import LinkList, { Game } from '../../src/shared/LinkList';
 
 const GAMES: Game[] = [
     { name: 'Outset', bold: true },
-    { name: 'Companion' },
+    { name: 'Companion', link: 'https://willf668.itch.io/com' },
     { name: 'Inc Life' },
-    { name: 'Damn It!' },
-    { name: 'The Meatball in the Machine' },
+    {
+        name: 'Damn It!',
+        link: 'https://globalgamejam.org/2022/games/damn-it-5',
+    },
+    {
+        name: 'The Meatball in the Machine',
+        link: 'https://williammccullen.itch.io/the-meatball-in-the-machine',
+    },
+    { name: 'Do or Die!', link: 'https://fajpaj.itch.io/do-or-die' },
     { name: 'Writus' },
     { name: 'Tiny Headed Game', bold: true },
 ];

@@ -28,7 +28,8 @@ interface Props {
 }
 
 export default function Preview({ component }: Props) {
-    const url = '/' + toCamelcase(component.name);
+    const { backgroundColors, icon, image, name, width } = component;
+    const url = '/' + toCamelcase(name);
     const selected = false && !IS_SERVER && window.location.pathname === url;
 
     const router = useRouter();
@@ -42,31 +43,34 @@ export default function Preview({ component }: Props) {
     return (
         <div
             onClick={openPreview}
-            className={`${styles.holder} ${!selected ? styles.clickable : ''}`}
-            key={component.name}
+            data-name={name}
+            className={`${styles.holder} ${!selected ? styles.clickable : ''} ${
+                icon ? styles.iconHolder : ''
+            }`}
+            key={name}
             style={
-                component.width && !selected
+                width && !selected
                     ? {
-                          width: component.width + '%',
+                          width: width + '%',
                           backgroundImage: `linear-gradient(to right, ${
-                              component.backgroundColors || 'blue, black'
+                              backgroundColors || 'blue, black'
                           })`,
                           color: component.color || 'white',
                       }
                     : {}
             }
         >
-            {component.image && (
+            {image && (
                 <>
                     <Image
-                        src={component.image}
+                        src={image}
                         className={styles.backImage}
                         layout="fill"
                         objectFit="cover"
                     />
                     <div className={styles.frontImageHolder}>
                         <Image
-                            src={component.image}
+                            src={image}
                             className={styles.frontImage}
                             layout="fill"
                             objectFit="cover"
@@ -74,7 +78,7 @@ export default function Preview({ component }: Props) {
                     </div>
                 </>
             )}
-            {component.icon && CATEGORY_ICONS[component.icon]}
+            {icon && CATEGORY_ICONS[icon]}
         </div>
     );
 }

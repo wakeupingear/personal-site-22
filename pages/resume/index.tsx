@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 import { HomePage } from '../../src/Pages';
-export { getServerSideProps } from '../../utils/homeServerProps';
 
 const PDFViewer = dynamic(() => import('../../src/shared/PDFViewer'), {
     ssr: false,

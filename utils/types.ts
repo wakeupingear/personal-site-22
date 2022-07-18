@@ -1,3 +1,5 @@
+import { ReactNode } from 'react';
+
 export type APIData = {
     data: {
         [key: string]: any;

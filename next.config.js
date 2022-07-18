@@ -4,6 +4,18 @@ const nextConfig = {
   async rewrites() {
     return [
       {
+        source: "/work",
+        destination: "/professional"
+      },
+      {
+        source: "/school",
+        destination: "/professional"
+      },
+      {
+        source: "/education",
+        destination: "/professional"
+      },
+      {
         source: '/:path*',
         destination: '/404',
       }
