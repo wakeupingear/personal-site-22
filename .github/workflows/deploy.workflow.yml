@@ -18,7 +18,7 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache. 
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-      - run: npm install
+      - run: npm ci -f
       - run: npm run build
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
