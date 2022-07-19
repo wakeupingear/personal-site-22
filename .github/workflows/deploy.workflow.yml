@@ -20,3 +20,4 @@ jobs:
         with:
           branch: moonberry
           folder: .next
+          target-folder: .next
