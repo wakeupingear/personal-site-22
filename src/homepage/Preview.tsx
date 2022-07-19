@@ -28,22 +28,39 @@ interface Props {
 }
 
 export default function Preview({ component }: Props) {
-    const { backgroundColors, icon, image, name, width } = component;
-    const url = '/' + toCamelcase(name);
+    const {
+        backgroundColors,
+        endDate,
+        icon,
+        image,
+        link,
+        name,
+        startDate,
+        width,
+    } = component;
+    const url = link || '/' + toCamelcase(name);
     const selected = false && !IS_SERVER && window.location.pathname === url;
 
     const router = useRouter();
-    const openPreview = (e: MouseEvent) => {
+    const openPreview = () => {
         if (selected) return;
         router.push(url, undefined, {
             scroll: false,
         });
     };
 
+    let date = '';
+    if (endDate || startDate) {
+        if (!endDate) date = startDate;
+        else if (!startDate) date = endDate;
+        else date = `${startDate} - ${endDate}`;
+    }
+
     return (
         <div
             onClick={openPreview}
             data-name={name}
+            data-date={date}
             className={`${styles.holder} ${!selected ? styles.clickable : ''} ${
                 icon ? styles.iconHolder : ''
             }`}
@@ -52,31 +69,23 @@ export default function Preview({ component }: Props) {
                 width && !selected
                     ? {
                           width: width + '%',
-                          backgroundImage: `linear-gradient(to right, ${
-                              backgroundColors || 'blue, black'
-                          })`,
+                          backgroundImage: !image
+                              ? `linear-gradient(to right, ${
+                                    backgroundColors || 'blue, black'
+                                })`
+                              : '',
                           color: component.color || 'white',
                       }
                     : {}
             }
         >
             {image && (
-                <>
-                    <Image
-                        src={image}
-                        className={styles.backImage}
-                        layout="fill"
-                        objectFit="cover"
-                    />
-                    <div className={styles.frontImageHolder}>
-                        <Image
-                            src={image}
-                            className={styles.frontImage}
-                            layout="fill"
-                            objectFit="cover"
-                        />
-                    </div>
-                </>
+                <Image
+                    src={image}
+                    className={styles.backImage}
+                    layout="fill"
+                    objectFit="cover"
+                />
             )}
             {icon && CATEGORY_ICONS[icon]}
         </div>

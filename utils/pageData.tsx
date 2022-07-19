@@ -62,11 +62,22 @@ export const PAGE_DATA: PageData = {
                     image: '/outset/outsetSplash.png',
                     width: 70,
                 },
+            ],
+        },
+        {
+            height: '24rem',
+            components: [
                 {
                     name: 'Inc Life',
                     startDate: '2020',
                     image: '/incLife/incLifeSplash.png',
-                    width: 30,
+                    width: 35,
+                },
+                {
+                    name: 'Tiny Headed Game',
+                    startDate: '2020',
+                    image: '/thk/thkSplash.png',
+                    width: 65,
                 },
             ],
         },

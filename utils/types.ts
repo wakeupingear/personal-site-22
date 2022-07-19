@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 export type APIData = {
     data: {
         [key: string]: any;
@@ -42,5 +40,6 @@ export type ContentComponent = {
     endDate?: string;
     icon?: ContentCategories;
     image?: string;
+    link?: string;
     width?: number;
 };

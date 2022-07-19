@@ -47,10 +47,10 @@
     @apply !rounded-tr-[2rem];
 }
 .column:last-of-type > *:first-child {
-    @apply !rounded-bl-[2rem] overflow-hidden;
+    @apply !rounded-bl-[2rem];
 }
 .column:last-of-type > *:last-child {
-    @apply !rounded-br-[2rem] overflow-hidden;
+    @apply !rounded-br-[2rem];
 }
 
 .previewSide .column:first-of-type > *:first-child {
@@ -60,10 +60,10 @@
     @apply !rounded-tr-[1rem];
 }
 .previewSide .column:last-of-type > *:first-child {
-    @apply !rounded-bl-[1rem] overflow-hidden;
+    @apply !rounded-bl-[1rem];
 }
 .previewSide .column:last-of-type > *:last-child {
-    @apply !rounded-br-[1rem] overflow-hidden;
+    @apply !rounded-br-[1rem];
 }
 
 .link {
@@ -72,6 +72,10 @@
 
 .holder {
     @apply z-[5] grow;
+}
+
+.column:not(:first-of-type) .holder {
+    @apply overflow-hidden;
 }
 
 .holder:not(.clickable) {
@@ -138,4 +142,15 @@ div.clickable:last-of-type {
 }
 .iconHolder:hover::before {
     @apply h-5 m-3 p-3;
+}
+
+.holder:not(.iconHolder)::before {
+    @apply content-[attr(data-date)] absolute right-0 top-0 p-2;
+    @apply text-2xl rounded-bl-2xl shadow-2xl;
+    @apply bg-gradient-to-bl from-blue-500 to-purple-700;
+    @apply transition-opacity;
+}
+
+.previewSide .holder:not(.iconHolder)::before {
+    @apply opacity-0;
 }

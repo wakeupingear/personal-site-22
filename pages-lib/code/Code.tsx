@@ -5,8 +5,8 @@ import { Language } from '@mui/icons-material';
 const LANGUAGES = [
     ['typescript', 'react', 'nextjs', 'tailwindcss', 'redux'],
     ['nodejs', 'graphql', 'jest', 'firebase', 'amazonwebservices'],
-    ['python', 'opencv', 'bash', 'linux'],
     ['java', 'cplusplus', 'docker', 'kubernetes'],
+    ['python', 'opencv', 'bash'],
     ['csharp', 'unity'],
 ] as const;
 
@@ -63,7 +63,7 @@ export default function Code() {
                     {group.map((language) => (
                         <div className="m-2 flex flex-col">
                             <i
-                                className={`devicon-${language}-plain devicon-${language}-original text-7xl text-white transition-all hover:rotate-12 hover:scale-110 hover:cursor-pointer  ${colorMap[language]}`}
+                                className={`devicon-${language}-plain devicon-${language}-original text-7xl text-white transition-all hover:rotate-12 hover:scale-110   ${colorMap[language]}`}
                                 key={language}
                             />
                             <p className="text-white text-center capitalize w-0 h-0 overflow-hidden">
@@ -73,6 +73,9 @@ export default function Code() {
                     ))}
                 </div>
             ))}
+            <p className="!mt-16">I also daily drive</p>
+            <h1 className="!mt-0">Kubuntu Linux</h1>
+            <p>Do with that what you will 🚩</p>
         </>
     );
 }

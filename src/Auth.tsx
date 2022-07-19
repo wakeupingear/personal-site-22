@@ -149,12 +149,7 @@ export default function Auth(props: Props) {
             {renderedChildren !== undefined ? (
                 <>
                     {props.children}
-                    <Wrapper
-                        PAGE_DATA={props.PAGE_DATA}
-                        CONTENT_MAP={props.CONTENT_MAP}
-                    >
-                        {renderedChildren}
-                    </Wrapper>
+                    <Wrapper>{renderedChildren}</Wrapper>
                 </>
             ) : (
                 props.children
