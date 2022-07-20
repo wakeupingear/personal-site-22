@@ -1,0 +1,18 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/404": "pages/404.html",
+  "/about": "pages/about.html",
+  "/api/[[...404]]": "pages/api/[[...404]].js",
+  "/api/auth/login": "pages/api/auth/login.js",
+  "/api/build/[cmd]": "pages/api/build/[cmd].js",
+  "/art": "pages/art.html",
+  "/code": "pages/code.html",
+  "/film": "pages/film.html",
+  "/games": "pages/games.html",
+  "/": "pages/index.html",
+  "/professional": "pages/professional.html",
+  "/resume": "pages/resume.html",
+  "/web": "pages/web.html",
+  "/_document": "pages/_document.js"
+}

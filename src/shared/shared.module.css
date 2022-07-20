@@ -1,3 +1,0 @@
-.clickableText {
-    @apply !text-white after:!bg-white after:!content-[''];
-}
