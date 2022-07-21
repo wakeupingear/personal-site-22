@@ -8,10 +8,10 @@ import {
 } from '@mui/icons-material';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { MouseEvent, ReactElement } from 'react';
-import { IS_SERVER } from '../../utils/constants';
-import { toCamelcase } from '../../utils/helpers';
-import { ContentCategories, ContentComponent } from '../../utils/types';
+import { ReactElement } from 'react';
+import { IS_SERVER } from '../../utils/pages/constants';
+import { toCamelcase } from '@utils/pages/helpers';
+import { ContentCategories, ContentComponent } from '@utils/types';
 import styles from './homePreviews.module.css';
 
 const CATEGORY_ICONS: { [key in ContentCategories]: ReactElement } = {
@@ -85,6 +85,7 @@ export default function Preview({ component }: Props) {
                     className={styles.backImage}
                     layout="fill"
                     objectFit="cover"
+                    alt={name}
                 />
             )}
             {icon && CATEGORY_ICONS[icon]}

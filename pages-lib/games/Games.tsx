@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import Head from 'next/head';
-import { INITIALS } from '../../utils/constants';
-import LinkList, { Game } from '../../src/shared/LinkList';
+import { INITIALS } from '../../src/utils/pages/constants';
+import LinkList, { Game } from '@components/shared/LinkList';
 
 const GAMES: Game[] = [
     { name: 'Outset', bold: true },

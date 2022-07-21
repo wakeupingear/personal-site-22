@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-import { FULL_NAME } from '../utils/constants';
+import { FULL_NAME } from '../utils/pages/constants';
 import { useAuth } from './Auth';
 
 export default function Terminal() {
@@ -12,7 +12,7 @@ export default function Terminal() {
     const [commands, setCommands] = useState<ReactNode[]>(
         intro
             ? [
-                  <div>
+                  <div key="intro">
                       <h1 className="text-6xl lowercase">
                           {FULL_NAME.replace(' ', '')}.com
                       </h1>
@@ -71,7 +71,9 @@ export default function Terminal() {
             if (typeof result === 'string')
                 setCommands([
                     ...commands,
-                    <p className="text-3xl m-0">{result}</p>,
+                    <p key={result} className="text-3xl m-0">
+                        {result}
+                    </p>,
                 ]);
             else setCommands([...commands, result]);
         }

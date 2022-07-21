@@ -1,4 +1,4 @@
-import { FULL_NAME } from '../../utils/constants';
+import { FULL_NAME } from '../../src/utils/pages/constants';
 
 export function About() {
     return (

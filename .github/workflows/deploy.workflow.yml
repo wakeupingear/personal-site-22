@@ -10,14 +10,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install and Build 
+      - name: Build test
         run: |
           npm ci -f
           npm run build
-          rm .gitignore 
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: moonberry
-          folder: .next
+      
+      - name: Trigger pi build
+        run: |
+          curl -H "Authorization: ${{ secrets.BUILD_PASSWORD }}" https://willfarhat.com/api/build/trigger

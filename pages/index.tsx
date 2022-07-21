@@ -1,4 +1,4 @@
-import { HomePage } from '../src/Pages';
+import { HomePage } from '@components/Pages';
 
 export default function index() {
     return <HomePage />;

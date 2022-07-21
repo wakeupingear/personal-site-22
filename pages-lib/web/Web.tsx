@@ -1,5 +1,5 @@
-import LinkList, { Game } from '../../src/shared/LinkList';
-import { FULL_NAME } from '../../utils/constants';
+import LinkList, { Game } from '@components/shared/LinkList';
+import { FULL_NAME } from '../../src/utils/pages/constants';
 
 const siteName = `${FULL_NAME.replaceAll(' ', '').toLowerCase()}.com`;
 

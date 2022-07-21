@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import Auth from '../src/Auth';
+import Auth from '@components/Auth';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import '../styles/globals.css';
 

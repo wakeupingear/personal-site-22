@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { PageData } from './types';
+import { PageData } from '../types';
 
 const B_P_GRAD = '#4bf2f6, #7e32de';
 export const PAGE_DATA: PageData = {

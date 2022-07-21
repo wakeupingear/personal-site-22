@@ -3,16 +3,15 @@ import React, {
     ReactElement,
     useContext,
     useEffect,
-    useMemo,
     useState,
 } from 'react';
 import { isMobile } from 'react-device-detect';
-import { IS_SERVER } from '../utils/constants';
+import { IS_SERVER } from '../utils/pages/constants';
 import {
     internal_apiGet,
     internal_apiPost,
     APIResponse,
-} from '../utils/network';
+} from '@utils/pages/network';
 import Wrapper from './Wrapper';
 
 const setTheme = (isDark?: boolean) => {

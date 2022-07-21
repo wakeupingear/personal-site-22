@@ -15,10 +15,6 @@ const nextConfig = {
         source: "/education",
         destination: "/professional"
       },
-      {
-        source: '/:path*',
-        destination: '/404',
-      }
     ];
   },
   images: {

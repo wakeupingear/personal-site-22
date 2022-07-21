@@ -1,5 +1,5 @@
 import styles from './header.module.css';
-import { FULL_NAME } from '../../utils/constants';
+import { FULL_NAME } from '../../utils/pages/constants';
 import { GitHub, Instagram, LinkedIn, YouTube } from '../shared/Icons';
 import Link from 'next/link';
 import { useAuth } from '../Auth';

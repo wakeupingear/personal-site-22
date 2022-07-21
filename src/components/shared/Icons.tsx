@@ -16,6 +16,7 @@ function IconWrapper(props: {
             href={props.url}
             key={props.alt}
             target="_blank"
+            rel="noreferrer"
             className={`${styles.icon} ${props.className || ''}`}
         >
             {props.children}

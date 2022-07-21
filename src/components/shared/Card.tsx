@@ -32,7 +32,7 @@ export default function Card({
         if (!link && titleLink)
             titleElement = (
                 <h2>
-                    <a href={titleLink} target="_blank">
+                    <a href={titleLink} target="_blank" rel="noreferrer">
                         {title}
                     </a>
                 </h2>
@@ -65,7 +65,12 @@ export default function Card({
 
     if (link)
         return (
-            <a className={styles.cardLink} href={link} target="_blank">
+            <a
+                className={styles.cardLink}
+                href={link}
+                target="_blank"
+                rel="noreferrer"
+            >
                 {content}
             </a>
         );

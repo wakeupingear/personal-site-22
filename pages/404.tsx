@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Page } from '../../src/Pages';
+import { Page } from '@components/Pages';
 import styles from './404.module.css';
 
 export default function index() {
@@ -19,6 +19,7 @@ export default function index() {
                         src="https://c.tenor.com/p109U_S2T10AAAAd/thanos-fortnite.gif"
                         layout="fill"
                         objectFit="contain"
+                        alt="thanus"
                     />
                     <Link href="/">
                         <a className={styles.link}>
