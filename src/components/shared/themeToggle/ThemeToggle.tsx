@@ -1,4 +1,4 @@
-import { useAuth } from '../Auth';
+import { useAuth } from '@components/Auth';
 import styles from './themeToggle.module.css';
 
 interface Props {

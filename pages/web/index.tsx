@@ -1,5 +1,5 @@
 import Web from '@pages-lib/web/Web';
-import { HomePage } from '@components/Pages';
+import { HomePage } from '@components/pages/Pages';
 
 export default function index() {
     return (

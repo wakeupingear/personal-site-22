@@ -1,9 +1,8 @@
 import styles from './linkBar.module.css';
 import Sticky from 'react-stickynode';
-import Link from 'next/link';
-import { GitHub, YouTube, Instagram, LinkedIn } from './Icons';
-import ThemeToggle from './ThemeToggle';
-import ClickableText from './ClickableText';
+import { GitHub, YouTube, Instagram, LinkedIn } from '@shared/icons/Icons';
+import ThemeToggle from '@shared/themeToggle/ThemeToggle';
+import ClickableText from '@shared/clickableText/ClickableText';
 
 export default function LinkBar() {
     return (

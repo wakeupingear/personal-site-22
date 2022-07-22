@@ -1,5 +1,5 @@
-import Card from '@components/shared/Card';
-import { LinkedIn } from '@components/shared/Icons';
+import Card from '@shared/card/Card';
+import { LinkedIn } from '@shared/icons/Icons';
 
 const JOB_LIST: {
     color?: string;

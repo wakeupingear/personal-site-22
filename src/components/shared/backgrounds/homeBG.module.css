@@ -1,0 +1,9 @@
+.bg {
+    @apply fixed top-0 right-0 flex w-[100vw] h-[100vh];
+    @apply bg-gradient-to-tr from-[#f4aef8] via-[#d78ff3,#b272f0,#815af0] to-[#1c48f0];
+    @apply before:bg-black before:opacity-0 before:absolute before:block before:w-full before:h-full before:transition-opacity before:duration-700 before:content-[''];
+}
+
+:global(.dark) .bg {
+    @apply before:opacity-100;
+}

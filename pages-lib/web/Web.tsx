@@ -1,4 +1,4 @@
-import LinkList, { Game } from '@components/shared/LinkList';
+import LinkList, { Game } from '@shared/linkList/LinkList';
 import { FULL_NAME } from '../../src/utils/pages/constants';
 
 const siteName = `${FULL_NAME.replaceAll(' ', '').toLowerCase()}.com`;

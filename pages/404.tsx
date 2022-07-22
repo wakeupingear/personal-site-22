@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Page } from '@components/Pages';
+import { Page } from '@components/pages/Pages';
 import styles from './404.module.css';
 
 export default function index() {

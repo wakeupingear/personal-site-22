@@ -2,7 +2,7 @@ import TerminalIcon from '@mui/icons-material/Terminal';
 import styles from './footer.module.css';
 import Link from 'next/link';
 import { useAuth } from '../Auth';
-import ClickableText from '../shared/ClickableText';
+import ClickableText from '../shared/clickableText/ClickableText';
 
 export default function Footer() {
     const { switchScreen } = useAuth();

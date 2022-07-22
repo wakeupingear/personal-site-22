@@ -1,6 +1,7 @@
 import React, {
     createContext,
-    ReactElement,
+    ReactNode,
+    useCallback,
     useContext,
     useEffect,
     useState,
@@ -46,7 +47,7 @@ interface AuthContextProps {
     pageHasContent: boolean;
     screen: number;
     screenAnimating: boolean;
-    setRenderedChildren: (children: ReactElement | null | undefined) => void;
+    setRenderedChildren: (children: ReactNode | null | undefined) => void;
     switchScreen: (screen: number) => void;
     toggleTheme: (isDark?: boolean) => void;
 }
@@ -64,7 +65,7 @@ type Props = {
 
 export default function Auth(props: Props) {
     const [renderedChildren, setRenderedChildren] = useState<
-        ReactElement | null | undefined
+        ReactNode | null | undefined
     >(undefined);
     const pageHasContent = Boolean(renderedChildren);
 
@@ -90,13 +91,15 @@ export default function Auth(props: Props) {
     };
 
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
-    const logIn = async () => {
+    const logIn = useCallback(async () => {
         if (loggedIn) return;
         const response = await apiGet('/api/auth/login');
         if (response.status === 200) {
             setLoggedIn(true);
         }
-    };
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loggedIn]);
 
     const [initialLoading, setInitialLoading] = useState<boolean>(true);
     useEffect(() => {
@@ -111,11 +114,13 @@ export default function Auth(props: Props) {
         }
         setInitialLoading(false);
         setIntro(!Boolean(localStorage.finishedIntro));
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         if (token) logIn();
-    }, [token]);
+    }, [token, logIn]);
 
     const apiGet = async (path: string, options = {}) => {
         const response = await internal_apiGet(path, token, options);

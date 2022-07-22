@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { INITIALS } from '../../src/utils/pages/constants';
-import LinkList, { Game } from '@components/shared/LinkList';
+import LinkList, { Game } from '@shared/linkList/LinkList';
 
 const GAMES: Game[] = [
     { name: 'Outset', bold: true },

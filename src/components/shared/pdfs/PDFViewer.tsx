@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack5';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import { PuffLoader } from 'react-spinners';
-import ClickableText from './ClickableText';
+import ClickableText from '@shared/clickableText/ClickableText';
 
 interface Props {
     file: string;

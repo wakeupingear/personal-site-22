@@ -1,8 +1,8 @@
 import styles from './header.module.css';
-import { FULL_NAME } from '../../utils/pages/constants';
-import { GitHub, Instagram, LinkedIn, YouTube } from '../shared/Icons';
+import { FULL_NAME } from '@utils/pages/constants';
+import { GitHub, Instagram, LinkedIn, YouTube } from '@shared/icons/Icons';
 import Link from 'next/link';
-import { useAuth } from '../Auth';
+import { useAuth } from '@components/Auth';
 
 const NAMES = Array(60)
     .fill(0)

@@ -1,5 +1,3 @@
-import { ReactElement } from 'react';
-import { ContentCategories } from '../../utils/types';
 import { usePageData } from '../Wrapper';
 import styles from './homePreviews.module.css';
 import Preview from './Preview';

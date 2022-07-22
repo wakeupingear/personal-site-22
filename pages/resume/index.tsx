@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
-import { HomePage } from '@components/Pages';
+import { HomePage } from '@components/pages/Pages';
 
-const PDFViewer = dynamic(() => import('@components/shared/PDFViewer'), {
+const PDFViewer = dynamic(() => import('@shared/pdfs/PDFViewer'), {
     ssr: false,
 });
 

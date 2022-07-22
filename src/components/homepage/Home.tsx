@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import LinkBar from '../shared/LinkBar';
+import LinkBar from '@shared/linkBar/LinkBar';
 import Footer from './Footer';
 import styles from './home.module.css';
 import previewStyles from './homePreviews.module.css';
 import HomePreviews from './HomePreviews';
 import Header from './Header';
-import ThemeToggle from '../shared/ThemeToggle';
+import ThemeToggle from '@shared/themeToggle/ThemeToggle';
 import SideToggle from './SideToggle';
-import ParallaxBG from './ParallaxBG';
+import HomeBG from '@shared/backgrounds/HomeBG';
 
 export default function Home({ children }: { children: React.ReactNode }) {
     const [onSide, setOnSide] = useState(Boolean(children));
@@ -20,8 +20,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
 
     return (
         <div className={styles.home} id="home">
-            <div className={styles.bg} />
-            <ParallaxBG />
+            <HomeBG />
             <ThemeToggle />
             <Header />
             <LinkBar />

@@ -15,6 +15,7 @@
 # misc
 .DS_Store
 *.pem
+.VSCodeCounter/
 
 # debug
 npm-debug.log*
@@ -31,3 +32,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# logs
+/**/*.out
+/**/*.log
+/logs/
