@@ -21,6 +21,10 @@ const nextConfig = {
     domains: ["www.looper.com", "c.tenor.com"],
   },
   swcMinify: true,
+  i18n: {
+    locales: ["en"],
+    defaultLocale: "en",
+  },
 }
 
 module.exports = nextConfig

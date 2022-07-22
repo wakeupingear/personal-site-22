@@ -18,6 +18,7 @@ function IconWrapper(props: {
             target="_blank"
             rel="noreferrer"
             className={`${styles.icon} ${props.className || ''}`}
+            aria-label={props.alt}
         >
             {props.children}
         </a>
