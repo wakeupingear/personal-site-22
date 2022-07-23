@@ -9,11 +9,15 @@
 }
 
 .previewSide {
-    @apply w-[min(20%,500px)] mr-4 overflow-hidden;
+    @apply w-[min(20%,500px)] mr-4;
 }
 
 .previewSideHidden {
     @apply w-0 !m-0;
+}
+
+.previewSideHidden * {
+    @apply !text-[0px];
 }
 
 .previewSide > div > * {

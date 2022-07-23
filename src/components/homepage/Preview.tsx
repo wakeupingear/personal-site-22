@@ -10,11 +10,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { ReactElement } from 'react';
 import { IS_SERVER } from '../../utils/pages/constants';
-import { toCamelcase } from '@utils/pages/helpers';
+import { toCamelcase } from '@utils/helpers';
 import { ContentCategories, ContentComponent } from '@utils/types';
 import styles from './homePreviews.module.css';
 
-const CATEGORY_ICONS: { [key in ContentCategories]: ReactElement } = {
+export const CATEGORY_ICONS: { [key in ContentCategories]: ReactElement } = {
     web: <ComputerOutlined />,
     professional: <School />,
     games: <SportsEsports />,

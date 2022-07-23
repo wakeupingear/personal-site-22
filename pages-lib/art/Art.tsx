@@ -1,3 +1,5 @@
+import { INITIALS } from '@utils/pages/constants';
+import Head from 'next/head';
 import React, { useEffect } from 'react';
 import styles from './art.module.css';
 
@@ -23,6 +25,9 @@ export default function Art() {
 
     return (
         <>
+            <Head>
+                <title>{INITIALS} - Art</title>
+            </Head>
             <h1>I've created some art</h1>
             <p>
                 Some with <u>pixels</u>

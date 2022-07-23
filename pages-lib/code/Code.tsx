@@ -15,37 +15,41 @@ type Language = typeof LANGUAGES[number][number];
 const colorMap: {
     [key: string]: string;
 } = {
-    typescript: 'hover:text-blue-600',
-    react: 'hover:text-[#61dafb]',
-    nextjs: 'hover:text-[#1a365d] dark:hover:text-[#5263b3]',
-    tailwindcss: 'hover:text-[#00e1b2]',
-    redux: 'hover:text-[#764abc]',
-    nodejs: 'hover:text-green-300',
-    graphql: 'hover:text-pink-500',
-    jest: 'hover:text-[#ffa812]',
-    firebase: 'hover:text-yellow-300',
-    amazonwebservices: 'hover:text-[#f5a623]',
-    python: 'hover:text-[#3572A5]',
-    opencv: 'hover:text-[#3572A5]',
-    bash: 'hover:hover:text-green-300',
-    linux: 'hover:text-yellow-100',
-    java: 'hover:text-[#b07219]',
-    cplusplus: 'hover:text-black dark:hover:text-[#dea12c]',
-    docker: 'hover:text-blue-600',
-    kubernetes: 'hover:text-blue-600',
-    csharp: 'hover:text-[#5263b3]',
-    unity: 'hover:text-[#5263b3]',
+    typescript: 'hover-child:text-blue-600',
+    react: 'hover-child:text-[#61dafb]',
+    nextjs: 'hover-child:text-[#1a365d] dark:hover-child:text-[#5263b3]',
+    tailwindcss: 'hover-child:text-[#00e1b2]',
+    redux: 'hover-child:text-[#764abc]',
+    nodejs: 'hover-child:text-green-300',
+    graphql: 'hover-child:text-pink-500',
+    jest: 'hover-child:text-[#ffa812]',
+    firebase: 'hover-child:text-yellow-300',
+    amazonwebservices: 'hover-child:text-[#f5a623]',
+    python: 'hover-child:text-[#3572A5]',
+    opencv: 'hover-child:text-[#3572A5]',
+    bash: 'hover-child:hover-child:text-green-300',
+    linux: 'hover-child:text-yellow-100',
+    java: 'hover-child:text-[#b07219]',
+    cplusplus: 'hover-child:text-black dark:hover-child:text-[#dea12c]',
+    docker: 'hover-child:text-blue-600',
+    kubernetes: 'hover-child:text-blue-600',
+    csharp: 'hover-child:text-[#5263b3]',
+    unity: 'hover-child:text-[#5263b3]',
 };
 
-const PROJECTS: {
-    [key: string]: {
-        tech: Language;
-        sourceCode?: string;
-        github?: string;
-        demo?: string;
-        images?: ReactElement[];
-    };
-} = {};
+const nicknameMap: {
+    [key: string]: string;
+} = {
+    typescript: 'TypeScript',
+    nextjs: 'Next.js',
+    tailwindcss: 'TailwindCSS',
+    nodejs: 'Node.js',
+    graphql: 'GraphQL',
+    amazonwebservices: 'AWS',
+    opencv: 'OpenCV',
+    cplusplus: 'C++',
+    csharp: 'C#',
+};
 
 export default function Code() {
     return (
@@ -61,13 +65,15 @@ export default function Code() {
             {LANGUAGES.map((group) => (
                 <div className="flex flex-wrap justify-center" key={group[0]}>
                     {group.map((language) => (
-                        <div className="m-2 flex flex-col">
+                        <div
+                            className={`m-2 flex flex-col hover-first-child:rotate-[10deg] hover-first-child:scale-110 ${colorMap[language]}`}
+                        >
                             <i
-                                className={`devicon-${language}-plain devicon-${language}-original text-7xl text-white transition-all hover:rotate-12 hover:scale-110   ${colorMap[language]}`}
+                                className={`devicon-${language}-plain devicon-${language}-original text-7xl text-white transition-all`}
                                 key={language}
                             />
-                            <p className="text-white text-center capitalize w-0 h-0 overflow-hidden">
-                                {language}
+                            <p className="text-white !text-xl !my-0 !mt-1 text-center capitalize transition-all">
+                                {nicknameMap[language] || language}
                             </p>
                         </div>
                     ))}

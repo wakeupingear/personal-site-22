@@ -17,6 +17,10 @@ body {
     @apply selection:bg-orange-200 selection:bg-opacity-80;
 }
 
+.dark * {
+    @apply selection:bg-slate-600;
+}
+
 *::selection {
     -webkit-text-fill-color: #fff;
 }
@@ -27,7 +31,7 @@ a,
     display: inline-block;
     position: relative;
     font-weight: bold;
-    @apply text-blue-600 hover:cursor-pointer;
+    @apply text-blue-600 hover:cursor-pointer drop-shadow-sm;
 }
 
 a::after,
@@ -55,7 +59,7 @@ a:hover::after,
 }
 
 .shade {
-    @apply flex fixed w-[100vw] h-[100vh] bg-black transition-all duration-500 z-[100];
+    @apply flex fixed top-0 left-0 w-[100vw] h-[100vh] bg-black transition-all duration-300 z-[100];
 }
 .shadeHidden {
     @apply opacity-0;

@@ -27,5 +27,12 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('child', '& > *');
+      addVariant('hover-child', '&:hover > *');
+      addVariant('first-child', '& > *:first-child');
+      addVariant('hover-first-child', '&:hover > *:first-child');
+    }
+  ],
 }

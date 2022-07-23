@@ -1,7 +1,11 @@
 import LinkList, { Game } from '@shared/linkList/LinkList';
-import { FULL_NAME } from '../../src/utils/pages/constants';
+import { uppercaseFirstLetter } from '@utils/helpers';
+import Head from 'next/head';
+import { FULL_NAME, INITIALS } from '../../src/utils/pages/constants';
 
-const siteName = `${FULL_NAME.replaceAll(' ', '').toLowerCase()}.com`;
+const siteName = uppercaseFirstLetter(
+    `${FULL_NAME.replaceAll(' ', '').toLowerCase()}.com`
+);
 
 const SITES: Game[] = [
     { name: 'Bloomberg Businessweek', bold: true },
@@ -13,6 +17,9 @@ const SITES: Game[] = [
 export default function Web() {
     return (
         <>
+            <Head>
+                <title>{INITIALS} - Web</title>
+            </Head>
             <h1>I've made some websites</h1>
             <p>
                 Mostly in <u>React</u> and <u>NextJS</u>
@@ -32,6 +39,17 @@ export default function Web() {
             </p>
             <p className="!mt-16">Here's some past work</p>
             <LinkList content={SITES} />
+            <p className="!mt-16">While we're at it, let's talk about</p>
+            <h1 className="!mt-0 capitalize">{siteName}</h1>
+            <p>
+                <u>NextJS</u>, <u>TailwindCSS</u>, and <u>Typescript</u>
+            </p>
+            <p>
+                CI/CD pipeline with <u>Github Actions</u>
+            </p>
+            <p>
+                Self-hosted on a <u>Raspberry Pi</u>
+            </p>
         </>
     );
 }

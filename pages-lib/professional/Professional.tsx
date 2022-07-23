@@ -71,7 +71,7 @@ export default function Professional() {
             <h1 className="!mt-0">I've got work experience</h1>
             <div className="flex flex-wrap justify-center">{JOBS}</div>
             <p className="flex">
-                More info on <LinkedIn className="ml-2" />
+                More info on <LinkedIn className="ml-2 text-orange-100" />
             </p>
             <p className="!mt-16">And how about some</p>
             <h1 className="!mt-0">Education</h1>
