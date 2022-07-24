@@ -1,6 +1,8 @@
 .holder {
     @apply flex justify-center items-center flex-col relative;
-    @apply p-4 m-8 rounded-[2rem] shadow-xl text-white overflow-hidden;
+    @apply shadow-2xl text-white overflow-hidden;
+    @apply p-2 m-4 rounded-2xl;
+    @apply sm:p-4 sm:m-8 sm:rounded-[2rem];
 }
 
 .holder::before {
@@ -13,7 +15,8 @@
 }
 
 .holder h2 {
-    @apply text-5xl mx-2 my-6;
+    @apply text-3xl mx-1 my-3;
+    @apply sm:text-5xl sm:mx-2 sm:my-6;
 }
 
 .holder h2 a {
@@ -21,11 +24,11 @@
 }
 
 .holder h3 {
-    @apply text-3xl m-0;
+    @apply text-2xl sm:text-3xl m-0;
 }
 
 .holder p {
-    @apply text-xl m-0;
+    @apply text-lg sm:text-xl m-0;
 }
 
 .cardLink {

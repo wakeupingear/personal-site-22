@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { INITIALS } from '../../src/utils/pages/constants';
 import LinkList, { Game } from '@shared/linkList/LinkList';
+import pageStyles from '@page-component/pages.module.css';
 
 const GAMES: Game[] = [
     { name: 'Outset', bold: true },
@@ -29,9 +30,9 @@ export default function Games() {
             <p>
                 Mostly in <u>Gamemaker</u> and <u>Unity</u>
             </p>
-            <p className="!mt-16">Here's the full list</p>
+            <p className={pageStyles.newLine}>Here's the full list</p>
             <LinkList content={GAMES} />
-            <p className="!mt-16">I also co-founded</p>
+            <p className={pageStyles.newLine}>I also co-founded</p>
             <h1 className="!mt-0">Skronkle Studios</h1>
             <p>A gamedev studio based in LA</p>
         </>

@@ -2,6 +2,7 @@ import { INITIALS } from '@utils/pages/constants';
 import Head from 'next/head';
 import React, { useEffect } from 'react';
 import styles from './art.module.css';
+import pageStyles from '@page-component/pages.module.css';
 
 export default function Art() {
     const artRef = React.useRef<HTMLDivElement>(null);
@@ -35,7 +36,7 @@ export default function Art() {
             <p>
                 And some with <u>pencils</u>
             </p>
-            <p className="!mt-16">From time to time, I also do</p>
+            <p className={pageStyles.newLine}>From time to time, I also do</p>
             <h1 className="!my-0">Daily art</h1>
             <div
                 className={`embedsocial-hashtag ${styles.social} w-[95%] flex justify-center`}

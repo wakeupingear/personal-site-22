@@ -20,8 +20,9 @@
       "@shared/*": ["src/components/shared/*"],
       "@utils/*": ["src/utils/*"],
       "@pages-lib/*": ["pages-lib/*"],
+      "@page-component/*": ["src/components/pages/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.module.css"],
   "exclude": ["node_modules"]
 }

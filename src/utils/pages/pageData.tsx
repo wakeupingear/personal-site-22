@@ -1,13 +1,11 @@
-import Image from 'next/image';
-
 import { PageData } from '../types';
 
 const B_P_GRAD = '#4bf2f6, #7e32de';
 export const PAGE_DATA: PageData = {
     components: [
         {
-            height: 'fit-content',
-            sideHeight: 'fit-content',
+            className: 'h-fit',
+            sideClassName: 'h-fit',
             components: [
                 {
                     name: 'Games',
@@ -54,7 +52,7 @@ export const PAGE_DATA: PageData = {
             ],
         },
         {
-            height: '24rem',
+            className: 'h-[10rem] sm:h-[24rem]',
             components: [
                 {
                     name: 'Outset',
@@ -65,7 +63,7 @@ export const PAGE_DATA: PageData = {
             ],
         },
         {
-            height: '24rem',
+            className: 'h-[10rem] sm:h-[24rem]',
             components: [
                 {
                     name: 'Inc Life',

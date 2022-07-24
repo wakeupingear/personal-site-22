@@ -1,5 +1,6 @@
 import Card from '@shared/card/Card';
 import { LinkedIn } from '@shared/icons/Icons';
+import pageStyles from '@page-component/pages.module.css';
 
 const JOB_LIST: {
     color?: string;
@@ -53,9 +54,9 @@ const JOBS = JOB_LIST.map((job) => {
             imageClassName="rounded-full overflow-hidden shadow-xl flex w-1/2 h-1/2 absolute left-1/4 top-[20%]"
         >
             <div
-                className={`absolute right-0 top-0 p-3 ${
-                    job.dateColor || 'bg-gray-700'
-                } rounded-bl-3xl text-xl`}
+                className={`transition-all absolute right-0 top-0 p-2 sm:p-3 ${
+                    job.dateColor || 'bg-gray-700 dark:bg-gray-800'
+                } rounded-bl-2xl sm:rounded-bl-3xl text-base sm:text-xl`}
             >
                 {job.date}
             </div>
@@ -73,7 +74,7 @@ export default function Professional() {
             <p className="flex">
                 More info on <LinkedIn className="ml-2 text-orange-100" />
             </p>
-            <p className="!mt-16">And how about some</p>
+            <p className={pageStyles.newLine}>And how about some</p>
             <h1 className="!mt-0">Education</h1>
         </>
     );

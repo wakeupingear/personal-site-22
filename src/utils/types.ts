@@ -5,8 +5,8 @@ export type APIData = {
 };
 
 export type Column = {
-    height?: string;
-    sideHeight?: string;
+    className?: string;
+    sideClassName?: string;
     components: ContentComponent[];
 };
 

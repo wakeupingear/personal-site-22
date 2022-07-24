@@ -14,12 +14,11 @@ export default function HomePreviews({ onSide }: Props) {
                 PAGE_DATA.components.map((column, index) => (
                     <div
                         key={index + '-' + column.components.length}
-                        className={styles.column}
-                        style={{
-                            height: onSide
-                                ? column.sideHeight || '8rem'
-                                : column.height || '18rem',
-                        }}
+                        className={`${styles.column} ${
+                            onSide
+                                ? column.sideClassName || 'h-[4rem] sm:h-[8rem]'
+                                : column.className || 'h-[9rem] h-[sm:18rem]'
+                        }`}
                     >
                         {column.components.map((component) => {
                             return (

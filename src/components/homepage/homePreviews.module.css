@@ -9,7 +9,8 @@
 }
 
 .previewSide {
-    @apply w-[min(20%,500px)] mr-4;
+    @apply w-0 sm:w-[min(20%,500px)];
+    @apply mob:overflow-hidden;
 }
 
 .previewSideHidden {
@@ -27,9 +28,6 @@
 .container {
     @apply flex flex-col w-full;
 }
-:global(.dark) .container {
-    @apply opacity-90;
-}
 
 .container:hover .holder {
     @apply grayscale-[80%];
@@ -45,29 +43,29 @@
 }
 
 .column:first-of-type > *:first-child {
-    @apply !rounded-tl-[2rem];
+    @apply sm:!rounded-tl-[2rem];
 }
 .column:first-of-type > *:last-child {
-    @apply !rounded-tr-[2rem];
+    @apply sm:!rounded-tr-[2rem];
 }
 .column:last-of-type > *:first-child {
-    @apply !rounded-bl-[2rem];
+    @apply sm:!rounded-bl-[2rem];
 }
 .column:last-of-type > *:last-child {
-    @apply !rounded-br-[2rem];
+    @apply sm:!rounded-br-[2rem];
 }
 
 .previewSide .column:first-of-type > *:first-child {
-    @apply !rounded-tl-[1rem];
+    @apply sm:!rounded-tl-[1rem];
 }
 .previewSide .column:first-of-type > *:last-child {
-    @apply !rounded-tr-[1rem];
+    @apply sm:!rounded-tr-none;
 }
 .previewSide .column:last-of-type > *:first-child {
-    @apply !rounded-bl-[1rem];
+    @apply sm:!rounded-bl-[1rem];
 }
 .previewSide .column:last-of-type > *:last-child {
-    @apply !rounded-br-[1rem];
+    @apply sm:!rounded-br-none;
 }
 
 .link {
@@ -133,7 +131,7 @@ div.clickable:last-of-type {
 }
 
 .iconHolder::before {
-    @apply content-[attr(data-name)] absolute bottom-full;
+    @apply sm:content-[attr(data-name)] absolute bottom-full;
     @apply flex justify-center items-center;
     @apply h-0 overflow-hidden transition-all origin-bottom rounded-lg;
     @apply bg-transparent text-3xl text-white font-bold;
@@ -149,8 +147,8 @@ div.clickable:last-of-type {
 }
 
 .holder:not(.iconHolder)::before {
-    @apply content-[attr(data-date)] absolute right-0 top-0 p-2;
-    @apply text-2xl rounded-bl-2xl shadow-2xl;
+    @apply content-[attr(data-date)] absolute right-0 top-0 p-1 sm:p-2;
+    @apply text-sm sm:text-2xl rounded-bl-xl sm:rounded-bl-2xl shadow-2xl;
     @apply bg-gradient-to-bl from-blue-500 to-purple-700;
     @apply transition-opacity;
 }

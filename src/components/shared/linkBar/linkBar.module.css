@@ -15,16 +15,20 @@
     @apply transition-all duration-200;
 }
 
+.holder > *:first-child {
+    @apply flex-wrap max-w-[70%];
+}
+
 .stickyBar .holder {
     @apply opacity-0 pointer-events-none;
 }
 
 .sticking .holder {
-    @apply bg-gradient-to-r from-blue-500 to-purple-700 w-[100vw] shadow-2xl opacity-100 h-20 pointer-events-auto;
-    @apply before:bg-gray-600 before:absolute before:block before:w-full before:h-full before:opacity-0 before:transition-opacity before:content-[''];
+    @apply bg-gradient-to-r from-blue-500 to-purple-700 w-[100vw] shadow-2xl opacity-100 h-20 pointer-events-auto z-[-1];
+    @apply before:bg-gray-600 before:absolute before:block before:w-full before:h-full before:opacity-0 before:transition-opacity before:content-[''] before:z-[-2];
 }
 :global(.dark) .sticking .holder {
-    @apply before:opacity-100;
+    @apply bg-transparent before:opacity-100;
 }
 
 .start,
@@ -34,8 +38,8 @@
 
 .start > *,
 .end > * {
-    @apply text-white;
-    @apply mx-4 transition-all text-5xl;
+    @apply text-white transition-all;
+    @apply mx-2 sm:mx-4 text-3xl sm:text-5xl;
 }
 
 .end {

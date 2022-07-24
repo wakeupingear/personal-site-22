@@ -36,7 +36,7 @@ a,
 
 a::after,
 .clickableText::after {
-    content: '';
+    @apply sm:content-[''];
     position: absolute;
     width: 100%;
     transform: scaleX(0);

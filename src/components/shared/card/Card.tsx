@@ -22,10 +22,8 @@ export default function Card({
     imageAlt,
     imageClassName = '',
     link,
-    minHeight = '20rem',
     title,
     titleLink,
-    width = '20rem',
 }: Props) {
     let titleElement: ReactNode = null;
     if (title) {
@@ -42,11 +40,7 @@ export default function Card({
 
     const content = (
         <div
-            style={{
-                minHeight,
-                width,
-            }}
-            className={`${styles.holder} ${className}`}
+            className={`w-[14rem] min-h-[14rem] sm:w-[20rem] sm:min-h-[20rem] ${styles.holder} ${className}`}
         >
             {image && (
                 <div className={`${styles.image} ${imageClassName}`}>

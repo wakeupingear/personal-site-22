@@ -12,7 +12,7 @@ interface Props {
     className?: string;
 }
 
-export default function LinkList({ content, className = '' }: Props) {
+export default function LinkList({ content, className = 'mob:p-0' }: Props) {
     return (
         <ul className={className}>
             {content.map(
@@ -22,7 +22,7 @@ export default function LinkList({ content, className = '' }: Props) {
                     className,
                     link = '/' + name.toLowerCase(),
                 }) => {
-                    const classes = `${className ? className : ''} ${
+                    const classes = `!m-0 ${className ? className : ''} ${
                         bold ? '!font-bold' : ''
                     }`;
 

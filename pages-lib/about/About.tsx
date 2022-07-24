@@ -2,6 +2,7 @@ import { CATEGORY_ICONS } from '@components/homepage/Preview';
 import { ContentCategories } from '@utils/types';
 import Link from 'next/link';
 import { FULL_NAME } from '../../src/utils/pages/constants';
+import pageStyles from '@page-component/pages.module.css';
 
 function Icon({ name }: { name: ContentCategories }) {
     const icon = CATEGORY_ICONS[name];
@@ -18,7 +19,12 @@ function Icon({ name }: { name: ContentCategories }) {
 export function About() {
     return (
         <>
-            <h1>Hey there, I'm {FULL_NAME.split(' ')[0]}</h1>
+            <div className={pageStyles.titleHolder}>
+                <h1 className="mr-3">Hey there, I'm </h1>
+                <h1 className="!bg-none bg-orange-100 dark:!text-white">
+                    {FULL_NAME.split(' ')[0]}
+                </h1>
+            </div>
             <p>
                 <Icon name="games" />
                 Game Designer
@@ -44,10 +50,10 @@ export function About() {
                     USC
                 </a>
             </p>
-            <p className="!mt-16">I like making things</p>
+            <p className={pageStyles.newLine}>I like making things</p>
             <p>Sometimes even good things</p>
             <p>Feel free to check those things out</p>
-            <p className="!mt-16">(And yes, I do commissions)</p>
+            <p className={pageStyles.newLine}>(And yes, I do commissions)</p>
         </>
     );
 }

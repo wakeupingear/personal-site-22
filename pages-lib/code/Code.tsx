@@ -1,6 +1,5 @@
-import { ReactElement } from 'react';
 import Head from 'next/head';
-import { Language } from '@mui/icons-material';
+import pageStyles from '@page-component/pages.module.css';
 
 const LANGUAGES = [
     ['typescript', 'react', 'nextjs', 'tailwindcss', 'redux'],
@@ -79,7 +78,7 @@ export default function Code() {
                     ))}
                 </div>
             ))}
-            <p className="!mt-16">I also daily drive</p>
+            <p className={pageStyles.newLine}>I also daily drive</p>
             <h1 className="!mt-0">Kubuntu Linux</h1>
             <p>Do with that what you will 🚩</p>
         </>

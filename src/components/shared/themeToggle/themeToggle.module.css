@@ -1,20 +1,26 @@
 .container {
     --radius: 30rem;
+    --mob-radius: 13rem;
     --largeRadius: 35rem;
+    --mob-largeRadius: 18rem;
     transform: translate(30%, -30%);
 }
 
 .inBar {
     --radius: 15rem;
-    --largeRadius: 17rem;
+    --mob-radius: 7rem;
+    --largeRadius: 24rem;
+    --mob-largeRadius: 14rem;
     transform: translate(30%, -20%);
+    @apply z-[-1];
 }
 
 .sun,
 .moon {
-    @apply absolute right-0 flex w-[var(--radius)] h-[var(--radius)];
+    @apply absolute right-0 flex hover:cursor-pointer after:content-[''];
     @apply transition-all duration-700 ease-in-out rounded-full;
-    @apply hover:w-[var(--largeRadius)] hover:h-[var(--largeRadius)] hover:cursor-pointer after:content-[''];
+    @apply w-[var(--mob-radius)] h-[var(--mob-radius)] sm:w-[var(--radius)] sm:h-[var(--radius)];
+    @apply hover:w-[var(--mob-largeRadius)] hover:h-[var(--mob-largeRadius)] sm:hover:w-[var(--largeRadius)] sm:hover:h-[var(--largeRadius)];
 }
 
 .sun::after,

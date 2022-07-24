@@ -16,14 +16,14 @@ export default function HomeBG({
                         x="80vw"
                         y="65vh"
                         speed={-100}
-                        size="12rem"
+                        size="w-[10rem] h-[10rem] sm:w-[20rem] sm:h-[20rem]"
                         angle={23}
                     />
                     <Names x="90vw" speed={-90} y={'-80vh'} />
                     <Sphere
                         x="20vw"
                         y="200vh"
-                        size="20rem"
+                        size="w-[6rem] h-[6rem] sm:w-[12rem] sm:h-[12rem]"
                         speed={-80}
                         angle={297}
                     />
@@ -31,7 +31,7 @@ export default function HomeBG({
                         x="-10vw"
                         y="20%"
                         speed={-40}
-                        size="24rem"
+                        size="w-[12rem] h-[12rem] sm:w-[24rem] sm:h-[24rem]"
                         angle={240}
                     />
                     <Sphere x="50vw" y="120vh" speed={-20} angle={180} />

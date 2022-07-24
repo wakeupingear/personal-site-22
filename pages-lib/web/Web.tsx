@@ -2,6 +2,7 @@ import LinkList, { Game } from '@shared/linkList/LinkList';
 import { uppercaseFirstLetter } from '@utils/helpers';
 import Head from 'next/head';
 import { FULL_NAME, INITIALS } from '../../src/utils/pages/constants';
+import pageStyles from '@page-component/pages.module.css';
 
 const siteName = uppercaseFirstLetter(
     `${FULL_NAME.replaceAll(' ', '').toLowerCase()}.com`
@@ -37,9 +38,11 @@ export default function Web() {
             <p>
                 Right, and <u>GraphQL</u> where needed
             </p>
-            <p className="!mt-16">Here's some past work</p>
+            <p className={pageStyles.newLine}>Here's some past work</p>
             <LinkList content={SITES} />
-            <p className="!mt-16">While we're at it, let's talk about</p>
+            <p className={pageStyles.newLine}>
+                While we're at it, let's talk about
+            </p>
             <h1 className="!mt-0 capitalize">{siteName}</h1>
             <p>
                 <u>NextJS</u>, <u>TailwindCSS</u>, and <u>Typescript</u>

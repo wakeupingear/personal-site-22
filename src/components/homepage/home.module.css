@@ -8,7 +8,7 @@
 }
 
 .body {
-    @apply relative flex justify-end transition-all mb-24;
+    @apply relative flex justify-end transition-all mb-12 sm:mb-24;
     width: min(100vw, 78rem);
 }
 .body:not(.bodyFull) .buttonHolder * {
@@ -22,8 +22,13 @@
     @apply flex grow relative w-0 min-h-[60vh] h-fit transition-all duration-300;
 }
 
+.content:not(:empty) {
+    @apply mt-[-0.5rem];
+}
+
 .buttonHolder {
     @apply absolute right-0 select-none pointer-events-none flex h-full !w-8;
+    @apply hidden sm:inline;
 }
 
 .buttons {

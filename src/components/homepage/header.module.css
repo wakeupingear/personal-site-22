@@ -1,15 +1,16 @@
 .container {
-    @apply flex flex-col ml-8 mb-2 self-start;
+    @apply flex flex-col ml-4 sm:ml-8 mb-1 sm:mb-6 self-start;
 }
 
 .container > *:not(.myName) {
-    @apply ml-20;
+    @apply ml-8 sm:ml-20;
 }
 
 .myName {
-    @apply font-extrabold text-transparent text-[12rem] bg-clip-text bg-gradient-to-r from-white to-orange-300 transition-all;
+    @apply font-extrabold text-transparent text-7xl sm:text-[12rem] bg-clip-text bg-gradient-to-r from-white to-orange-300 transition-all;
     @apply leading-[1] z-10;
     @apply flex flex-wrap mr-[20rem] drop-shadow-md;
+    @apply mt-[-0.75rem] sm:mt-[-2rem];
 }
 :global(.dark) .myName {
     @apply bg-gradient-to-r from-white to-gray-500;
@@ -32,12 +33,12 @@
 }
 
 .iconHolder * {
-    @apply m-1 text-8xl;
+    @apply m-[0.15rem] sm:m-1 text-4xl sm:text-8xl;
 }
 
 .text,
 .text * {
-    @apply text-white text-5xl text-center justify-center;
+    @apply text-white text-2xl sm:text-5xl text-center justify-center;
 }
 
 .text::after {

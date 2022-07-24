@@ -5,7 +5,7 @@ import { NameBG } from '../../homepage/Header';
 export function Sphere({
     angle = 0,
     className,
-    size = '16rem',
+    size = 'w-[8rem] h-[8rem] sm:w-[16rem] sm:h-[16rem]',
     speed = -50,
     x = 'auto',
     y = 'auto',
@@ -26,13 +26,7 @@ export function Sphere({
             }}
             speed={speed}
         >
-            <div
-                className={`${styles.sphere} ${className || ''}`}
-                style={{
-                    height: size,
-                    width: size,
-                }}
-            />
+            <div className={`${styles.sphere} ${className || ''} ${size}`} />
             <div
                 className={styles.mask}
                 style={{
