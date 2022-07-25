@@ -1,8 +1,13 @@
+import { INITIALS } from '@utils/pages/constants';
+import Head from 'next/head';
 import YouTube from 'react-youtube';
 
 export default function Film() {
     return (
         <>
+            <Head>
+                <title>{INITIALS} - Film</title>
+            </Head>
             <h1>I've filmed some vids</h1>
             <p>
                 Mostly for{' '}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import LinkBar from '@shared/linkBar/LinkBar';
 import Footer from './Footer';
 import styles from './home.module.css';
+import pageStyles from '@page-component/pages.module.css';
 import previewStyles from './homePreviews.module.css';
 import HomePreviews from './HomePreviews';
 import Header from './Header';
@@ -25,7 +26,9 @@ export default function Home({ children }: { children: React.ReactNode }) {
             <Header />
             <LinkBar />
             <div
-                className={`${styles.body} ${onSide ? styles.bodyFull : ''}`}
+                className={`${styles.body} ${pageStyles.pageEnd} ${
+                    onSide ? styles.bodyFull : ''
+                }`}
                 id="homeBody"
             >
                 <div className={styles.content}>
@@ -42,7 +45,7 @@ export default function Home({ children }: { children: React.ReactNode }) {
                     <HomePreviews onSide={onSide} />
                 </div>
             </div>
-            <Footer />
+            <Footer isHome />
         </div>
     );
 }

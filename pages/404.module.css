@@ -20,18 +20,20 @@
 }
 
 .header {
-    @apply text-8xl;
+    @apply text-5xl sm:text-8xl;
 }
 
 .text {
-    @apply text-4xl;
+    @apply text-xl sm:text-4xl mob:my-3;
 }
 
 .image {
-    @apply flex w-[40rem] h-[20rem] relative;
+    @apply flex w-[20rem] h-[10rem] relative;
+    @apply flex sm:w-[40rem] sm:h-[20rem];
 }
 
 .link {
     @apply absolute top-0 ml-auto mr-auto left-0 right-0 text-center text-white after:bg-white;
+    @apply text-sm sm:text-2xl;
     @apply flex w-fit;
 }

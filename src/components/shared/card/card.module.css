@@ -28,7 +28,7 @@
 }
 
 .holder p {
-    @apply text-lg sm:text-xl m-0;
+    @apply text-lg sm:text-xl m-0 table-cell;
 }
 
 .cardLink {
@@ -43,7 +43,4 @@
 
 .cardLink:hover {
     @apply cursor-pointer after:bg-transparent scale-105;
-}
-
-.image {
 }

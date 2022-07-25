@@ -1,10 +1,14 @@
-import TerminalIcon from '@mui/icons-material/Terminal';
+import { Terminal, Home } from '@mui/icons-material';
 import styles from './footer.module.css';
 import Link from 'next/link';
 import { useAuth } from '../Auth';
 import ClickableText from '../shared/clickableText/ClickableText';
 
-export default function Footer() {
+interface Props {
+    isHome?: boolean;
+}
+
+export default function Footer({ isHome }: Props) {
     const { switchScreen } = useAuth();
     return (
         <div className={styles.container}>
@@ -36,9 +40,17 @@ export default function Footer() {
                     Privacy
                 </ClickableText>
             </Link>
-            <div className={styles.terminal} onClick={() => switchScreen(1)}>
-                <TerminalIcon />
-            </div>
+            {isHome ? (
+                <div className={styles.icon} onClick={() => switchScreen(1)}>
+                    <Terminal />
+                </div>
+            ) : (
+                <Link href="/" scroll={false}>
+                    <div className={styles.icon}>
+                        <Home />
+                    </div>
+                </Link>
+            )}
         </div>
     );
 }

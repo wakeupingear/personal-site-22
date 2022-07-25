@@ -2,6 +2,9 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { CATEGORY_ICONS } from '@components/homepage/Preview';
+import { ContentCategories } from '@utils/types';
+import Link from 'next/link';
 import { ReactNode } from 'react';
 import styles from './icons.module.css';
 

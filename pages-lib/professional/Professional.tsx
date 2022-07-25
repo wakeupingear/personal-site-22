@@ -1,6 +1,8 @@
 import Card from '@shared/card/Card';
 import { LinkedIn } from '@shared/icons/Icons';
 import pageStyles from '@page-component/pages.module.css';
+import Head from 'next/head';
+import { INITIALS } from '@utils/pages/constants';
 
 const JOB_LIST: {
     color?: string;
@@ -68,12 +70,15 @@ const JOBS = JOB_LIST.map((job) => {
 export default function Professional() {
     return (
         <>
+            <Head>
+                <title>{INITIALS} - Work + Education</title>
+            </Head>
             <p>Oh right, almost forgot</p>
             <h1 className="!mt-0">I've got work experience</h1>
             <div className="flex flex-wrap justify-center">{JOBS}</div>
-            <p className="flex">
+            <span>
                 More info on <LinkedIn className="ml-2 text-orange-100" />
-            </p>
+            </span>
             <p className={pageStyles.newLine}>And how about some</p>
             <h1 className="!mt-0">Education</h1>
         </>

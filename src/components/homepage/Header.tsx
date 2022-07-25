@@ -3,6 +3,7 @@ import { FULL_NAME } from '@utils/pages/constants';
 import { GitHub, Instagram, LinkedIn, YouTube } from '@shared/icons/Icons';
 import Link from 'next/link';
 import { useAuth } from '@components/Auth';
+import HeaderText from '@components/shared/headerText/HeaderText';
 
 const NAMES = Array(60)
     .fill(0)
@@ -22,7 +23,6 @@ export function NameBG({ className }: { className?: string }) {
 }
 
 export default function Header() {
-    const name = FULL_NAME.split(' ');
     return (
         <div className={styles.container}>
             <div className={styles.holder}>
@@ -31,10 +31,11 @@ export default function Header() {
                     <Instagram />
                 </div>
             </div>
-            <div className={styles.myName}>
-                <div className={styles.firstName}>{name[0]}</div>
-                <div className={styles.lastName}>{name[1]}</div>
-            </div>
+            <HeaderText
+                text={FULL_NAME.split(' ')}
+                className={styles.myName}
+                inContainer
+            />
             <div className={styles.holder}>
                 <Link href="/about" scroll={false}>
                     <a className={styles.text}>About</a>

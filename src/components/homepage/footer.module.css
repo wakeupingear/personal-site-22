@@ -2,7 +2,7 @@
     @apply flex justify-center sm:justify-between text-center px-3 sm:px-8 py-2 relative w-full flex-row items-center mt-auto;
 }
 
-.terminal {
+.icon {
     @apply hover:cursor-pointer;
 }
 
@@ -10,11 +10,11 @@
     @apply !text-2xl sm:!text-3xl;
 }
 
-.terminal {
+.icon {
     @apply hidden sm:inline;
 }
 
-.terminal * {
+.icon * {
     @apply text-white !text-5xl;
 }
 
@@ -45,10 +45,4 @@
 :global(.dark) .container,
 :global(.dark) .divider .shapeFill {
     @apply bg-gray-600 fill-gray-600;
-}
-
-.clap {
-}
-
-.terminal {
 }

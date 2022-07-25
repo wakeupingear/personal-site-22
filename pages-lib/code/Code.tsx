@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import pageStyles from '@page-component/pages.module.css';
+import { INITIALS } from '@utils/pages/constants';
 
 const LANGUAGES = [
     ['typescript', 'react', 'nextjs', 'tailwindcss', 'redux'],
@@ -8,8 +9,6 @@ const LANGUAGES = [
     ['python', 'opencv', 'bash'],
     ['csharp', 'unity'],
 ] as const;
-
-type Language = typeof LANGUAGES[number][number];
 
 const colorMap: {
     [key: string]: string;
@@ -58,6 +57,7 @@ export default function Code() {
                     rel="stylesheet"
                     href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
                 />
+                <title>{INITIALS} - Code</title>
             </Head>
             <h1>I've written some code</h1>
             <p>In quite a few ways</p>

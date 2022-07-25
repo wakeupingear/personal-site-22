@@ -25,21 +25,21 @@ export function About() {
                     {FULL_NAME.split(' ')[0]}
                 </h1>
             </div>
-            <p>
+            <span>
                 <Icon name="games" />
                 Game Designer
-            </p>
-            <p>
+            </span>
+            <span>
                 <Icon name="web" />
                 <Icon name="code" />
                 Software Engineer
-            </p>
-            <p>
+            </span>
+            <span>
                 <Icon name="art" />
                 <Icon name="film" />
                 Aspiring Artist
-            </p>
-            <p>
+            </span>
+            <span>
                 <Icon name="professional" />
                 Student at
                 <a
@@ -49,7 +49,7 @@ export function About() {
                 >
                     USC
                 </a>
-            </p>
+            </span>
             <p className={pageStyles.newLine}>I like making things</p>
             <p>Sometimes even good things</p>
             <p>Feel free to check those things out</p>

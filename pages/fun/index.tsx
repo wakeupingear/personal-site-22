@@ -1,12 +1,10 @@
 import { Page } from '@components/pages/Pages';
-import HomeBG from '@components/shared/backgrounds/HomeBG';
-import StackGrid from 'react-stack-grid';
+import Fun from '@pages-lib/fun/Fun';
 
 export default function index() {
     return (
         <Page>
-            <HomeBG disableParallax />
-            <StackGrid columnWidth={150}></StackGrid>
+            <Fun />
         </Page>
     );
 }

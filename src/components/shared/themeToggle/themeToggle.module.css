@@ -17,20 +17,24 @@
 
 .sun,
 .moon {
-    @apply absolute right-0 flex hover:cursor-pointer after:content-[''];
+    @apply absolute top-0 right-0 flex hover:cursor-pointer;
     @apply transition-all duration-700 ease-in-out rounded-full;
     @apply w-[var(--mob-radius)] h-[var(--mob-radius)] sm:w-[var(--radius)] sm:h-[var(--radius)];
     @apply hover:w-[var(--mob-largeRadius)] hover:h-[var(--mob-largeRadius)] sm:hover:w-[var(--largeRadius)] sm:hover:h-[var(--largeRadius)];
 }
 
-.sun::after,
-.moon::after {
+.mask {
+    @apply content-[''];
+}
+
+.mask.sun::after,
+.mask.moon::after {
     content: '';
     @apply flex w-3/4 h-3/4 bg-black rounded-full;
     @apply absolute left-[-4rem] top-4 transition-all duration-300;
 }
 
-.inBar {
+.mask.inBar {
     @apply after:bg-gray-600 after:content-[''];
 }
 
@@ -43,6 +47,9 @@
         /* outer white */ -10px 0 80px #f0f,
         /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
     @apply bg-orange-300;
+}
+
+.mask.sun {
     @apply after:w-0 after:h-0;
 }
 

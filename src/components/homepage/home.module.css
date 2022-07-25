@@ -8,7 +8,7 @@
 }
 
 .body {
-    @apply relative flex justify-end transition-all mb-12 sm:mb-24;
+    @apply relative flex justify-end transition-all;
     width: min(100vw, 78rem);
 }
 .body:not(.bodyFull) .buttonHolder * {

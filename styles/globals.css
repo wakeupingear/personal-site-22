@@ -14,7 +14,7 @@ body {
 }
 
 * {
-    @apply selection:bg-orange-200 selection:bg-opacity-80;
+    @apply selection:bg-orange-300;
 }
 
 .dark * {

@@ -1,9 +1,10 @@
 .page {
-    @apply flex w-full flex-col h-full justify-center items-center p-4;
+    @apply flex w-full flex-col h-full justify-center items-center relative;
+    @apply min-w-[100vw] min-h-[100vh];
 }
 
 .defaultStyles * {
-    @apply text-center;
+    @apply text-center z-0;
 }
 
 .defaultStyles section {
@@ -19,9 +20,14 @@
     @apply bg-gradient-to-r from-white to-gray-400;
 }
 
-.defaultStyles p {
+.defaultStyles p,
+.defaultStyles span {
     @apply text-white font-bold;
     @apply text-xl sm:text-3xl m-[0.15rem] sm:m-2;
+}
+
+.defaultStyles span {
+    @apply flex;
 }
 
 .defaultStyles u {
@@ -39,15 +45,19 @@
     @apply text-blue-300 after:bg-blue-300 sm:after:content-[''];
 }
 
-.defaultStyles p a {
+.defaultStyles p a,
+.defaultStyles span a {
     @apply font-extrabold drop-shadow-sm;
+    @apply flex justify-center items-center;
 }
 
-.defaultStyles p > * {
+.defaultStyles p > *,
+.defaultStyles span > * {
     @apply mx-1 sm:mx-2;
 }
 
-.defaultStyles p svg {
+.defaultStyles p svg,
+.defaultStyles span svg {
     @apply text-3xl sm:text-5xl;
 }
 
@@ -65,4 +75,9 @@
 
 .titleHolder {
     @apply flex flex-wrap child:!m-0 child:!mx-1 text-center justify-center;
+}
+
+.pageEnd,
+.page > *:nth-last-child(2) {
+    @apply mb-12 sm:mb-24;
 }
