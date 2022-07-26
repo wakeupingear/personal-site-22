@@ -1,8 +1,8 @@
 import { CATEGORY_ICONS } from '@components/homepage/Preview';
-import { ContentCategories } from '@utils/types';
 import Link from 'next/link';
 import { FULL_NAME } from '../../src/utils/pages/constants';
 import pageStyles from '@page-component/pages.module.css';
+import { ContentCategories } from '@utils/types';
 
 function Icon({ name }: { name: ContentCategories }) {
     const icon = CATEGORY_ICONS[name];

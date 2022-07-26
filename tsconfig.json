@@ -18,7 +18,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@shared/*": ["src/components/shared/*"],
-      "@utils/*": ["src/hooks/utils/*"],
+      "@utils/*": ["src/utils/*"],
       "@pages-lib/*": ["pages-lib/*"],
       "@page-component/*": ["src/components/pages/*"],
     }

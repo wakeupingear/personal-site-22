@@ -34,12 +34,14 @@ function Factoid({
     return (
         <div className="m-4 text-white font-bold">
             {eyebrow && (
-                <div className={`text-orange-200 text-2xl ${eyebrowClassName}`}>
+                <div
+                    className={`text-orange-200 sm:text-3xl ${eyebrowClassName}`}
+                >
                     {eyebrow}
                 </div>
             )}
             <div
-                className={`text-8xl child:text-8xl drop-shadow-md ${contentClassName}`}
+                className={`text-6xl child:text-6xl sm:text-[9rem] sm:child:text-[9rem] drop-shadow-md ${contentClassName}`}
             >
                 {content}
             </div>
@@ -108,18 +110,20 @@ export default function Fun() {
                     <Factoid {...factoid} />
                 ))}
             </div>
-            <p className={pageStyles.newLine}>
-                Here's some of my favorite pieces of art
-            </p>
-            <p>They're all sources of inspiration and motivation for me</p>
-            <p>Please check them out.</p>
+            <div className="mob:mx-8 child:!my-4">
+                <p className={pageStyles.newLine}>
+                    Here's some of my favorite pieces of art
+                </p>
+                <p>They're all sources of inspiration and motivation for me</p>
+                <p>Please check them out</p>
+            </div>
             <div className={`flex flex-nowrap w-full ${pageStyles.newLine}`}>
                 <Masonry columns={numColumns} spacing={0}>
                     {FAVORITES.map(({ image, name, link }, index) => (
                         <img
                             src={image}
                             alt={name}
-                            className={`transition-all ${homeStyles.clickable}`}
+                            className={`transition-all shadow-xl ${homeStyles.clickable}`}
                             onClick={() => window.open(link)}
                         />
                     ))}
