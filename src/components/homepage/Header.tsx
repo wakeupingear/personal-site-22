@@ -9,20 +9,32 @@ const NAMES = Array(60)
     .fill(0)
     .map((_, i) => <div key={i}>{FULL_NAME}</div>);
 
-export function NameBG({ className }: { className?: string }) {
+export function NameBG({
+    bgClassName = '',
+    className = '',
+    numNames = NAMES.length,
+}: {
+    bgClassName?: string;
+    className?: string;
+    numNames?: number;
+}) {
     const { pageHasContent } = useAuth();
     return (
         <div
             className={`${styles.nameBgHolder} ${
                 pageHasContent ? styles.namesHidden : ''
-            } ${className || ''}`}
+            } ${className}`}
         >
-            <div className={styles.nameBg}>{NAMES}</div>
+            <div className={`${styles.nameBg} ${bgClassName}`}>
+                {NAMES.slice(0, numNames)}
+            </div>
         </div>
     );
 }
 
 export default function Header() {
+    const namesHorizontalClasses = 'flex-col flex-wrap translate-y-[-50%]';
+
     return (
         <div className={styles.container}>
             <div className={styles.holder}>
@@ -41,13 +53,20 @@ export default function Header() {
                     <a className={styles.text}>About</a>
                 </Link>
                 <div className={styles.iconHolder}>
+                    <NameBG
+                        bgClassName={`${namesHorizontalClasses} translate-x-[-100%]`}
+                        numNames={2}
+                    />
                     <GitHub />
                     <LinkedIn />
+                    <NameBG
+                        bgClassName={`${namesHorizontalClasses} translate-x-[-5%]`}
+                    />
                 </div>
                 <Link href="/resume" scroll={false}>
                     <a className={styles.text}>Resume</a>
                 </Link>
-                <NameBG />
+                <NameBG bgClassName="" />
             </div>
         </div>
     );

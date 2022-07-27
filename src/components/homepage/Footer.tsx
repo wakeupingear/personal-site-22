@@ -36,20 +36,24 @@ export default function Footer({ isHome }: Props) {
                 </svg>
             </div>
             <Link href="/privacy" scroll={false}>
-                <ClickableText className={styles.privacy}>
-                    Privacy
-                </ClickableText>
+                <div>
+                    <ClickableText className={styles.privacy}>
+                        Privacy
+                    </ClickableText>
+                </div>
             </Link>
-            {isHome ? (
-                <div className={styles.icon} onClick={() => switchScreen(1)}>
+            <Link href="/" scroll={true}>
+                <div className={`${styles.home} ${!isHome ? '!inline' : ''}`}>
+                    <Home />
+                </div>
+            </Link>
+            {isHome && (
+                <div
+                    className={styles.terminal}
+                    onClick={() => switchScreen(1)}
+                >
                     <Terminal />
                 </div>
-            ) : (
-                <Link href="/" scroll={false}>
-                    <div className={styles.icon}>
-                        <Home />
-                    </div>
-                </Link>
             )}
         </div>
     );

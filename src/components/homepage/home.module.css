@@ -19,11 +19,11 @@
 }
 
 .content {
-    @apply flex grow relative w-0 min-h-[60vh] h-fit transition-all duration-300;
+    @apply flex grow relative w-0 sm:min-h-[60vh] h-fit transition-all duration-300;
 }
 
 .content:not(:empty) {
-    @apply mt-[-0.5rem];
+    @apply mt-2 sm:mt-[-0.5rem];
 }
 
 .buttonHolder {

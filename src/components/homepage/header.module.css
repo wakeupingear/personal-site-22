@@ -1,5 +1,5 @@
 .container {
-    @apply flex flex-col ml-4 sm:ml-8 mb-1 sm:mb-6 self-start;
+    @apply flex flex-col ml-4 sm:ml-8 mb-1 sm:mb-2 self-start;
 }
 
 .container > *:not(.myName) {
@@ -28,13 +28,14 @@
 }
 
 .nameBgHolder {
-    @apply relative flex z-[-1];
+    @apply relative flex;
 }
 
 .nameBg {
     @apply absolute m-0 top-[100%] select-none pointer-events-none;
-    @apply text-2xl text-white font-bold opacity-60 transition-opacity duration-700;
+    @apply text-white font-bold opacity-60 transition-opacity duration-700;
     @apply flex w-max flex-col translate-x-[-50%];
+    @apply mob:child:!my-0 max-h-12 sm:max-h-24 child:text-sm sm:child:text-2xl;
 }
 
 .namesHidden .nameBg {

@@ -19,7 +19,7 @@ export default function HomeBG({
                         size="w-[10rem] h-[10rem] sm:w-[20rem] sm:h-[20rem]"
                         angle={23}
                     />
-                    <Names x="90vw" speed={-90} y={'-80vh'} />
+                    {false && <Names x="90vw" speed={-90} y={'-80vh'} />}
                     <Sphere
                         x="20vw"
                         y="200vh"

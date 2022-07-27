@@ -26,7 +26,7 @@
 }
 
 .container {
-    @apply flex flex-col w-full;
+    @apply flex flex-col w-full transition-all;
 }
 
 .container:hover .holder {
@@ -39,7 +39,7 @@
 }
 
 .column > * {
-    @apply shadow-2xl;
+    @apply shadow-3xl;
 }
 
 .column:first-of-type > *:first-child {
@@ -117,17 +117,12 @@ div.clickable:last-of-type {
         /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
 }
 :global(.dark) .clickable:hover {
-    box-shadow: inset 0 0 50px #fff, /* inner white */ inset 20px 0 80px #f0f,
-        /* inner left magenta short */ inset -20px 0 80px #0ff,
-        /* inner right cyan short */ inset 20px 0 300px #f0f,
-        /* inner left magenta broad */ inset -20px 0 300px #0ff,
-        /* inner right cyan broad */ 0 0 50px #fff,
-        /* outer white */ -10px 0 80px #f0f,
-        /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
+    box-shadow: 0 0 50px #fff, /* outer white */ -10px 0 80px rgb(235, 230, 169),
+        /* outer left magenta */ 10px 0 80px rgb(211, 205, 156); /* outer right cyan */
 }
 
-.clickable:hover .frontholder {
-    @apply opacity-100;
+:global(.dark) .iconHolder {
+    @apply !bg-slate-700;
 }
 
 .iconHolder::before {
@@ -148,9 +143,16 @@ div.clickable:last-of-type {
 
 .holder:not(.iconHolder)::before {
     @apply content-[attr(data-date)] absolute right-0 top-0 p-1 sm:p-2;
-    @apply text-sm sm:text-2xl rounded-bl-xl sm:rounded-bl-2xl shadow-2xl;
-    @apply bg-gradient-to-bl from-blue-500 to-purple-700;
-    @apply transition-opacity;
+    @apply text-sm sm:text-2xl rounded-bl-md sm:rounded-bl-2xl shadow-2xl;
+    @apply bg-gradient-to-bl from-orange-300 to-fuchsia-500 shadow-xl;
+    @apply transition-all duration-[250ms];
+}
+:global(.dark) .holder:not(.iconHolder)::before {
+    @apply from-slate-800 to-slate-800;
+}
+
+.clickable:hover.holder:not(.iconHolder)::before {
+    @apply text-lg sm:text-3xl pr-3 sm:pr-4 pt-2 sm:pt-3;
 }
 
 .previewSide .holder:not(.iconHolder)::before {

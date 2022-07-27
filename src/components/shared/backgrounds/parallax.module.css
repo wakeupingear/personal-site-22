@@ -1,5 +1,5 @@
 .container {
-    @apply absolute flex w-full min-h-[100%] overflow-hidden;
+    @apply absolute select-none pointer-events-none flex w-full min-h-[100%] overflow-hidden;
 }
 
 .parallax {

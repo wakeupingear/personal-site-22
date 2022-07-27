@@ -1,6 +1,6 @@
 import { PageData } from '../types';
 
-const B_P_GRAD = '#4bf2f6, #7e32de';
+const B_P_GRAD = '#5d55ed';
 export const PAGE_DATA: PageData = {
     components: [
         {
@@ -10,42 +10,42 @@ export const PAGE_DATA: PageData = {
                 {
                     name: 'Games',
                     startDate: '2022',
-                    backgroundColors: B_P_GRAD,
+                    backgroundColor: B_P_GRAD,
                     width: 20,
                     icon: 'games',
                 },
                 {
                     name: 'Art',
                     startDate: '2022',
-                    backgroundColors: B_P_GRAD,
+                    backgroundColor: B_P_GRAD,
                     width: 20,
                     icon: 'art',
                 },
                 {
                     name: 'Web',
                     startDate: '2022',
-                    backgroundColors: B_P_GRAD,
+                    backgroundColor: B_P_GRAD,
                     width: 20,
                     icon: 'web',
                 },
                 {
                     name: 'Film',
                     startDate: '2022',
-                    backgroundColors: B_P_GRAD,
+                    backgroundColor: B_P_GRAD,
                     width: 20,
                     icon: 'film',
                 },
                 {
                     name: 'Code',
                     startDate: '2022',
-                    backgroundColors: B_P_GRAD,
+                    backgroundColor: B_P_GRAD,
                     width: 20,
                     icon: 'code',
                 },
                 {
                     name: 'Professional',
                     startDate: '2022',
-                    backgroundColors: B_P_GRAD,
+                    backgroundColor: B_P_GRAD,
                     width: 20,
                     icon: 'professional',
                 },

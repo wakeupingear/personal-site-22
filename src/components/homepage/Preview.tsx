@@ -29,7 +29,7 @@ interface Props {
 
 export default function Preview({ component }: Props) {
     const {
-        backgroundColors,
+        backgroundColor,
         endDate,
         icon,
         image,
@@ -69,12 +69,8 @@ export default function Preview({ component }: Props) {
                 width && !selected
                     ? {
                           width: width + '%',
-                          backgroundImage: !image
-                              ? `linear-gradient(to right, ${
-                                    backgroundColors || 'blue, black'
-                                })`
-                              : '',
                           color: component.color || 'white',
+                          backgroundColor: backgroundColor,
                       }
                     : {}
             }

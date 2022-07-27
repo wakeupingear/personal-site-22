@@ -35,7 +35,7 @@ export type ContentCategories =
 export type ContentComponent = {
     name: string;
     startDate: string;
-    backgroundColors?: string;
+    backgroundColor?: string;
     color?: string;
     endDate?: string;
     icon?: ContentCategories;

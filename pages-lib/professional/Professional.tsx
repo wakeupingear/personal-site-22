@@ -57,8 +57,9 @@ const JOBS = JOB_LIST.map((job) => {
         >
             <div
                 className={`transition-all absolute right-0 top-0 p-2 sm:p-3 ${
-                    job.dateColor || 'bg-gray-700 dark:bg-gray-800'
-                } rounded-bl-2xl sm:rounded-bl-3xl text-base sm:text-xl`}
+                    job.dateColor ||
+                    'bg-gradient-to-bl from-orange-300 to-fuchsia-500 dark:from-slate-800 dark:to-slate-800'
+                } rounded-bl-2xl sm:rounded-bl-3xl text-base sm:text-xl shadow-xl`}
             >
                 {job.date}
             </div>

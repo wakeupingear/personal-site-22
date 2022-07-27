@@ -53,12 +53,12 @@ const FACTOIDS: FactoidProps[] = [
     {
         key: 'age',
         eyebrow: "I'm in my",
-        content: '20s',
+        content: <div className="text-blue-100">20s</div>,
     },
     {
         key: 'location',
         eyebrow: "I'm based in",
-        content: 'LA',
+        content: <div className="text-pink-100">LA</div>,
         contentClassName: 'italic',
     },
     {
@@ -69,12 +69,12 @@ const FACTOIDS: FactoidProps[] = [
     {
         key: 'hiking',
         eyebrow: 'I sometimes',
-        content: <Hiking />,
+        content: <Hiking className="text-pink-100" />,
     },
     {
         key: 'cook',
         eyebrow: 'And I cook',
-        content: <LocalPizza />,
+        content: <LocalPizza className="!text-blue-100" />,
     },
 ];
 

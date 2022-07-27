@@ -1,21 +1,28 @@
 .container {
-    @apply flex justify-center sm:justify-between text-center px-3 sm:px-8 py-2 relative w-full flex-row items-center mt-auto;
-}
-
-.icon {
-    @apply hover:cursor-pointer;
+    @apply flex mob:justify-evenly justify-between text-center px-3 sm:px-8 py-1 sm:py-2 relative w-full flex-row items-center mt-auto;
+    @apply mt-16 sm:mt-24;
 }
 
 .privacy {
     @apply !text-2xl sm:!text-3xl;
 }
 
-.icon {
-    @apply hidden sm:inline;
+.home,
+.terminal {
+    @apply hover:cursor-pointer;
 }
 
-.icon * {
+.home *,
+.terminal * {
     @apply text-white !text-5xl;
+}
+
+.home {
+    @apply sm:hidden;
+}
+
+.terminal {
+    @apply mob:hidden;
 }
 
 .divider {

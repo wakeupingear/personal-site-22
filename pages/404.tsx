@@ -16,7 +16,7 @@ export default function index() {
                 </div>
                 <div className={styles.image}>
                     <Image
-                        src="https://c.tenor.com/p109U_S2T10AAAAd/thanos-fortnite.gif"
+                        src="/thanus.gif"
                         layout="fill"
                         objectFit="contain"
                         alt="thanus"

@@ -1,17 +1,18 @@
 .container {
     --radius: 30rem;
-    --mob-radius: 13rem;
+    --mob-radius: 12rem;
     --largeRadius: 35rem;
-    --mob-largeRadius: 18rem;
+    --mob-largeRadius: 14rem;
     transform: translate(30%, -30%);
+    @apply sm:z-20;
 }
 
 .inBar {
     --radius: 15rem;
     --mob-radius: 7rem;
-    --largeRadius: 24rem;
+    --largeRadius: 18rem;
     --mob-largeRadius: 14rem;
-    transform: translate(30%, -20%);
+    transform: translate(30%, -50%);
     @apply z-[-1];
 }
 
