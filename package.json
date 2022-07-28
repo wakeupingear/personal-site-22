@@ -10,7 +10,8 @@
     "lint": "npm run check-types && next lint"
   },
   "pre-commit": [
-    "lint"
+    "lint",
+    "build"
   ],
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -18,8 +19,10 @@
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.91",
     "@mui/material": "^5.8.7",
+    "@plaiceholder/next": "^2.4.0",
     "next": "^12.2.0",
     "node-cache": "^5.1.2",
+    "plaiceholder": "^2.4.0",
     "react": "18.2.0",
     "react-device-detect": "^2.2.2",
     "react-devicon": "^0.1.9",

@@ -30,7 +30,7 @@
 }
 
 .container:hover .holder {
-    @apply grayscale-[80%];
+    @apply sm:grayscale-[80%];
 }
 
 .column {
@@ -103,7 +103,7 @@ div.clickable:last-of-type {
 }
 
 .backImage {
-    @apply z-[-5];
+    @apply z-[-5] transition-all;
 }
 
 .frontholder {
@@ -111,14 +111,11 @@ div.clickable:last-of-type {
 }
 
 .clickable:hover {
-    @apply cursor-pointer rounded-[2rem] z-10;
-    @apply scale-[1.05] !grayscale-0;
-    box-shadow: 0 0 50px #fff, /* outer white */ -10px 0 80px #f0f,
-        /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */
+    @apply cursor-pointer sm:rounded-[2rem] sm:z-10;
+    @apply sm:scale-[1.05] sm:!grayscale-0 sm:shadow-glow;
 }
 :global(.dark) .clickable:hover {
-    box-shadow: 0 0 50px #fff, /* outer white */ -10px 0 80px rgb(235, 230, 169),
-        /* outer left magenta */ 10px 0 80px rgb(211, 205, 156); /* outer right cyan */
+    @apply sm:shadow-glow-dark;
 }
 
 :global(.dark) .iconHolder {
@@ -138,7 +135,7 @@ div.clickable:last-of-type {
     @apply right-0;
 }
 .iconHolder:hover::before {
-    @apply h-5 m-3 p-3;
+    @apply sm:h-5 sm:m-3 sm:p-3;
 }
 
 .holder:not(.iconHolder)::before {
@@ -152,7 +149,7 @@ div.clickable:last-of-type {
 }
 
 .clickable:hover.holder:not(.iconHolder)::before {
-    @apply text-lg sm:text-3xl pr-3 sm:pr-4 pt-2 sm:pt-3;
+    @apply sm:text-3xl sm:pr-4 sm:pt-3;
 }
 
 .previewSide .holder:not(.iconHolder)::before {

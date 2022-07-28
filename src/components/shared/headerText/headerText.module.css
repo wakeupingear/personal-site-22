@@ -8,7 +8,7 @@
 }
 
 .inContainer {
-    @apply mt-[-0.75rem] sm:mt-[-2rem] ml-0;
+    @apply mt-[-0.25rem] sm:mt-[-2rem] ml-0;
 }
 
 .word {

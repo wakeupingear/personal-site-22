@@ -32,6 +32,10 @@ module.exports = {
       },
       boxShadow: {
         '3xl': '0px 10px 30px rgba(0, 0, 0, 0.2)',
+        'glow': `0 0 50px #fff, /* outer white */ -10px 0 80px #f0f,
+        /* outer left magenta */ 10px 0 80px #0ff; /* outer right cyan */`,
+        'glow-dark': `0 0 50px #fff, /* outer white */ -10px 0 80px rgb(235, 230, 169),
+        /* outer left magenta */ 10px 0 80px rgb(211, 205, 156); /* outer right cyan */`
       }
     }
   },

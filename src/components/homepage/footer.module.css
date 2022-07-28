@@ -1,5 +1,9 @@
-.container {
-    @apply flex mob:justify-evenly justify-between text-center px-3 sm:px-8 py-1 sm:py-2 relative w-full flex-row items-center mt-auto;
+.outerContainer {
+    @apply flex w-full mt-auto;
+}
+
+.innerContainer {
+    @apply flex mob:justify-evenly justify-between text-center px-3 sm:px-8 py-1 sm:py-2 relative w-full flex-row items-center;
     @apply mt-16 sm:mt-24;
 }
 
@@ -44,12 +48,12 @@
     transform: rotateY(180deg);
 }
 
-.container,
+.innerContainer,
 .divider .shapeFill {
     @apply bg-blue-700 fill-blue-700 transition-colors duration-500;
 }
 
-:global(.dark) .container,
+:global(.dark) .innerContainer,
 :global(.dark) .divider .shapeFill {
     @apply bg-gray-600 fill-gray-600;
 }

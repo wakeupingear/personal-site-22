@@ -2,16 +2,14 @@
     --radius: 30rem;
     --mob-radius: 12rem;
     --largeRadius: 35rem;
-    --mob-largeRadius: 14rem;
     transform: translate(30%, -30%);
     @apply sm:z-20;
 }
 
 .inBar {
     --radius: 15rem;
-    --mob-radius: 7rem;
+    --mob-radius: 12rem;
     --largeRadius: 18rem;
-    --mob-largeRadius: 14rem;
     transform: translate(30%, -50%);
     @apply z-[-1];
 }
@@ -21,7 +19,7 @@
     @apply absolute top-0 right-0 flex hover:cursor-pointer;
     @apply transition-all duration-700 ease-in-out rounded-full;
     @apply w-[var(--mob-radius)] h-[var(--mob-radius)] sm:w-[var(--radius)] sm:h-[var(--radius)];
-    @apply hover:w-[var(--mob-largeRadius)] hover:h-[var(--mob-largeRadius)] sm:hover:w-[var(--largeRadius)] sm:hover:h-[var(--largeRadius)];
+    @apply sm:hover:w-[var(--largeRadius)] sm:hover:h-[var(--largeRadius)];
 }
 
 .mask {
