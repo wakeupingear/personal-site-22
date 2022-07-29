@@ -149,7 +149,7 @@ div.clickable:last-of-type {
 }
 
 .clickable:hover.holder:not(.iconHolder)::before {
-    @apply sm:text-3xl sm:pr-4 sm:pt-3;
+    @apply sm:text-3xl sm:right-[min(8%,3rem)] rounded-br-2xl;
 }
 
 .previewSide .holder:not(.iconHolder)::before {

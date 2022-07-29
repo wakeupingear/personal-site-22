@@ -7,7 +7,13 @@
 }
 
 .defaultStyles section {
-    @apply flex w-full h-fit justify-between flex-wrap;
+    @apply flex flex-col lg:flex-row w-full h-fit justify-evenly items-center flex-wrap my-8 lg:my-16;
+}
+
+.defaultStyles section > * {
+    @apply flex flex-col justify-center items-center;
+    @apply lg:max-w-[48%] rounded-3xl overflow-hidden;
+    @apply mx-2;
 }
 
 .defaultStyles h1 {
@@ -22,7 +28,8 @@
 .defaultStyles p,
 .defaultStyles span {
     @apply text-white font-bold;
-    @apply text-xl sm:text-3xl m-[0.15rem] sm:m-2;
+    @apply text-xl sm:text-3xl;
+    @apply m-[0.15rem] sm:m-2 mx-4 sm:mx-8;
 }
 
 .defaultStyles span {
@@ -37,7 +44,7 @@
 }
 
 .defaultStyles a {
-    @apply text-xl sm:text-3xl font-normal transition-all;
+    @apply text-xl sm:text-3xl font-normal transition-all w-fit text-center;
 }
 
 :global(.dark) .defaultStyles a {
@@ -50,8 +57,8 @@
     @apply flex justify-center items-center;
 }
 
-.defaultStyles p > *,
-.defaultStyles span > * {
+.defaultStyles p > *:not(u),
+.defaultStyles span > *:not(u) {
     @apply mx-1 sm:mx-2;
 }
 
@@ -74,4 +81,15 @@
 
 .titleHolder {
     @apply flex flex-wrap child:!m-0 child:!mx-1 text-center justify-center;
+}
+
+.smallText p,
+.smallText span,
+.smallText a {
+    @apply text-lg sm:text-2xl !m-0;
+    @apply !my-4 max-w-[35rem];
+}
+
+.defaultStyles .textBlock {
+    @apply !overflow-visible !my-4;
 }

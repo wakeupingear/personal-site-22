@@ -1,16 +1,26 @@
 import { Sphere, Names } from './Parallax';
 import parallaxStyles from './parallax.module.css';
 import styles from './homeBG.module.css';
+import { useEffect, useState } from 'react';
+import { isMobile } from 'react-device-detect';
 
 export default function HomeBG({
     disableParallax,
 }: {
     disableParallax?: boolean;
 }) {
+    const [parallaxEnabled, setParallaxEnabled] = useState(!disableParallax);
+
+    useEffect(() => {
+        if (isMobile) {
+            setParallaxEnabled(false);
+        }
+    }, [isMobile]);
+
     return (
         <>
             <div className={styles.bg} />
-            {!disableParallax && (
+            {parallaxEnabled && (
                 <div className={parallaxStyles.container}>
                     <Sphere
                         x="80vw"
