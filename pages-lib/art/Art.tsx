@@ -31,10 +31,10 @@ export default function Art() {
             </Head>
             <h1>I've created some art</h1>
             <p>
-                Some with <u>pixels</u>
+                Some with<u>pixels</u>
             </p>
             <p>
-                And some with <u>pencils</u>
+                And some with<u>pencils</u>
             </p>
             <p className={pageStyles.newLine}>From time to time, I also do</p>
             <h1 className="!my-0">Daily art</h1>

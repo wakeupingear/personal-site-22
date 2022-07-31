@@ -1,6 +1,7 @@
 import { INITIALS } from '@utils/pages/constants';
 import Head from 'next/head';
-import YouTube from 'react-youtube';
+import YouTubePlayer from '@components/shared/YouTubePlayer';
+import pageStyles from '@page-component/pages.module.css';
 
 export default function Film() {
     return (
@@ -9,22 +10,24 @@ export default function Film() {
                 <title>{INITIALS} - Film</title>
             </Head>
             <h1>I've filmed some vids</h1>
-            <p>
-                Mostly for{' '}
+            <span>
+                Mostly for
                 <a
                     href="https://www.youtube.com/channel/UCImSybcXB8pCtulA-_T0WCw"
                     target="_blank"
                 >
                     my YouTube
                 </a>
-            </p>
-            <YouTube
+            </span>
+            <YouTubePlayer
                 videoId="kjnvO49QhC0"
-                className="rounded-2xl overflow-hidden"
-            />
-            <p>
-                Video editing in <u>Kdenlive</u>
-            </p>
+                location="homeContentSection"
+                className={pageStyles.newLine}
+            >
+                <p>
+                    Video editing in <u>Kdenlive</u>
+                </p>
+            </YouTubePlayer>
         </>
     );
 }

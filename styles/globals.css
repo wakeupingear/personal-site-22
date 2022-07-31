@@ -168,3 +168,7 @@ a:hover::after,
 .screen > div {
     @apply flex w-full h-full;
 }
+
+.image-gallery {
+    @apply rounded-xl sm:rounded-3xl overflow-hidden;
+}

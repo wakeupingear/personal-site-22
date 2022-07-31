@@ -2,6 +2,7 @@ import Image from 'next/image';
 import ImageGallery from 'react-image-gallery';
 import pageStyles from '@page-component/pages.module.css';
 import clsx from 'clsx';
+import YouTubePlayer from '@components/shared/YouTubePlayer';
 
 const IMAGES = ['/outset/outsetSplash.png'].map((src) => ({
     original: src,
@@ -22,7 +23,7 @@ export default function Outset() {
                 />
             </div>
             <section>
-                <div className="shadow-xl">
+                <div>
                     <ImageGallery items={IMAGES} showThumbnails={false} />
                 </div>
                 <div className={pageStyles.textBlock}>
@@ -49,8 +50,10 @@ export default function Outset() {
                         eventually scrapping years of content to maintain some
                         sense of consistency.
                     </p>
-                    <p>I also had some help:</p>
-                    <a className="!font-bold !my-0">Darren Shekailo</a>
+                    <span>
+                        I also had some help from{' '}
+                        <a className="!font-bold !my-0">Darren Shekailo</a>
+                    </span>
                     <p>
                         Darren reached out to me in <u>2019</u>. Over the next
                         several years, he composed music and sounds for Outset.
@@ -58,7 +61,7 @@ export default function Outset() {
                         <u>please check him out.</u>
                     </p>
                 </div>
-                <div className="shadow-xl">
+                <div>
                     <ImageGallery items={IMAGES} showThumbnails={false} />
                 </div>
             </section>
@@ -67,8 +70,23 @@ export default function Outset() {
                 suprisingly far.
             </p>
             <section className="!flex-col-reverse mob:!mt-0 lg:!flex-row">
-                <div className="shadow-xl">
-                    <ImageGallery items={IMAGES} showThumbnails={false} />
+                <div className={pageStyles.smallText}>
+                    <YouTubePlayer
+                        videoId="gfKm_Wfhamk"
+                        location="homeContentSection"
+                    >
+                        <p>The original trailer - 2020</p>
+                        <span>
+                            Music by{' '}
+                            <a
+                                href="https://www.youtube.com/c/NoteBlock"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Noteblock
+                            </a>
+                        </span>
+                    </YouTubePlayer>
                 </div>
                 <div
                     className={clsx(pageStyles.textBlock, pageStyles.smallText)}

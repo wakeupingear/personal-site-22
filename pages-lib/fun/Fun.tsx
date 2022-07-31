@@ -80,6 +80,8 @@ const FACTOIDS: FactoidProps[] = [
 
 const COLUMNS = 6;
 
+const BLURB_CLASSES = `after:content-[attr(data-blurb)] after:absolute after:border-[1rem] after:border-solid after:border-transparent after:flex after:w-[calc(100%-2rem)] after:h-[calc(100%-2rem)] after:justify-center after:items-center after:text-lg after:text-white after:font-bold after:top-0 after:pointer-events-none after:z-[20] after:opacity-0 hover:after:opacity-100 after:bg-black/30 hover:after:scale-105 after:transition-all sm:hover:after:rounded-[2rem]`;
+
 export default function Fun() {
     const { width } = useWindowSize();
 
@@ -119,13 +121,20 @@ export default function Fun() {
             </div>
             <div className={`flex flex-nowrap w-full ${pageStyles.newLine}`}>
                 <Masonry columns={numColumns} spacing={0}>
-                    {FAVORITES.map(({ image, name, link }, index) => (
-                        <img
-                            src={image}
-                            alt={name}
-                            className={`transition-all shadow-xl ${homeStyles.clickable}`}
-                            onClick={() => window.open(link)}
-                        />
+                    {FAVORITES.map(({ image, name, link, blurb }) => (
+                        <div
+                            className={`relative hover:z-10
+                                ${blurb ? BLURB_CLASSES : ''}
+                            }`}
+                            data-blurb={blurb}
+                        >
+                            <img
+                                src={image}
+                                alt={name}
+                                className={`transition-all shadow-xl relative flex w-full ${homeStyles.clickable}`}
+                                onClick={() => window.open(link)}
+                            />
+                        </div>
                     ))}
                 </Masonry>
             </div>

@@ -7,12 +7,12 @@
 }
 
 .defaultStyles section {
-    @apply flex flex-col lg:flex-row w-full h-fit justify-evenly items-center flex-wrap my-8 lg:my-16;
+    @apply flex flex-col lg:flex-row w-full h-fit justify-evenly items-center my-8 lg:my-16;
 }
 
 .defaultStyles section > * {
     @apply flex flex-col justify-center items-center;
-    @apply lg:max-w-[48%] rounded-3xl overflow-hidden;
+    @apply w-full max-w-[98vw] lg:max-w-[48%] overflow-hidden;
     @apply mx-2;
 }
 
@@ -57,8 +57,8 @@
     @apply flex justify-center items-center;
 }
 
-.defaultStyles p > *:not(u),
-.defaultStyles span > *:not(u) {
+.defaultStyles p > *,
+.defaultStyles span > * {
     @apply mx-1 sm:mx-2;
 }
 
@@ -86,10 +86,15 @@
 .smallText p,
 .smallText span,
 .smallText a {
-    @apply text-lg sm:text-2xl !m-0;
-    @apply !my-4 max-w-[35rem];
+    @apply text-lg sm:text-2xl;
+}
+
+.smallText p,
+.smallText span {
+    @apply !m-0 !my-4;
 }
 
 .defaultStyles .textBlock {
     @apply !overflow-visible !my-4;
+    @apply max-w-[35rem];
 }
