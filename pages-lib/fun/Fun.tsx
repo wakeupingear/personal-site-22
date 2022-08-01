@@ -10,12 +10,11 @@ import {
 } from '@mui/icons-material';
 import pageStyles from '@page-component/pages.module.css';
 import homeStyles from '@components/homepage/homePreviews.module.css';
-import { INITIALS } from '@utils/pages/constants';
-import Head from 'next/head';
 import { ReactNode, useMemo } from 'react';
 import { FAVORITES } from './favorites';
 import { Masonry } from '@mui/lab';
 import { useWindowSize } from 'src/hooks/useWindowSize';
+import PageTitle from '@components/PageTitle';
 
 interface FactoidProps {
     content: string | ReactNode;
@@ -95,9 +94,7 @@ export default function Fun() {
 
     return (
         <>
-            <Head>
-                <title>{INITIALS} - Fun Facts!</title>
-            </Head>
+            <PageTitle title="Fun Facts!" />
             <HomeBG disableParallax />
             <ThemeToggle />
             <HeaderText text="Fun Facts" />

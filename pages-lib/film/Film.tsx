@@ -1,14 +1,11 @@
-import { INITIALS } from '@utils/pages/constants';
-import Head from 'next/head';
 import YouTubePlayer from '@components/shared/YouTubePlayer';
 import pageStyles from '@page-component/pages.module.css';
+import PageTitle from '@components/PageTitle';
 
 export default function Film() {
     return (
         <>
-            <Head>
-                <title>{INITIALS} - Film</title>
-            </Head>
+            <PageTitle title="Film" />
             <h1>I've filmed some vids</h1>
             <span>
                 Mostly for
@@ -19,15 +16,16 @@ export default function Film() {
                     my YouTube
                 </a>
             </span>
-            <YouTubePlayer
-                videoId="kjnvO49QhC0"
-                location="homeContentSection"
-                className={pageStyles.newLine}
-            >
-                <p>
-                    Video editing in <u>Kdenlive</u>
-                </p>
-            </YouTubePlayer>
+            <div className={pageStyles.newLine}>
+                <YouTubePlayer
+                    videoId="kjnvO49QhC0"
+                    location="homeContentSection"
+                >
+                    <p>
+                        Video editing in <u>Kdenlive</u>
+                    </p>
+                </YouTubePlayer>
+            </div>
         </>
     );
 }

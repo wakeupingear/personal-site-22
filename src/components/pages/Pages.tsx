@@ -31,7 +31,7 @@ export function homeScroll(id: string) {
     const target = document.getElementById(id);
     if (home && target) {
         window.scrollTo({
-            top: target.offsetTop,
+            top: target.offsetTop - 64,
             behavior: 'smooth',
         });
     }

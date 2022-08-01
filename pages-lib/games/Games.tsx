@@ -1,7 +1,6 @@
-import Head from 'next/head';
-import { INITIALS } from '../../src/utils/pages/constants';
 import LinkList, { Game } from '@shared/linkList/LinkList';
 import pageStyles from '@page-component/pages.module.css';
+import PageTitle from '@components/PageTitle';
 
 const GAMES: Game[] = [
     { name: 'Outset', bold: true },
@@ -23,9 +22,7 @@ const GAMES: Game[] = [
 export default function Games() {
     return (
         <>
-            <Head>
-                <title>{INITIALS} - Games</title>
-            </Head>
+            <PageTitle title="Games" />
             <h1>I've designed some games</h1>
             <p>
                 Mostly in <u>Gamemaker</u> and <u>Unity</u>

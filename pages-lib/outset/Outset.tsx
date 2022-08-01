@@ -3,15 +3,16 @@ import ImageGallery from 'react-image-gallery';
 import pageStyles from '@page-component/pages.module.css';
 import clsx from 'clsx';
 import YouTubePlayer from '@components/shared/YouTubePlayer';
+import Gallery from '@components/shared/gallery/Gallery';
+import SpecialButton from '@components/shared/specialButton/SpecialButton';
+import PageTitle from '@components/PageTitle';
 
-const IMAGES = ['/outset/outsetSplash.png'].map((src) => ({
-    original: src,
-    thumbnail: src,
-}));
+const IMAGES = ['/outset/outsetSplash.png'];
 
 export default function Outset() {
     return (
         <div className="pixel-perfect">
+            <PageTitle title="Outset" />
             <div className="flex h-[12rem] lg:h-[16rem] w-full relative">
                 <Image
                     src="/outset/title.png"
@@ -23,12 +24,10 @@ export default function Outset() {
                 />
             </div>
             <section>
-                <div>
-                    <ImageGallery items={IMAGES} showThumbnails={false} />
-                </div>
+                <Gallery images={IMAGES} />
                 <div className={pageStyles.textBlock}>
                     <p>An incomplete 2D platformer-RPG</p>
-                    <p>
+                    <p className={pageStyles.newLine}>
                         With a <u>Grappling Hook</u>
                     </p>
                     <p>Nonlinear exploration</p>
@@ -61,9 +60,7 @@ export default function Outset() {
                         <u>please check him out.</u>
                     </p>
                 </div>
-                <div>
-                    <ImageGallery items={IMAGES} showThumbnails={false} />
-                </div>
+                <Gallery images={IMAGES} />
             </section>
             <p>
                 I tried to make my 'dream game'. All things considered, I got
@@ -117,6 +114,14 @@ export default function Outset() {
             <p className={pageStyles.newLine}>
                 Luckily, I found a more direct way of telling <u>that story.</u>
             </p>
+            <div className="flex w-full justify-evenly">
+                <SpecialButton url="https://store.steampowered.com/app/1256900/Outset/">
+                    2020 Demo
+                </SpecialButton>
+                <SpecialButton url="https://gamejolt.com/games/Outset/430027">
+                    Devlogs
+                </SpecialButton>
+            </div>
         </div>
     );
 }

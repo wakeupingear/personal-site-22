@@ -15,6 +15,15 @@ const nextConfig = {
         source: "/education",
         destination: "/professional"
       },
+
+      {
+        source: "/inc",
+        destination: "/incLife"
+      },
+      {
+        source: "/inclife",
+        destination: "/incLife"
+      },
     ];
   },
   images: {

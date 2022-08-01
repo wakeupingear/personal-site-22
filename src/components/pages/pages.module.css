@@ -37,14 +37,14 @@
 }
 
 .defaultStyles u {
-    @apply text-fuchsia-200 no-underline drop-shadow-lg;
+    @apply text-fuchsia-200 no-underline drop-shadow-lg !mx-1;
 }
 :global(.dark) .defaultStyles u {
     @apply text-yellow-200;
 }
 
 .defaultStyles a {
-    @apply text-xl sm:text-3xl font-normal transition-all w-fit text-center;
+    @apply text-xl sm:text-3xl font-normal transition-all w-fit text-center !inline-block;
 }
 
 :global(.dark) .defaultStyles a {
@@ -91,7 +91,11 @@
 
 .smallText p,
 .smallText span {
-    @apply !m-0 !my-4;
+    @apply !m-0 !my-3;
+}
+
+.smallText u {
+    @apply !mx-[0.1rem];
 }
 
 .defaultStyles .textBlock {

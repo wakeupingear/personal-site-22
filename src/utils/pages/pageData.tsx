@@ -55,6 +55,25 @@ export const PAGE_DATA: PageData = {
             className: 'h-[10rem] sm:h-[24rem]',
             components: [
                 {
+                    name: 'The Neighborhood',
+                    link: '/neighborhood',
+                    startDate: '2022',
+                    image: '/neighborhood/neighborhoodSplash.png',
+                    width: 50,
+                },
+                {
+                    name: 'The Neighborhood',
+                    link: '/neighborhood',
+                    startDate: '2022',
+                    image: '/neighborhood/neighborhoodSplash.png',
+                    width: 50,
+                },
+            ],
+        },
+        {
+            className: 'h-[10rem] sm:h-[24rem]',
+            components: [
+                {
                     name: 'Outset',
                     startDate: '2017-2022',
                     image: '/outset/outsetSplash.png',

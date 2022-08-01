@@ -1,8 +1,7 @@
-import { INITIALS } from '@utils/pages/constants';
-import Head from 'next/head';
 import React, { useEffect } from 'react';
 import styles from './art.module.css';
 import pageStyles from '@page-component/pages.module.css';
+import PageTitle from '@components/PageTitle';
 
 export default function Art() {
     const artRef = React.useRef<HTMLDivElement>(null);
@@ -26,9 +25,7 @@ export default function Art() {
 
     return (
         <>
-            <Head>
-                <title>{INITIALS} - Art</title>
-            </Head>
+            <PageTitle title="Art" />
             <h1>I've created some art</h1>
             <p>
                 Some with<u>pixels</u>

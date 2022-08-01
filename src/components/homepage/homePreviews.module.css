@@ -1,7 +1,7 @@
 .previewTransition,
 .previewTransition * {
-    @apply transition-all duration-500;
     @apply select-none;
+    transition: width 500ms;
 }
 
 .previews {
@@ -9,7 +9,7 @@
 }
 
 .previewSide {
-    @apply w-0 sm:w-[min(20%,500px)];
+    @apply w-0 sm:w-[min(20vw,500px)];
     @apply mob:overflow-hidden;
 }
 
@@ -26,7 +26,11 @@
 }
 
 .container {
-    @apply flex flex-col w-full transition-all;
+    @apply relative flex flex-col w-full;
+}
+
+.previewSide .container {
+    @apply w-[20vw];
 }
 
 .container:hover .holder {

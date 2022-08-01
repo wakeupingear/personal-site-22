@@ -12,7 +12,7 @@ interface Props {
 export default function SideToggle({ sideOpen, setSideOpen }: Props) {
     return (
         <div className={styles.buttonHolder}>
-            <Sticky enabled top={90}>
+            <Sticky enabled top={180}>
                 <div className={styles.buttons}>
                     <ArrowBackIosNewIcon
                         onClick={() => setSideOpen(!sideOpen)}

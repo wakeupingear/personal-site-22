@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import pageStyles from '@page-component/pages.module.css';
-import { INITIALS } from '@utils/pages/constants';
+import PageTitle from '@components/PageTitle';
 
 const LANGUAGES = [
     ['typescript', 'react', 'nextjs', 'tailwindcss', 'redux'],
@@ -57,8 +57,8 @@ export default function Code() {
                     rel="stylesheet"
                     href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
                 />
-                <title>{INITIALS} - Code</title>
             </Head>
+            <PageTitle title="Code" />
             <h1>I've written some code</h1>
             <p>In quite a few ways</p>
             {LANGUAGES.map((group) => (

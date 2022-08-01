@@ -3,6 +3,7 @@ import { uppercaseFirstLetter } from '@utils/helpers';
 import Head from 'next/head';
 import { FULL_NAME, INITIALS } from '../../src/utils/pages/constants';
 import pageStyles from '@page-component/pages.module.css';
+import PageTitle from '@components/PageTitle';
 
 const siteName = uppercaseFirstLetter(
     `${FULL_NAME.replaceAll(' ', '').toLowerCase()}.com`
@@ -18,9 +19,7 @@ const SITES: Game[] = [
 export default function Web() {
     return (
         <>
-            <Head>
-                <title>{INITIALS} - Web</title>
-            </Head>
+            <PageTitle title="Web" />
             <h1>I've made some websites</h1>
             <p>
                 Mostly in <u>React</u> and <u>NextJS</u>

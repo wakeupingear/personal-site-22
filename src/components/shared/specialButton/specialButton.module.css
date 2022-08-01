@@ -1,0 +1,60 @@
+.button {
+    @apply !text-white !font-bold mx-2 mt-12 p-3 rounded-2xl shadow-lg relative;
+    @apply select-none after:hidden;
+}
+
+:global(.dark) .button {
+    @apply !bg-blue-400 after:!bg-black;
+}
+
+.button::after {
+    @apply content-[''] absolute top-0 flex h-full w-full transition-all duration-300 z-[-1] rounded-2xl scale-0 origin-center;
+}
+
+.button:hover::after {
+    @apply sm:scale-100;
+}
+
+.button:before {
+    content: '';
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -2;
+    filter: blur(8px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+    border-radius: 10px;
+}
+
+.button:hover:before {
+    opacity: 1;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
