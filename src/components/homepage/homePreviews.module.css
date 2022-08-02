@@ -4,6 +4,9 @@
     transition: width 500ms;
 }
 
+.previewTransition *:not(.container) {
+}
+
 .previews {
     @apply flex w-full sticky h-min;
 }
@@ -100,6 +103,10 @@
 .previewSide svg {
     @apply m-1;
     font-size: min(2.5vw, 2rem);
+}
+
+.clickable {
+    @apply transition-all duration-300;
 }
 
 div.clickable:last-of-type {

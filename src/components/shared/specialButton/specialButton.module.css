@@ -1,5 +1,5 @@
 .button {
-    @apply !text-white !font-bold mx-2 mt-12 p-3 rounded-2xl shadow-lg relative;
+    @apply !text-white !font-bold mx-2 mt-6 sm:mt-12 p-3 rounded-2xl shadow-lg relative;
     @apply select-none after:hidden;
 }
 
@@ -8,7 +8,7 @@
 }
 
 .button::after {
-    @apply content-[''] absolute top-0 flex h-full w-full transition-all duration-300 z-[-1] rounded-2xl scale-0 origin-center;
+    @apply sm:content-[''] absolute top-0 flex h-full w-full transition-all duration-300 z-[-1] rounded-2xl scale-0 origin-center;
 }
 
 .button:hover::after {
@@ -16,7 +16,7 @@
 }
 
 .button:before {
-    content: '';
+    @apply sm:content-[''];
     background: linear-gradient(
         45deg,
         #ff0000,

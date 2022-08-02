@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import ImageGallery from 'react-image-gallery';
 import pageStyles from '@page-component/pages.module.css';
 import clsx from 'clsx';
 import YouTubePlayer from '@components/shared/YouTubePlayer';
@@ -66,7 +65,7 @@ export default function Outset() {
                 I tried to make my 'dream game'. All things considered, I got
                 suprisingly far.
             </p>
-            <section className="!flex-col-reverse mob:!mt-0 lg:!flex-row">
+            <section className={pageStyles.flipColumn}>
                 <div className={pageStyles.smallText}>
                     <YouTubePlayer
                         videoId="gfKm_Wfhamk"

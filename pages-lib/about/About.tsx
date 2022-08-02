@@ -45,7 +45,7 @@ export function About() {
                 <a
                     href="https://usc.edu"
                     target="_blank"
-                    className="!text-red-600 after:!bg-yellow-300 after:content-[''] drop-shadow-lg"
+                    className="flex h-min !text-red-600 after:!bg-yellow-300 after:content-[''] drop-shadow-lg"
                 >
                     USC
                 </a>

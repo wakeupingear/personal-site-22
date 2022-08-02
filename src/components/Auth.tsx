@@ -14,6 +14,7 @@ import {
     APIResponse,
 } from '@utils/pages/network';
 import Wrapper from './Wrapper';
+import Head from 'next/head';
 
 const setTheme = (isDark?: boolean) => {
     if (IS_SERVER) return;
@@ -132,6 +133,8 @@ export default function Auth(props: Props) {
         return response;
     };
 
+    const iconName = isDark ? 'moon' : 'sun';
+
     return (
         <AuthContext.Provider
             value={{
@@ -149,6 +152,29 @@ export default function Auth(props: Props) {
                 toggleTheme,
             }}
         >
+            <Head>
+                <link
+                    rel="shortcut icon"
+                    href={`/favicon/${iconName}/favicon.ico`}
+                />
+                <link
+                    rel="apple-touch-icon"
+                    sizes="180x180"
+                    href={`/favicon/sun/apple-touch-icon.png`}
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="32x32"
+                    href={`/favicon/${iconName}/favicon-32x32.png`}
+                />
+                <link
+                    rel="icon"
+                    type="image/png"
+                    sizes="16x16"
+                    href={`/favicon/${iconName}/favicon-16x16.png`}
+                />
+            </Head>
             <div className={`shade${!initialLoading ? ' shadeHidden' : ''}`} />
             {renderedChildren !== undefined ? (
                 <>

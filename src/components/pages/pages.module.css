@@ -7,17 +7,17 @@
 }
 
 .defaultStyles section {
-    @apply flex flex-col lg:flex-row w-full h-fit justify-evenly items-center my-8 lg:my-16;
+    @apply flex flex-col lg:flex-row w-full h-fit justify-evenly items-center px-4 lg:px-0 my-8 lg:my-16;
 }
 
 .defaultStyles section > * {
     @apply flex flex-col justify-center items-center;
-    @apply w-full max-w-[98vw] lg:max-w-[48%] overflow-hidden;
-    @apply mx-2;
+    @apply w-full max-w-[98vw] lg:max-w-[48%];
+    @apply mx-6 lg:mx-2 my-2 lg:my-0;
 }
 
 .defaultStyles h1 {
-    @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-fuchsia-300 drop-shadow-md transition-all !mb-2 mt-0;
+    @apply font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-200 to-fuchsia-200 drop-shadow-md transition-all !mb-2 mt-0;
     @apply sm:text-7xl sm:p-1;
 }
 
@@ -99,6 +99,10 @@
 }
 
 .defaultStyles .textBlock {
-    @apply !overflow-visible !my-4;
+    @apply !overflow-visible !my-6;
     @apply max-w-[35rem];
+}
+
+.flipColumn {
+    @apply !flex-col-reverse mob:!mt-0 lg:!flex-row;
 }

@@ -25,7 +25,6 @@ export default function Wrapper({ children = null }: Props) {
             <Head>
                 <title>{FULL_NAME}</title>
                 <meta name="description" content="Personal site" />
-                <link rel="icon" href="/favicon.ico" />
             </Head>
             <Cube>
                 <Home>{children}</Home>

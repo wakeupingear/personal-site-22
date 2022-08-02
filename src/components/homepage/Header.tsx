@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useAuth } from '@components/Auth';
 import HeaderText from '@components/shared/headerText/HeaderText';
 
-const NAMES = Array(60)
+const NAMES = Array(120)
     .fill(0)
     .map((_, i) => <div key={i}>{FULL_NAME}</div>);
 

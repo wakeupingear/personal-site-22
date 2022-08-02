@@ -77,8 +77,11 @@ export default function Professional() {
             <span>
                 More info on <LinkedIn className="ml-2 text-orange-100" />
             </span>
-            <p className={pageStyles.newLine}>And how about some</p>
-            <h1 className="!mt-0">Education</h1>
         </>
     );
 }
+
+/*
+    <p className={pageStyles.newLine}>And how about some</p>
+    <h1 className="!mt-0">Education</h1>
+*/
