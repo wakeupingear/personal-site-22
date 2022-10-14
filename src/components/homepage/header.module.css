@@ -1,5 +1,5 @@
 .container {
-    @apply flex flex-col ml-4 sm:ml-8 mb-1 sm:mb-2 self-start;
+    @apply flex flex-col ml-4 sm:ml-8 mb-1 sm:mb-8 self-start;
 }
 
 .container > *:not(.myName) {

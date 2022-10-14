@@ -6,4 +6,6 @@ export const INITIALS = FULL_NAME.split(' ')
 
 export const URL = `https://${FULL_NAME.replaceAll(' ', '').toLowerCase()}.com`;
 
+export const SITE_NAME = `${FULL_NAME.replace(' ', '')}.com`;
+
 export const IS_SERVER = typeof window === 'undefined';

@@ -6,7 +6,7 @@ import fs from 'fs';
 if (!fs.existsSync('./logs')) fs.mkdirSync('./logs');
 import { spawn } from 'child_process';
 
-const PASSWORD = process.env.NEXT_PUBLIC_BUILD_PASSWORD;
+const SUDO_AUTH = process.env.SUDO_AUTH;
 const BUILD_PATH = './logs/build.log';
 
 export default function handler(
@@ -18,9 +18,9 @@ export default function handler(
     if (cmd === 'trigger') {
         const userPassword = req.headers.authorization;
 
-        if (!PASSWORD) {
+        if (!SUDO_AUTH) {
             res.status(500).json({ data: { status: 'No password set' } });
-        } else if (userPassword === PASSWORD) {
+        } else if (userPassword === SUDO_AUTH) {
             apiCache.set('isBuilding', true, 60);
 
             if (fs.existsSync(BUILD_PATH)) fs.rmSync(BUILD_PATH);

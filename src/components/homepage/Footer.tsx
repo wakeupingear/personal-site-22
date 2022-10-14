@@ -9,7 +9,8 @@ interface Props {
 }
 
 export default function Footer({ isHome }: Props) {
-    const { switchScreen } = useAuth();
+    const { switchScreen, loggedIn, logOut } = useAuth();
+
     return (
         <div className={styles.outerContainer}>
             <div className={styles.innerContainer}>
@@ -36,13 +37,21 @@ export default function Footer({ isHome }: Props) {
                         ></path>
                     </svg>
                 </div>
-                <Link href="/privacy" scroll={false}>
-                    <div>
+                {!loggedIn ? (
+                    <Link href="/privacy" scroll={false}>
+                        <div>
+                            <ClickableText className={styles.privacy}>
+                                Privacy
+                            </ClickableText>
+                        </div>
+                    </Link>
+                ) : (
+                    <div onClick={logOut}>
                         <ClickableText className={styles.privacy}>
-                            Privacy
+                            Log Out
                         </ClickableText>
                     </div>
-                </Link>
+                )}
                 <Link href="/" scroll={true}>
                     <div
                         className={`${styles.home} ${!isHome ? '!inline' : ''}`}

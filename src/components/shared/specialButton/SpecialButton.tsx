@@ -9,6 +9,7 @@ interface Props {
     className?: string;
     color?: keyof typeof COLORS;
     sameTab?: boolean;
+    onClick?: () => void;
     url?: string;
 }
 
@@ -16,6 +17,7 @@ export default function SpecialButton({
     className = '',
     children,
     color = 'orange',
+    onClick,
     url,
     sameTab,
 }: Props) {
@@ -32,6 +34,7 @@ export default function SpecialButton({
         <a
             className={`${styles.button} ${COLORS[color]} ${className}`}
             {...aProps}
+            onClick={onClick}
         >
             {children}
         </a>

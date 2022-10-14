@@ -3,6 +3,8 @@ import Link from 'next/link';
 import CloseIcon from '@mui/icons-material/Close';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import Sticky from 'react-stickynode';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 interface Props {
     sideOpen: boolean;

@@ -4,6 +4,7 @@ import React, {
     useCallback,
     useContext,
     useEffect,
+    useMemo,
     useState,
 } from 'react';
 import { isMobile } from 'react-device-detect';
@@ -15,6 +16,7 @@ import {
 } from '@utils/pages/network';
 import Wrapper from './Wrapper';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 const setTheme = (isDark?: boolean) => {
     if (IS_SERVER) return;
@@ -45,12 +47,14 @@ interface AuthContextProps {
     isDark: boolean;
     initialLoading: boolean;
     loggedIn: boolean;
+    logOut: () => void;
     pageHasContent: boolean;
     screen: number;
     screenAnimating: boolean;
     setRenderedChildren: (children: ReactNode | null | undefined) => void;
     switchScreen: (screen: number) => void;
     toggleTheme: (isDark?: boolean) => void;
+    updateToken: (token: string) => void;
 }
 
 export enum Screens {
@@ -65,6 +69,8 @@ type Props = {
 };
 
 export default function Auth(props: Props) {
+    const router = useRouter();
+
     const [renderedChildren, setRenderedChildren] = useState<
         ReactNode | null | undefined
     >(undefined);
@@ -73,6 +79,16 @@ export default function Auth(props: Props) {
     const [token, setToken] = useState<string>(
         (!IS_SERVER && localStorage.getItem('chadminSession')) || ''
     );
+
+    const updateToken = (token: string) => {
+        if (token) {
+            localStorage.setItem('chadminSession', token);
+            setToken(token);
+        } else {
+            localStorage.removeItem('chadminSession');
+            setToken('');
+        }
+    };
 
     const [screen, setScreen] = useState<number>(Screens.Home);
     const [intro, setIntro] = useState<boolean>(true);
@@ -92,15 +108,45 @@ export default function Auth(props: Props) {
     };
 
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
-    const logIn = useCallback(async () => {
-        if (loggedIn) return;
-        const response = await apiGet('/api/auth/login');
-        if (response.status === 200) {
-            setLoggedIn(true);
-        }
+    const { apiGet, apiPost, logIn } = useMemo(() => {
+        const apiGet = async (path: string, options = {}) => {
+            const response = await internal_apiGet(path, token, options);
+            return response;
+        };
+        const apiPost = async (path: string, data: any, options = {}) => {
+            const response = await internal_apiPost(path, data, token, options);
+            return response;
+        };
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [loggedIn]);
+        const logIn = async () => {
+            if (loggedIn) return;
+            const response = await apiGet('/api/auth/login');
+            if (response.status === 200) {
+                setLoggedIn(true);
+            }
+        };
+
+        return {
+            apiGet,
+            apiPost,
+            logIn,
+        };
+    }, [loggedIn, token]);
+
+    useEffect(() => {
+        if (token) {
+            logIn();
+        }
+    }, [token]);
+
+    const logOut = () => {
+        updateToken('');
+        setLoggedIn(false);
+
+        if (router.pathname === '/chadmin') {
+            router.push('/');
+        }
+    };
 
     const [initialLoading, setInitialLoading] = useState<boolean>(true);
     useEffect(() => {
@@ -119,20 +165,6 @@ export default function Auth(props: Props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    useEffect(() => {
-        if (token) logIn();
-    }, [token, logIn]);
-
-    const apiGet = async (path: string, options = {}) => {
-        const response = await internal_apiGet(path, token, options);
-        return response;
-    };
-
-    const apiPost = async (path: string, data: any, options = {}) => {
-        const response = await internal_apiPost(path, data, token, options);
-        return response;
-    };
-
     const iconName = isDark ? 'moon' : 'sun';
 
     return (
@@ -144,12 +176,14 @@ export default function Auth(props: Props) {
                 isDark,
                 initialLoading,
                 loggedIn,
+                logOut,
                 pageHasContent,
                 screen,
                 screenAnimating,
                 setRenderedChildren,
                 switchScreen,
                 toggleTheme,
+                updateToken,
             }}
         >
             <Head>

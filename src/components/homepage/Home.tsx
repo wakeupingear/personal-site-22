@@ -9,15 +9,25 @@ import Header from './Header';
 import ThemeToggle from '@shared/themeToggle/ThemeToggle';
 import SideToggle from './SideToggle';
 import HomeBG from '@shared/backgrounds/HomeBG';
+import { NextRouter, useRouter } from 'next/router';
+
+const sideClosedByDefault = (router: NextRouter) => {
+    const { pathname } = router;
+    return pathname === '/chadmin';
+};
 
 export default function Home({ children }: { children: React.ReactNode }) {
+    const router = useRouter();
+    const closedByDefault = sideClosedByDefault(router);
+
     const [onSide, setOnSide] = useState(Boolean(children));
-    const [sideOpen, setSideOpen] = useState(true);
+    const [sideOpen, setSideOpen] = useState(!closedByDefault);
 
     useEffect(() => {
         setOnSide(Boolean(children));
-        setSideOpen(true);
-    }, [children]);
+        if (closedByDefault) setSideOpen(false);
+        else setSideOpen(true);
+    }, [children, closedByDefault]);
 
     return (
         <div className={styles.home} id="home">
