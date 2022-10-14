@@ -10,10 +10,7 @@ export default function PageTitle({
 }) {
     return (
         <Head>
-            <title>
-                {!hideInitials ? `${INITIALS} - ` : ''}
-                {title}
-            </title>
+            <title>{!hideInitials ? `${INITIALS} - ${title}` : title}</title>
         </Head>
     );
 }
