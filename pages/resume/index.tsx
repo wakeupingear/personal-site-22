@@ -11,7 +11,10 @@ export default function index() {
             <div className="flex w-full h-full justify-center items-start">
                 <PDFViewer
                     download
-                    file="https://raw.githubusercontent.com/willf668/resume/main/WillFarhatResume.pdf"
+                    file={
+                        process.env.NEXT_PUBLIC_RESUME ||
+                        'https://raw.githubusercontent.com/willf668/resume/main/WillFarhatResume.pdf'
+                    }
                 />
             </div>
         </HomePage>
